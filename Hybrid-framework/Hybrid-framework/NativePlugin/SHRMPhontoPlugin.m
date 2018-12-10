@@ -7,7 +7,7 @@
 //
 
 #import "SHRMPhontoPlugin.h"
-
+@SHRMRegisterWebPlugin(SHRMPhontoPlugin, 1)
 @implementation SHRMPhontoPlugin
 
 @end
