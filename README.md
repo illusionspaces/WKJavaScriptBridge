@@ -1,4 +1,4 @@
-# Hybrid-ios
+# 一个还不完善的 hybrid-ios
 A hybrid framework for iOS.
 
 ## 使用说明：
