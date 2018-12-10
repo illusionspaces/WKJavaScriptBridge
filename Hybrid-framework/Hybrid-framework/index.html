@@ -1,0 +1,47 @@
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf8">
+            <script language="javascript">
+                
+            function fetchClick() {
+                window.webkit.messageHandlers.SHRMWKJSBridge.postMessage(['13383445','SHRMFetchPlugin','nativeFentch',['post','https:www.baidu.com','user']]);
+            }
+            
+            function ioClick() {
+                window.webkit.messageHandlers.SHRMWKJSBridge.postMessage(['13383446','SHRMIOPlugin','nativeIO',['post','openFile','user']]);
+            }
+            
+            function deviceClick() {
+                window.webkit.messageHandlers.SHRMWKJSBridge.postMessage(['13383446','SHRMDevicePlugin','nativeDevice',['post','device info','user']]);
+            }
+            
+            function fetchComplete(id,result) {
+                asyncAlert(result);
+                document.getElementById("returnValue").value = (id) + result;
+            }
+            
+            function asyncAlert(content) {
+                setTimeout(function(){
+                           alert(content);
+                           },1);
+            }
+            
+            </script>
+    </head>
+    
+    <body>
+        <h1>按钮调用</h1>
+        <input type="button" value="网络请求" onclick="fetchClick()" />
+        
+        <input type="button" value="文件打开" onclick="ioClick()" />
+        
+        <input type="button" value="查询设备信息" onclick="deviceClick()" />
+        
+        <h1>回调结果展示区</h1>
+        <textarea id ="returnValue" type="value" rows="5" cols="40">
+        
+        </textarea>
+        
+        
+    </body>
+</html>

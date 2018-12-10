@@ -1,0 +1,426 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		832F7C8821B822510076D164 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 832F7C8721B822510076D164 /* AppDelegate.m */; };
+		832F7C8B21B822510076D164 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 832F7C8A21B822510076D164 /* ViewController.m */; };
+		832F7C8E21B822510076D164 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 832F7C8C21B822510076D164 /* Main.storyboard */; };
+		832F7C9021B822530076D164 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 832F7C8F21B822530076D164 /* Assets.xcassets */; };
+		832F7C9321B822530076D164 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 832F7C9121B822530076D164 /* LaunchScreen.storyboard */; };
+		832F7C9621B822530076D164 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 832F7C9521B822530076D164 /* main.m */; };
+		832F7CB221B8E6460076D164 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 832F7CB121B8E6460076D164 /* WebKit.framework */; };
+		832F7CB721B904C60076D164 /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = 832F7CB621B904C50076D164 /* index.html */; };
+		832F7E5921BA38F70076D164 /* SHRMWebViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 832F7E5421BA38F70076D164 /* SHRMWebViewDelegate.m */; };
+		832F7E5A21BA38F70076D164 /* SHRMWebViewEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 832F7E5521BA38F70076D164 /* SHRMWebViewEngine.m */; };
+		832F7E5C21BA38F70076D164 /* SHRMMsgCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 832F7E5721BA38F70076D164 /* SHRMMsgCommand.m */; };
+		832F7E6521BA54820076D164 /* SHRMFetchPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 832F7E6421BA54820076D164 /* SHRMFetchPlugin.m */; };
+		832F7E7921BA84EE0076D164 /* SHRMWebViewHandleFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 832F7E7821BA84EE0076D164 /* SHRMWebViewHandleFactory.m */; };
+		832F7E7C21BB72C50076D164 /* SHRMWebPluginAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 832F7E7B21BB72C50076D164 /* SHRMWebPluginAnnotation.m */; };
+		832F7E8221BBB53F0076D164 /* SHRMIOPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 832F7E8121BBB53F0076D164 /* SHRMIOPlugin.m */; };
+		832F7E8B21BBC12A0076D164 /* SHRMDevicePlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 832F7E8A21BBC12A0076D164 /* SHRMDevicePlugin.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		832F7C8321B822510076D164 /* Hybrid-framework.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Hybrid-framework.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		832F7C8621B822510076D164 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		832F7C8721B822510076D164 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		832F7C8921B822510076D164 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		832F7C8A21B822510076D164 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		832F7C8D21B822510076D164 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		832F7C8F21B822530076D164 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		832F7C9221B822530076D164 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		832F7C9421B822530076D164 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		832F7C9521B822530076D164 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		832F7CB121B8E6460076D164 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		832F7CB621B904C50076D164 /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
+		832F7E5121BA38F70076D164 /* SHRMWebViewEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHRMWebViewEngine.h; sourceTree = "<group>"; };
+		832F7E5221BA38F70076D164 /* SHRMMsgCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHRMMsgCommand.h; sourceTree = "<group>"; };
+		832F7E5421BA38F70076D164 /* SHRMWebViewDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHRMWebViewDelegate.m; sourceTree = "<group>"; };
+		832F7E5521BA38F70076D164 /* SHRMWebViewEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHRMWebViewEngine.m; sourceTree = "<group>"; };
+		832F7E5721BA38F70076D164 /* SHRMMsgCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHRMMsgCommand.m; sourceTree = "<group>"; };
+		832F7E5821BA38F70076D164 /* SHRMWebViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHRMWebViewDelegate.h; sourceTree = "<group>"; };
+		832F7E6121BA52920076D164 /* SHRMWebViewProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SHRMWebViewProtocol.h; sourceTree = "<group>"; };
+		832F7E6321BA54820076D164 /* SHRMFetchPlugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHRMFetchPlugin.h; sourceTree = "<group>"; };
+		832F7E6421BA54820076D164 /* SHRMFetchPlugin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHRMFetchPlugin.m; sourceTree = "<group>"; };
+		832F7E7721BA84EE0076D164 /* SHRMWebViewHandleFactory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SHRMWebViewHandleFactory.h; sourceTree = "<group>"; };
+		832F7E7821BA84EE0076D164 /* SHRMWebViewHandleFactory.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SHRMWebViewHandleFactory.m; sourceTree = "<group>"; };
+		832F7E7A21BB72C50076D164 /* SHRMWebPluginAnnotation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SHRMWebPluginAnnotation.h; sourceTree = "<group>"; };
+		832F7E7B21BB72C50076D164 /* SHRMWebPluginAnnotation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SHRMWebPluginAnnotation.m; sourceTree = "<group>"; };
+		832F7E8021BBB53F0076D164 /* SHRMIOPlugin.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SHRMIOPlugin.h; sourceTree = "<group>"; };
+		832F7E8121BBB53F0076D164 /* SHRMIOPlugin.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SHRMIOPlugin.m; sourceTree = "<group>"; };
+		832F7E8921BBC12A0076D164 /* SHRMDevicePlugin.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SHRMDevicePlugin.h; sourceTree = "<group>"; };
+		832F7E8A21BBC12A0076D164 /* SHRMDevicePlugin.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SHRMDevicePlugin.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		832F7C8021B822510076D164 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				832F7CB221B8E6460076D164 /* WebKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		832F7C7A21B822510076D164 = {
+			isa = PBXGroup;
+			children = (
+				832F7C8521B822510076D164 /* Hybrid-framework */,
+				832F7C8421B822510076D164 /* Products */,
+				832F7CB021B8E6460076D164 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		832F7C8421B822510076D164 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				832F7C8321B822510076D164 /* Hybrid-framework.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		832F7C8521B822510076D164 /* Hybrid-framework */ = {
+			isa = PBXGroup;
+			children = (
+				832F7CB621B904C50076D164 /* index.html */,
+				832F7E6221BA54820076D164 /* NativePlugin */,
+				832F7E5021BA38F70076D164 /* JSBridge */,
+				832F7C8621B822510076D164 /* AppDelegate.h */,
+				832F7C8721B822510076D164 /* AppDelegate.m */,
+				832F7C8921B822510076D164 /* ViewController.h */,
+				832F7C8A21B822510076D164 /* ViewController.m */,
+				832F7C8C21B822510076D164 /* Main.storyboard */,
+				832F7C8F21B822530076D164 /* Assets.xcassets */,
+				832F7C9121B822530076D164 /* LaunchScreen.storyboard */,
+				832F7C9421B822530076D164 /* Info.plist */,
+				832F7C9521B822530076D164 /* main.m */,
+			);
+			path = "Hybrid-framework";
+			sourceTree = "<group>";
+		};
+		832F7CB021B8E6460076D164 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				832F7CB121B8E6460076D164 /* WebKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		832F7E5021BA38F70076D164 /* JSBridge */ = {
+			isa = PBXGroup;
+			children = (
+				832F7E6121BA52920076D164 /* SHRMWebViewProtocol.h */,
+				832F7E5121BA38F70076D164 /* SHRMWebViewEngine.h */,
+				832F7E5521BA38F70076D164 /* SHRMWebViewEngine.m */,
+				832F7E5221BA38F70076D164 /* SHRMMsgCommand.h */,
+				832F7E5721BA38F70076D164 /* SHRMMsgCommand.m */,
+				832F7E5821BA38F70076D164 /* SHRMWebViewDelegate.h */,
+				832F7E5421BA38F70076D164 /* SHRMWebViewDelegate.m */,
+				832F7E7721BA84EE0076D164 /* SHRMWebViewHandleFactory.h */,
+				832F7E7821BA84EE0076D164 /* SHRMWebViewHandleFactory.m */,
+				832F7E7A21BB72C50076D164 /* SHRMWebPluginAnnotation.h */,
+				832F7E7B21BB72C50076D164 /* SHRMWebPluginAnnotation.m */,
+			);
+			path = JSBridge;
+			sourceTree = "<group>";
+		};
+		832F7E6221BA54820076D164 /* NativePlugin */ = {
+			isa = PBXGroup;
+			children = (
+				832F7E6321BA54820076D164 /* SHRMFetchPlugin.h */,
+				832F7E6421BA54820076D164 /* SHRMFetchPlugin.m */,
+				832F7E8021BBB53F0076D164 /* SHRMIOPlugin.h */,
+				832F7E8121BBB53F0076D164 /* SHRMIOPlugin.m */,
+				832F7E8921BBC12A0076D164 /* SHRMDevicePlugin.h */,
+				832F7E8A21BBC12A0076D164 /* SHRMDevicePlugin.m */,
+			);
+			path = NativePlugin;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		832F7C8221B822510076D164 /* Hybrid-framework */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 832F7C9921B822530076D164 /* Build configuration list for PBXNativeTarget "Hybrid-framework" */;
+			buildPhases = (
+				832F7C7F21B822510076D164 /* Sources */,
+				832F7C8021B822510076D164 /* Frameworks */,
+				832F7C8121B822510076D164 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Hybrid-framework";
+			productName = "Hybrid-framework";
+			productReference = 832F7C8321B822510076D164 /* Hybrid-framework.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		832F7C7B21B822510076D164 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1000;
+				ORGANIZATIONNAME = "王凯";
+				TargetAttributes = {
+					832F7C8221B822510076D164 = {
+						CreatedOnToolsVersion = 10.0;
+					};
+				};
+			};
+			buildConfigurationList = 832F7C7E21B822510076D164 /* Build configuration list for PBXProject "Hybrid-framework" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 832F7C7A21B822510076D164;
+			productRefGroup = 832F7C8421B822510076D164 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				832F7C8221B822510076D164 /* Hybrid-framework */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		832F7C8121B822510076D164 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				832F7C9321B822530076D164 /* LaunchScreen.storyboard in Resources */,
+				832F7CB721B904C60076D164 /* index.html in Resources */,
+				832F7C9021B822530076D164 /* Assets.xcassets in Resources */,
+				832F7C8E21B822510076D164 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		832F7C7F21B822510076D164 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				832F7E5A21BA38F70076D164 /* SHRMWebViewEngine.m in Sources */,
+				832F7E5C21BA38F70076D164 /* SHRMMsgCommand.m in Sources */,
+				832F7C8B21B822510076D164 /* ViewController.m in Sources */,
+				832F7E6521BA54820076D164 /* SHRMFetchPlugin.m in Sources */,
+				832F7E8221BBB53F0076D164 /* SHRMIOPlugin.m in Sources */,
+				832F7E7921BA84EE0076D164 /* SHRMWebViewHandleFactory.m in Sources */,
+				832F7C9621B822530076D164 /* main.m in Sources */,
+				832F7E7C21BB72C50076D164 /* SHRMWebPluginAnnotation.m in Sources */,
+				832F7E5921BA38F70076D164 /* SHRMWebViewDelegate.m in Sources */,
+				832F7C8821B822510076D164 /* AppDelegate.m in Sources */,
+				832F7E8B21BBC12A0076D164 /* SHRMDevicePlugin.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		832F7C8C21B822510076D164 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				832F7C8D21B822510076D164 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		832F7C9121B822530076D164 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				832F7C9221B822530076D164 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		832F7C9721B822530076D164 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		832F7C9821B822530076D164 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		832F7C9A21B822530076D164 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 929467FPP6;
+				INFOPLIST_FILE = "Hybrid-framework/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.wangkai.responder.Hybrid-framework";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		832F7C9B21B822530076D164 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 929467FPP6;
+				INFOPLIST_FILE = "Hybrid-framework/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.wangkai.responder.Hybrid-framework";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		832F7C7E21B822510076D164 /* Build configuration list for PBXProject "Hybrid-framework" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				832F7C9721B822530076D164 /* Debug */,
+				832F7C9821B822530076D164 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		832F7C9921B822530076D164 /* Build configuration list for PBXNativeTarget "Hybrid-framework" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				832F7C9A21B822530076D164 /* Debug */,
+				832F7C9B21B822530076D164 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 832F7C7B21B822510076D164 /* Project object */;
+}
