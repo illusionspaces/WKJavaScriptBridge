@@ -9,7 +9,9 @@ A hybrid framework for iOS.
 ### 2.需要绑定webView
 
 SHRMWebViewEngine *jsBridge = [[SHRMWebViewEngine alloc] init];
+
 jsBridge.delegate = self;
+
 [jsBridge bindBridgeWithWebView:self.webView];
 
 ## 插件
