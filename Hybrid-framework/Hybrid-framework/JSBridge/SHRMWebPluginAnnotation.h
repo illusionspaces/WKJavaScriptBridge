@@ -16,6 +16,8 @@
 #define SHRMRegisterWebPlugin(servicename,impl) \
 class SHRMWebViewEngine;char * k##servicename##_service SHRMWebPluginDATA(SHRMWebPlugins) = "{ \""#servicename"\" : \""#impl"\"}";
 
+
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface SHRMWebPluginAnnotation : NSObject

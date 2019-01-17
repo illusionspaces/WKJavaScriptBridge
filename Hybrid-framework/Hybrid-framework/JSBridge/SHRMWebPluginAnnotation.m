@@ -28,11 +28,11 @@ __weak SHRMWebViewEngine *_webViewEngine;
 }
 
 - (void)getAllRegisterPluginName {
-    _dyld_register_func_for_add_image(dyld_callback);
+    [self registedAnnotationModules];
 }
 
-static void dyld_callback(const struct mach_header *mhp, intptr_t vmaddr_slide) {
-    NSArray<NSString *> *services = ReadConfiguration(SHRMWebPlugins,mhp);
+- (void)registedAnnotationModules {
+    NSArray<NSString *>*services = [SHRMWebPluginAnnotation AnnotationModules];
     for (NSString *map in services) {
         NSData *jsonData =  [map dataUsingEncoding:NSUTF8StringEncoding];
         NSError *error = nil;
@@ -53,25 +53,40 @@ static void dyld_callback(const struct mach_header *mhp, intptr_t vmaddr_slide) 
     }
 }
 
-NSArray<NSString *>* ReadConfiguration(char *sectionName,const struct mach_header *mhp) {
++ (NSArray<NSString *> *)AnnotationModules {
+    static NSArray<NSString *> *mods = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        mods = BHReadConfiguration(SHRMWebPlugins);
+    });
+    return mods;
+}
+
+static NSArray<NSString *>* BHReadConfiguration(char *section) {
     NSMutableArray *configs = [NSMutableArray array];
-    unsigned long size = 0;
-#ifndef __LP64__
-    uintptr_t *memory = (uintptr_t*)getsectiondata(mhp, SEG_DATA, sectionName, &size);
-#else
-    const struct mach_header_64 *mhp64 = (const struct mach_header_64 *)mhp;
-    uintptr_t *memory = (uintptr_t*)getsectiondata(mhp64, SEG_DATA, sectionName, &size);
-#endif
     
-    unsigned long counter = size/sizeof(void*);
-    for(int idx = 0; idx < counter; ++idx){
+    Dl_info info;
+    dladdr(BHReadConfiguration, &info);
+    
+#ifndef __LP64__
+    const struct mach_header *mhp = (struct mach_header*)info.dli_fbase;
+    unsigned long size = 0;
+    uint32_t *memory = (uint32_t*)getsectiondata(mhp, "__DATA", section, & size);
+#else /* defined(__LP64__) */
+    const struct mach_header_64 *mhp = (struct mach_header_64*)info.dli_fbase;
+    unsigned long size = 0;
+    uint64_t *memory = (uint64_t*)getsectiondata(mhp, "__DATA", section, & size);
+#endif /* defined(__LP64__) */
+    for(int idx = 0; idx < size/sizeof(void*); ++idx){
         char *string = (char*)memory[idx];
+        
         NSString *str = [NSString stringWithUTF8String:string];
         if(!str)continue;
         
         NSLog(@"config = %@", str);
         if(str) [configs addObject:str];
     }
+    
     return configs;
 }
 
