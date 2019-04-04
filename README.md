@@ -1,10 +1,11 @@
 # hybrid-ios
 
-## 简介
+# 简介
 ### 一个基于WKWebView实现的iOS端JS-Bridge，基于Plugin思想实现了通信插件化和可配置性。
 ### 详细介绍：https://juejin.im/post/5c07d95ee51d451d930b04c7
 
-## 优势
+
+# 优势
 ### 1.插件化，功能组件独立无耦合。
 ### 2.插件可配置。
 ### 3.对前端接口统一（待完善）。
@@ -12,7 +13,8 @@
 ### 5.通信性能优化（待完善）。
 ### 6.框架内不提供WebView。
 ### 7.不需要添加工程，引入文件夹即可。
-___________________________________________________________________________________________________
+
+
 
 # 使用说明：
 
@@ -28,9 +30,9 @@ SHRMWebViewEngine *jsBridge = [[SHRMWebViewEngine alloc] init];
 jsBridge.delegate = self;
 [jsBridge bindBridgeWithWebView:self.webView];
 ```
-___________________________________________________________________________________________________
 
-## 插件
+
+# 插件配置
 
 ### 1.插件需要引入model层头文件#import "SHRMMsgCommand.h"
 ### 2.插件接口需要有SHRMMsgCommand类型的形参
