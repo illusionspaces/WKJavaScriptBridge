@@ -42,6 +42,12 @@
     }
     webView.configuration.userContentController = [[WKUserContentController alloc] init];
     [webView.configuration.userContentController addScriptMessageHandler:self name:@"SHRMWKJSBridge"];
+    
+    NSString *js = [SHRMWebViewCookieMgr clientCookieScripts];
+    if (!js) return;
+    
+    WKUserScript *jsscript = [[WKUserScript alloc]initWithSource:js injectionTime:WKUserScriptInjectionTimeAtDocumentStart forMainFrameOnly:NO];
+    [webView.configuration.userContentController addUserScript:jsscript];
 }
 
 - (void)userContentController:(WKUserContentController *)userContentController didReceiveScriptMessage:(WKScriptMessage *)message {

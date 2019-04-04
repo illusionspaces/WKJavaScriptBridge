@@ -10,6 +10,7 @@
 #import <WebKit/WebKit.h>
 #import "SHRMWebViewProtocol.h"
 #import "SHRMWebPluginAnnotation.h"
+#import "SHRMWebViewCookieMgr.h"
 
 NS_ASSUME_NONNULL_BEGIN
 

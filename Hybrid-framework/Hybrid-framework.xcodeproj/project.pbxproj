@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0AC786F02255AB3C00CD5054 /* SHRMWebViewCookieMgr.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AC786EF2255AB3C00CD5054 /* SHRMWebViewCookieMgr.m */; };
 		832F7C8821B822510076D164 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 832F7C8721B822510076D164 /* AppDelegate.m */; };
 		832F7C8B21B822510076D164 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 832F7C8A21B822510076D164 /* ViewController.m */; };
 		832F7C8E21B822510076D164 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 832F7C8C21B822510076D164 /* Main.storyboard */; };
@@ -27,6 +28,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0AC786EE2255AB3C00CD5054 /* SHRMWebViewCookieMgr.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SHRMWebViewCookieMgr.h; sourceTree = "<group>"; };
+		0AC786EF2255AB3C00CD5054 /* SHRMWebViewCookieMgr.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SHRMWebViewCookieMgr.m; sourceTree = "<group>"; };
 		832F7C8321B822510076D164 /* Hybrid-framework.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Hybrid-framework.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		832F7C8621B822510076D164 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		832F7C8721B822510076D164 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -130,6 +133,8 @@
 				832F7E7821BA84EE0076D164 /* SHRMWebViewHandleFactory.m */,
 				832F7E7A21BB72C50076D164 /* SHRMWebPluginAnnotation.h */,
 				832F7E7B21BB72C50076D164 /* SHRMWebPluginAnnotation.m */,
+				0AC786EE2255AB3C00CD5054 /* SHRMWebViewCookieMgr.h */,
+				0AC786EF2255AB3C00CD5054 /* SHRMWebViewCookieMgr.m */,
 			);
 			path = JSBridge;
 			sourceTree = "<group>";
@@ -220,6 +225,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0AC786F02255AB3C00CD5054 /* SHRMWebViewCookieMgr.m in Sources */,
 				832F7E5A21BA38F70076D164 /* SHRMWebViewEngine.m in Sources */,
 				832F7E5C21BA38F70076D164 /* SHRMMsgCommand.m in Sources */,
 				832F7E8E21BEB6220076D164 /* SHRMPhontoPlugin.m in Sources */,
