@@ -15,9 +15,31 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface SHRMWebViewEngine : NSObject<WKScriptMessageHandler, SHRMWebViewProtocol>
-- (void)bindBridgeWithWebView:(WKWebView *)webView;
-@property (nonatomic, weak) WKWebView *webView;
+
+/**
+ 外部提供的webView
+ */
+@property (nonatomic, weak, readonly) WKWebView *webView;
+
+/**
+ 使用hybrid能力的viewController
+ */
 @property (nonatomic, weak) id delegate;
+
+
+/**
+ webView js注入
+
+ @param webView webView
+ */
+- (void)bindBridgeWithWebView:(WKWebView *)webView;
+
+/**
+ 获取插件plugin的实例对象
+
+ @param pluginName 插件名称
+ @return 实例对象
+ */
 - (id)getCommandInstance:(NSString*)pluginName;
 @end
 

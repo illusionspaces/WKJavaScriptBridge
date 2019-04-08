@@ -15,6 +15,10 @@
                 window.webkit.messageHandlers.SHRMWKJSBridge.postMessage(['13383446','SHRMDevicePlugin','nativeDevice',['post','device info','user']]);
             }
             
+            function pushClick() {
+                window.webkit.messageHandlers.SHRMWKJSBridge.postMessage(['13383446','SHRMPushDemoPlugin','pushTestVC',['post','device info','user']]);
+            }
+            
             function fetchComplete(id,result) {
                 asyncAlert(result);
                 document.getElementById("returnValue").value = (id) + result;
@@ -36,6 +40,8 @@
         <input type="button" value="文件打开" onclick="ioClick()" />
         
         <input type="button" value="查询设备信息" onclick="deviceClick()" />
+        
+        <input type="button" value="页面跳转" onclick="pushClick()" />
         
         <h1>回调结果展示区</h1>
         <textarea id ="returnValue" type="value" rows="5" cols="40">

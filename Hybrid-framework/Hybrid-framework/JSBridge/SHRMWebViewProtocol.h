@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -34,6 +35,12 @@ native 调用 js 接口
  @param onload onload
  */
 - (void)registerStartupPluginName:(NSString *)pluginName onload:(NSNumber *)onload;
+
+/**
+ webView controller
+ */
+@property (nonatomic, strong) UIViewController *rootViewController;
+
 @end
 
 NS_ASSUME_NONNULL_END

@@ -15,9 +15,13 @@
 @property (nonatomic, strong) SHRMWebViewHandleFactory *webViewhandleFactory;
 @property (nonatomic, strong) SHRMWebPluginAnnotation *webPluginAnnotation;
 @property (nonatomic, strong) NSMutableDictionary *pluginObject;
+@property (nonatomic, weak, readwrite) WKWebView *webView;
+
 @end
 
 @implementation SHRMWebViewEngine
+
+@synthesize rootViewController = _rootViewController;
 
 - (instancetype)init {
     if (self = [super init]) {
@@ -34,10 +38,10 @@
 
 - (void)bindBridgeWithWebView:(WKWebView *)webView {
     self.webView = webView;
-    if (![_delegate conformsToProtocol:@protocol(WKUIDelegate)]) {
+    if (![self.rootViewController conformsToProtocol:@protocol(WKUIDelegate)]) {
         self.webView.UIDelegate = _webViewDelegate;
     }
-    if (![_delegate conformsToProtocol:@protocol(WKNavigationDelegate)]) {
+    if (![self.rootViewController conformsToProtocol:@protocol(WKNavigationDelegate)]) {
         self.webView.navigationDelegate = _webViewDelegate;
     }
     webView.configuration.userContentController = [[WKUserContentController alloc] init];
@@ -92,6 +96,13 @@
         }
     }
     return obj;
+}
+
+#pragma setter & getter
+
+- (void)setDelegate:(id)delegate {
+    _delegate = delegate;
+    self.rootViewController = delegate;
 }
 
 #pragma mark - dealloc

@@ -32,17 +32,17 @@
     /***/
     
     [self.view addSubview:self.webView];
-    //    NSString *urlStr = [[NSBundle mainBundle] pathForResource:@"index.html" ofType:nil];
-    //    NSURL *fileURL = [NSURL fileURLWithPath:urlStr];
-    //    if (@available(iOS 9.0, *)) {
-    //        [self.webView loadFileURL:fileURL allowingReadAccessToURL:fileURL];
-    //    } else {
-    //        // Fallback on earlier versions
-    //    }
+    NSString *urlStr = [[NSBundle mainBundle] pathForResource:@"index.html" ofType:nil];
+    NSURL *fileURL = [NSURL fileURLWithPath:urlStr];
+    if (@available(iOS 9.0, *)) {
+        [self.webView loadFileURL:fileURL allowingReadAccessToURL:fileURL];
+    } else {
+        // Fallback on earlier versions
+    }
     
-    NSMutableURLRequest *reqeust = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"https://www.baidu.com"]];
-    [SHRMWebViewCookieMgr syncRequestCookie:reqeust];
-    [self.webView loadRequest:reqeust];
+//    NSMutableURLRequest *reqeust = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"https://www.baidu.com"]];
+//    [SHRMWebViewCookieMgr syncRequestCookie:reqeust];
+//    [self.webView loadRequest:reqeust];
 }
 
 
