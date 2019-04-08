@@ -1,5 +1,3 @@
-# hybrid-ios
-
 # 简介
 ### 一个基于WKWebView实现的iOS端JS-Bridge，基于Plugin思想实现了通信插件化和可配置性。
 ### 详细介绍：https://juejin.im/post/5c07d95ee51d451d930b04c7
@@ -64,4 +62,9 @@ NSLog(@"(%@):%@,%@,%@",command.callbackId, method, url, param);
 ___________________________________________________________________________________________________
 
 ## JS调用详见index.html文件
+```
+function ioClick() {
+          window.webkit.messageHandlers.SHRMWKJSBridge.postMessage(['13383446','SHRMIOPlugin','nativeIO',['post','openFile','user']]);
+            }
+```
 
