@@ -1,22 +1,22 @@
 # 简介
-### 一个基于WKWebView实现的iOS端JS-Bridge，基于Plugin思想实现了通信插件化和可配置性。
-### 详细介绍：https://juejin.im/post/5c07d95ee51d451d930b04c7
+### 一个基于WKWebView实现的iOS端JS-Bridge，基于Plugin思想实现了通信插件化和可配置性，每一个js到native的交互都定义为一个插件，依托于框架的管理独立可插拔。当新增一个js与原生交互需求的时候只需要添加一个插件即可。详细思想参考Cordova框架。
+### 框架详细介绍戳这里：https://juejin.im/post/5c07d95ee51d451d930b04c7
 
 
 # 优势
 ### 1.插件化，功能组件独立无耦合。
-### 2.插件可配置。
+### 2.插件可配置，一个宏定义解决插件配置问题。
 ### 3.对前端接口统一（待完善）。
-### 4.基于WKWebView。
+### 4.基于高性能的WKWebView。
 ### 5.通信性能优化（待完善）。
 ### 6.框架内不提供WebView。
-### 7.不需要添加工程，引入文件夹即可。
+### 7.Cookie处理。
 
 
 
 # 使用说明：
 
-## webView绑定，让webView具有hybrid能力：
+## WebView绑定，让WebView具有Hybrid能力：
 
 ### 1.是初始化WKWebView的类引入头文件#import "SHRMWebViewEngine.h"。
 ### 2.初始化SHRMWebViewEngine实例并进行绑定
@@ -59,9 +59,8 @@ NSLog(@"(%@):%@,%@,%@",command.callbackId, method, url, param);
 
 @end
 ```
-___________________________________________________________________________________________________
 
-## JS调用详见index.html文件
+# JS调用详见index.html文件
 ```
 function ioClick() {
           window.webkit.messageHandlers.SHRMWKJSBridge.postMessage(['13383446','SHRMIOPlugin','nativeIO',['post','openFile','user']]);
