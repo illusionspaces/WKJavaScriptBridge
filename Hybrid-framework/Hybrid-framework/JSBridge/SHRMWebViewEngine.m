@@ -11,7 +11,7 @@
 #import "SHRMWebViewHandleFactory.h"
 
 @interface SHRMWebViewEngine ()
-@property (nonatomic, strong) SHRMWebViewDelegate *webViewDelegate;
+@property (nonatomic, strong) SHRMWebViewDelegate *WKWebViewDelegate;
 @property (nonatomic, strong) SHRMWebViewHandleFactory *webViewhandleFactory;
 @property (nonatomic, strong) SHRMWebPluginAnnotation *webPluginAnnotation;
 @property (nonatomic, strong) NSMutableDictionary *pluginObject;
@@ -26,7 +26,7 @@
 - (instancetype)init {
     if (self = [super init]) {
         _webViewhandleFactory = [[SHRMWebViewHandleFactory alloc] initWithWebViewEngine:self];
-        _webViewDelegate = [[SHRMWebViewDelegate alloc] initWithWebViewEngine:self];
+        _WKWebViewDelegate = [[SHRMWebViewDelegate alloc] initWithWebViewEngine:self];
         _webPluginAnnotation = [[SHRMWebPluginAnnotation alloc] initWithWebViewEngine:self];
         _pluginObject = [NSMutableDictionary dictionary];
         [self loadStartupPlugin];
@@ -36,23 +36,38 @@
 
 #pragma mark - bridge
 
-- (void)bindBridgeWithWebView:(WKWebView *)webView {
-    self.webView = webView;
-    if (![self.rootViewController conformsToProtocol:@protocol(WKUIDelegate)]) {
-        self.webView.UIDelegate = _webViewDelegate;
++ (instancetype)bindBridgeWithWebView:(WKWebView *)webView {
+    return [self bridge:webView];
+}
+
++ (instancetype)bridge:(id)webView {
+    if ([webView isKindOfClass:[WKWebView class]]) {
+        SHRMWebViewEngine *bridge = [[SHRMWebViewEngine alloc] init];
+        [bridge setupInstance:webView];
+        [bridge addUserScript:webView];
+        return bridge;
     }
-    if (![self.rootViewController conformsToProtocol:@protocol(WKNavigationDelegate)]) {
-        self.webView.navigationDelegate = _webViewDelegate;
-    }
-    webView.configuration.userContentController = [[WKUserContentController alloc] init];
-    [webView.configuration.userContentController addScriptMessageHandler:self name:@"SHRMWKJSBridge"];
-    
+    [NSException raise:@"BadWebViewType" format:@"Unknown web view type."];
+    return nil;
+}
+
+- (void)setupInstance:(WKWebView *)webView {
+    _webView = webView;
+    _webView.navigationDelegate = _WKWebViewDelegate;
+    _webView.configuration.userContentController = [[WKUserContentController alloc] init];
+    [_webView.configuration.userContentController addScriptMessageHandler:self name:@"SHRMWKJSBridge"];
+}
+
+- (void)addUserScript:(WKWebView *)webView {
     NSString *js = [SHRMWebViewCookieMgr clientCookieScripts];
     if (!js) return;
-    
-    WKUserScript *jsscript = [[WKUserScript alloc]initWithSource:js injectionTime:WKUserScriptInjectionTimeAtDocumentStart forMainFrameOnly:NO];
+    WKUserScript *jsscript = [[WKUserScript alloc]initWithSource:js
+                                                   injectionTime:WKUserScriptInjectionTimeAtDocumentStart
+                                                forMainFrameOnly:NO];
     [webView.configuration.userContentController addUserScript:jsscript];
 }
+
+#pragma mark - WKScriptMessageHandler
 
 - (void)userContentController:(WKUserContentController *)userContentController didReceiveScriptMessage:(WKScriptMessage *)message {
     if ([message.body isKindOfClass:[NSArray class]]) {
@@ -100,9 +115,11 @@
 
 #pragma setter & getter
 
-- (void)setDelegate:(id)delegate {
-    _delegate = delegate;
-    self.rootViewController = delegate;
+- (void)setWebViewDelegate:(NSObject<UIWebViewDelegate> *)webViewDelegate {
+    _webViewDelegate = webViewDelegate;
+    if ([webViewDelegate isKindOfClass:[UIViewController class]]) {
+        self.rootViewController = (UIViewController *)webViewDelegate;
+    }
 }
 
 #pragma mark - dealloc

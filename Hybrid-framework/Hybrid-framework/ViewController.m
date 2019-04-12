@@ -10,7 +10,7 @@
 #import <WebKit/WebKit.h>
 #import "SHRMWebViewEngine.h"
 @interface ViewController ()
-@property (strong, nonatomic) WKWebView *webView;
+@property (nonatomic, strong) SHRMWebViewEngine* bridge;
 @end
 
 @implementation ViewController
@@ -23,19 +23,18 @@
     preferences.javaScriptCanOpenWindowsAutomatically = YES;
     preferences.minimumFontSize = 40.0;
     configuration.preferences = preferences;
-    self.webView = [[WKWebView alloc] initWithFrame:self.view.frame configuration:configuration];
+    WKWebView *webView = [[WKWebView alloc] initWithFrame:self.view.frame configuration:configuration];
     
     /***/
-    SHRMWebViewEngine *jsBridge = [[SHRMWebViewEngine alloc] init];
-    jsBridge.delegate = self;
-    [jsBridge bindBridgeWithWebView:self.webView];
+    _bridge = [SHRMWebViewEngine bindBridgeWithWebView:webView];
+    [_bridge setWebViewDelegate:self];
     /***/
     
-    [self.view addSubview:self.webView];
+    [self.view addSubview:webView];
     NSString *urlStr = [[NSBundle mainBundle] pathForResource:@"index.html" ofType:nil];
     NSURL *fileURL = [NSURL fileURLWithPath:urlStr];
     if (@available(iOS 9.0, *)) {
-        [self.webView loadFileURL:fileURL allowingReadAccessToURL:fileURL];
+        [webView loadFileURL:fileURL allowingReadAccessToURL:fileURL];
     } else {
         // Fallback on earlier versions
     }

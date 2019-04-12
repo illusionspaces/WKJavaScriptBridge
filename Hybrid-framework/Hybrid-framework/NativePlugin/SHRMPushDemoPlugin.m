@@ -15,6 +15,7 @@
 
 - (void)pushTestVC:(SHRMMsgCommand *)command {
     UIViewController *rootVC = command.delegate.rootViewController;
+    
     TestViewController *testVC = [[TestViewController alloc] init];
     [rootVC.navigationController pushViewController:testVC animated:YES];
 }

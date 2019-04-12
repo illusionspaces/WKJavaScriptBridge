@@ -21,18 +21,12 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property (nonatomic, weak, readonly) WKWebView *webView;
 
+@property (nonatomic, weak) id webViewDelegate;
+
 /**
  使用hybrid能力的viewController
  */
-@property (nonatomic, weak) id delegate;
-
-
-/**
- webView js注入
-
- @param webView webView
- */
-- (void)bindBridgeWithWebView:(WKWebView *)webView;
+- (void)setWebViewDelegate:(id)webViewDelegate;
 
 /**
  获取插件plugin的实例对象
@@ -41,6 +35,14 @@ NS_ASSUME_NONNULL_BEGIN
  @return 实例对象
  */
 - (id)getCommandInstance:(NSString*)pluginName;
+
+/**
+ webView绑定 bridge初始化
+
+ @param webView WKWebView
+ @return bridge
+ */
++ (instancetype)bindBridgeWithWebView:(WKWebView *)webView;
 @end
 
 NS_ASSUME_NONNULL_END
