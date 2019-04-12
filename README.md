@@ -25,9 +25,8 @@
 ```
 #import "SHRMWebViewEngine.h"
 
-SHRMWebViewEngine *jsBridge = [[SHRMWebViewEngine alloc] init];
-jsBridge.delegate = self;
-[jsBridge bindBridgeWithWebView:self.webView];
+_bridge = [SHRMWebViewEngine bindBridgeWithWebView:webView];
+    [_bridge setWebViewDelegate:self];
 ```
 
 
