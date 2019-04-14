@@ -9,7 +9,7 @@
 ### 3.对前端接口统一（待完善）。
 ### 4.基于高性能的WKWebView。
 ### 5.通信性能优化（待完善）。
-### 6.框架内不提供WebView。
+### 6.两行代码让你的WKWebView拥有hybrid能力。
 ### 7.Cookie丢失处理。
 
 
@@ -24,9 +24,8 @@
 ```
 #import "SHRMWebViewEngine.h"
 
-SHRMWebViewEngine *jsBridge = [[SHRMWebViewEngine alloc] init];
-jsBridge.delegate = self;
-[jsBridge bindBridgeWithWebView:self.webView];
+_bridge = [SHRMWebViewEngine bindBridgeWithWebView:webView];
+    [_bridge setWebViewDelegate:self];
 ```
 
 
