@@ -11,6 +11,7 @@
 		0A9E4693225B2F07003F6574 /* SHRMPushDemoPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A9E4692225B2F07003F6574 /* SHRMPushDemoPlugin.m */; };
 		0A9E46A5225E0330003F6574 /* SHRMFetchPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A9E46A3225E0330003F6574 /* SHRMFetchPlugin.m */; };
 		0A9E46A8225E0342003F6574 /* test.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A9E46A7225E0342003F6574 /* test.m */; };
+		0ABC13D4226323DA009E19E6 /* SHRMUIWebViewJavaScriptBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ABC13D3226323DA009E19E6 /* SHRMUIWebViewJavaScriptBridge.m */; };
 		0AC786F02255AB3C00CD5054 /* SHRMWebViewCookieMgr.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AC786EF2255AB3C00CD5054 /* SHRMWebViewCookieMgr.m */; };
 		832F7C8821B822510076D164 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 832F7C8721B822510076D164 /* AppDelegate.m */; };
 		832F7C8B21B822510076D164 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 832F7C8A21B822510076D164 /* ViewController.m */; };
@@ -38,6 +39,8 @@
 		0A9E46A4225E0330003F6574 /* SHRMFetchPlugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHRMFetchPlugin.h; sourceTree = "<group>"; };
 		0A9E46A6225E0342003F6574 /* test.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = test.h; sourceTree = "<group>"; };
 		0A9E46A7225E0342003F6574 /* test.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = test.m; sourceTree = "<group>"; };
+		0ABC13D2226323DA009E19E6 /* SHRMUIWebViewJavaScriptBridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SHRMUIWebViewJavaScriptBridge.h; sourceTree = "<group>"; };
+		0ABC13D3226323DA009E19E6 /* SHRMUIWebViewJavaScriptBridge.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SHRMUIWebViewJavaScriptBridge.m; sourceTree = "<group>"; };
 		0AC786EE2255AB3C00CD5054 /* SHRMWebViewCookieMgr.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SHRMWebViewCookieMgr.h; sourceTree = "<group>"; };
 		0AC786EF2255AB3C00CD5054 /* SHRMWebViewCookieMgr.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SHRMWebViewCookieMgr.m; sourceTree = "<group>"; };
 		832F7C8321B822510076D164 /* Hybrid-framework.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Hybrid-framework.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -143,6 +146,8 @@
 				832F7E7B21BB72C50076D164 /* SHRMWebPluginAnnotation.m */,
 				0AC786EE2255AB3C00CD5054 /* SHRMWebViewCookieMgr.h */,
 				0AC786EF2255AB3C00CD5054 /* SHRMWebViewCookieMgr.m */,
+				0ABC13D2226323DA009E19E6 /* SHRMUIWebViewJavaScriptBridge.h */,
+				0ABC13D3226323DA009E19E6 /* SHRMUIWebViewJavaScriptBridge.m */,
 			);
 			path = JSBridge;
 			sourceTree = "<group>";
@@ -250,6 +255,7 @@
 				832F7E5921BA38F70076D164 /* SHRMWebViewDelegate.m in Sources */,
 				832F7C8821B822510076D164 /* AppDelegate.m in Sources */,
 				832F7E8B21BBC12A0076D164 /* SHRMDevicePlugin.m in Sources */,
+				0ABC13D4226323DA009E19E6 /* SHRMUIWebViewJavaScriptBridge.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

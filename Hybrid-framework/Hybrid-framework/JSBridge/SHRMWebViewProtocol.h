@@ -29,14 +29,6 @@ native 调用 js 接口
 - (void)runInBackground:(void (^)(void))block;
 
 /**
- 插件预加载接口 onload 为 1 表示提前初始化此插件对象 否则在调用时初始化
-
- @param pluginName name
- @param onload onload
- */
-- (void)registerStartupPluginName:(NSString *)pluginName onload:(NSNumber *)onload;
-
-/**
  webView controller
  */
 @property (nonatomic, strong) UIViewController *rootViewController;

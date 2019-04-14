@@ -11,8 +11,10 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @class SHRMWebViewEngine;
+@protocol SHRMWebViewProtocol;
 
 @interface SHRMWebViewHandleFactory : NSObject
+@property (nonatomic, weak) id<SHRMWebViewProtocol> webViewBridge;
 - (void)handleMsgCommand:(NSArray *)arguments;
 - (instancetype)initWithWebViewEngine:(SHRMWebViewEngine *)webViewEngine;
 @end

@@ -21,6 +21,10 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property (nonatomic, weak, readonly) WKWebView *webView;
 
+
+/**
+ webView容器
+ */
 @property (nonatomic, weak) id webViewDelegate;
 
 /**
@@ -39,10 +43,18 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  webView绑定 bridge初始化
 
- @param webView WKWebView
+ @param webView WKWebView & UIWebView
  @return bridge
  */
-+ (instancetype)bindBridgeWithWebView:(WKWebView *)webView;
++ (instancetype)bindBridgeWithWebView:(id)webView;
+
+/**
+ 插件预加载接口 onload 为 1 表示提前初始化此插件对象 否则在调用时初始化
+ 
+ @param pluginName name
+ @param onload onload
+ */
+- (void)registerStartupPluginName:(NSString *)pluginName onload:(NSNumber *)onload;
 @end
 
 NS_ASSUME_NONNULL_END

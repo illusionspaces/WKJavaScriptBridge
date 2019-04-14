@@ -36,7 +36,7 @@
 
 - (void)executePending:(NSArray *)command {
     SHRMMsgCommand *msgCommand = [SHRMMsgCommand commandFromJson:command];
-    msgCommand.delegate = _webViewEngine;
+    msgCommand.delegate = _webViewBridge;
     if (![self execute:msgCommand]) {
         NSLog(@"%@.%@ execute fail",msgCommand.className, msgCommand.methodName);
     }
@@ -66,6 +66,10 @@
         NSLog(@"THREAD WARNING: ['%@'] took '%f' ms. Plugin should use a background thread.", command.className, elapsed);
     }
     return retVal;
+}
+
+- (void)dealloc {
+    _webViewEngine = nil;
 }
 
 @end
