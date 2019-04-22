@@ -7,7 +7,6 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "SHRMWebViewProtocol.h"
 #import "SHRMWebPluginAnnotation.h"
 
 NS_ASSUME_NONNULL_BEGIN
@@ -17,7 +16,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, readonly) NSString* callbackId;
 @property (nonatomic, readonly) NSString* className;
 @property (nonatomic, readonly) NSString* methodName;
-@property (nonatomic, weak) id <SHRMWebViewProtocol> delegate;
 + (SHRMMsgCommand *)commandFromJson:(NSArray*)jsonEntry;
 - (id)argumentAtIndex:(NSUInteger)index;
 @end

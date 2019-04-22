@@ -1,0 +1,37 @@
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf8">
+            <script language="javascript">
+             
+            
+            function testUIWebView() {
+                postUIWebViewParamer(['13383446','SHRMTestUIWebViewPlguin','nativeTestUIWebView',['post','openFile','user']])
+            }
+            
+            function fetchComplete(id,result) {
+                asyncAlert(result);
+                document.getElementById("returnValue").value = (id) + result;
+            }
+            
+            function asyncAlert(content) {
+                setTimeout(function(){
+                           alert(content);
+                           },1);
+            }
+            
+            </script>
+    </head>
+    
+    <body>
+        <h1>按钮调用</h1>
+        
+        <button type='button' onclick='testUIWebView()'>test UIWebView</button>
+        
+        <h1>回调结果展示区</h1>
+        <textarea id ="returnValue" type="value" rows="5" cols="40">
+        
+        </textarea>
+        
+        
+    </body>
+</html>

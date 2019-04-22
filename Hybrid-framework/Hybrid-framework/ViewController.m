@@ -7,42 +7,30 @@
 //
 
 #import "ViewController.h"
-#import <WebKit/WebKit.h>
-#import "SHRMWebViewEngine.h"
+#import "TestUIWebViewController.h"
+#import "TestWKWebViewController.h"
+
 @interface ViewController ()
-@property (nonatomic, strong) SHRMWebViewEngine* bridge;
+
 @end
 
 @implementation ViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    WKWebViewConfiguration *configuration = [[WKWebViewConfiguration alloc] init];
-    WKPreferences *preferences = [WKPreferences new];
-    preferences.javaScriptCanOpenWindowsAutomatically = YES;
-    preferences.minimumFontSize = 40.0;
-    configuration.preferences = preferences;
-    WKWebView *webView = [[WKWebView alloc] initWithFrame:self.view.frame configuration:configuration];
-    
-    /***/
-    _bridge = [SHRMWebViewEngine bindBridgeWithWebView:webView];
-    [_bridge setWebViewDelegate:self];
-    /***/
-    
-    [self.view addSubview:webView];
-    NSString *urlStr = [[NSBundle mainBundle] pathForResource:@"index.html" ofType:nil];
-    NSURL *fileURL = [NSURL fileURLWithPath:urlStr];
-    if (@available(iOS 9.0, *)) {
-        [webView loadFileURL:fileURL allowingReadAccessToURL:fileURL];
-    } else {
-        // Fallback on earlier versions
-    }
-    
 //    NSMutableURLRequest *reqeust = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"https://www.baidu.com"]];
 //    [SHRMWebViewCookieMgr syncRequestCookie:reqeust];
 //    [self.webView loadRequest:reqeust];
 }
 
+- (IBAction)goUIWebView:(id)sender {
+    TestUIWebViewController *uiVC = [[TestUIWebViewController alloc] init];
+    [self.navigationController pushViewController:uiVC animated:YES];
+}
+
+- (IBAction)goWKWebView:(id)sender {
+    TestWKWebViewController *wkVC = [[TestWKWebViewController alloc] init];
+    [self.navigationController pushViewController:wkVC animated:YES];
+}
 
 @end

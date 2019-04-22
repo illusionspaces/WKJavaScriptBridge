@@ -48,7 +48,7 @@ __weak SHRMWebViewEngine *_webViewEngine;
         NSNumber *onload  = [json allValues][0];
         
         if (pluginName && onload) {
-            [_webViewEngine registerStartupPluginName:pluginName onload:onload];
+            [_webViewEngine setupPluginName:pluginName onload:onload];
         }
     }
 }

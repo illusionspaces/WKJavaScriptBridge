@@ -7,10 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A0922392265CF87002BDEBE /* SHRMWKWebViewJavaScriptBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A0922382265CF87002BDEBE /* SHRMWKWebViewJavaScriptBridge.m */; };
+		0A09224822674D2E002BDEBE /* SHRMFetchPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A09224622674D2D002BDEBE /* SHRMFetchPlugin.m */; };
+		0A9A3958226D93E600D0DF43 /* SHRMBasePlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A9A3950226D93E500D0DF43 /* SHRMBasePlugin.m */; };
+		0A9A3959226D93E600D0DF43 /* UIWebView+TS_JavaScriptContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A9A3956226D93E500D0DF43 /* UIWebView+TS_JavaScriptContext.m */; };
+		0A9A395A226D93E600D0DF43 /* SHRMCommandImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A9A3957226D93E600D0DF43 /* SHRMCommandImpl.m */; };
+		0A9A395D226D93F300D0DF43 /* SHRMTestUIWebViewPlguin.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A9A395C226D93F300D0DF43 /* SHRMTestUIWebViewPlguin.m */; };
+		0A9A3963226D940600D0DF43 /* TestUIWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A9A3960226D940600D0DF43 /* TestUIWebViewController.m */; };
+		0A9A3964226D940600D0DF43 /* index1.html in Resources */ = {isa = PBXBuildFile; fileRef = 0A9A3961226D940600D0DF43 /* index1.html */; };
+		0A9A3965226D940600D0DF43 /* TestWKWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A9A3962226D940600D0DF43 /* TestWKWebViewController.m */; };
 		0A9E4690225B2922003F6574 /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A9E468F225B2922003F6574 /* TestViewController.m */; };
 		0A9E4693225B2F07003F6574 /* SHRMPushDemoPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A9E4692225B2F07003F6574 /* SHRMPushDemoPlugin.m */; };
-		0A9E46A5225E0330003F6574 /* SHRMFetchPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A9E46A3225E0330003F6574 /* SHRMFetchPlugin.m */; };
-		0A9E46A8225E0342003F6574 /* test.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A9E46A7225E0342003F6574 /* test.m */; };
 		0ABC13D4226323DA009E19E6 /* SHRMUIWebViewJavaScriptBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ABC13D3226323DA009E19E6 /* SHRMUIWebViewJavaScriptBridge.m */; };
 		0AC786F02255AB3C00CD5054 /* SHRMWebViewCookieMgr.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AC786EF2255AB3C00CD5054 /* SHRMWebViewCookieMgr.m */; };
 		832F7C8821B822510076D164 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 832F7C8721B822510076D164 /* AppDelegate.m */; };
@@ -31,14 +38,29 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0A0922372265CF87002BDEBE /* SHRMWKWebViewJavaScriptBridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SHRMWKWebViewJavaScriptBridge.h; sourceTree = "<group>"; };
+		0A0922382265CF87002BDEBE /* SHRMWKWebViewJavaScriptBridge.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SHRMWKWebViewJavaScriptBridge.m; sourceTree = "<group>"; };
+		0A09224622674D2D002BDEBE /* SHRMFetchPlugin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHRMFetchPlugin.m; sourceTree = "<group>"; };
+		0A09224722674D2E002BDEBE /* SHRMFetchPlugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHRMFetchPlugin.h; sourceTree = "<group>"; };
+		0A9A3950226D93E500D0DF43 /* SHRMBasePlugin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHRMBasePlugin.m; sourceTree = "<group>"; };
+		0A9A3951226D93E500D0DF43 /* SHRMCommandProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHRMCommandProtocol.h; sourceTree = "<group>"; };
+		0A9A3952226D93E500D0DF43 /* SHRMJavaScriptBridgeProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHRMJavaScriptBridgeProtocol.h; sourceTree = "<group>"; };
+		0A9A3953226D93E500D0DF43 /* SHRMBasePlugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHRMBasePlugin.h; sourceTree = "<group>"; };
+		0A9A3954226D93E500D0DF43 /* SHRMCommandImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHRMCommandImpl.h; sourceTree = "<group>"; };
+		0A9A3955226D93E500D0DF43 /* UIWebView+TS_JavaScriptContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWebView+TS_JavaScriptContext.h"; sourceTree = "<group>"; };
+		0A9A3956226D93E500D0DF43 /* UIWebView+TS_JavaScriptContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWebView+TS_JavaScriptContext.m"; sourceTree = "<group>"; };
+		0A9A3957226D93E600D0DF43 /* SHRMCommandImpl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHRMCommandImpl.m; sourceTree = "<group>"; };
+		0A9A395B226D93F300D0DF43 /* SHRMTestUIWebViewPlguin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHRMTestUIWebViewPlguin.h; sourceTree = "<group>"; };
+		0A9A395C226D93F300D0DF43 /* SHRMTestUIWebViewPlguin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHRMTestUIWebViewPlguin.m; sourceTree = "<group>"; };
+		0A9A395E226D940500D0DF43 /* TestUIWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestUIWebViewController.h; sourceTree = "<group>"; };
+		0A9A395F226D940500D0DF43 /* TestWKWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestWKWebViewController.h; sourceTree = "<group>"; };
+		0A9A3960226D940600D0DF43 /* TestUIWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestUIWebViewController.m; sourceTree = "<group>"; };
+		0A9A3961226D940600D0DF43 /* index1.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index1.html; sourceTree = "<group>"; };
+		0A9A3962226D940600D0DF43 /* TestWKWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestWKWebViewController.m; sourceTree = "<group>"; };
 		0A9E468E225B2922003F6574 /* TestViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestViewController.h; sourceTree = "<group>"; };
 		0A9E468F225B2922003F6574 /* TestViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestViewController.m; sourceTree = "<group>"; };
 		0A9E4691225B2F07003F6574 /* SHRMPushDemoPlugin.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SHRMPushDemoPlugin.h; sourceTree = "<group>"; };
 		0A9E4692225B2F07003F6574 /* SHRMPushDemoPlugin.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SHRMPushDemoPlugin.m; sourceTree = "<group>"; };
-		0A9E46A3225E0330003F6574 /* SHRMFetchPlugin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHRMFetchPlugin.m; sourceTree = "<group>"; };
-		0A9E46A4225E0330003F6574 /* SHRMFetchPlugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHRMFetchPlugin.h; sourceTree = "<group>"; };
-		0A9E46A6225E0342003F6574 /* test.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = test.h; sourceTree = "<group>"; };
-		0A9E46A7225E0342003F6574 /* test.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = test.m; sourceTree = "<group>"; };
 		0ABC13D2226323DA009E19E6 /* SHRMUIWebViewJavaScriptBridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SHRMUIWebViewJavaScriptBridge.h; sourceTree = "<group>"; };
 		0ABC13D3226323DA009E19E6 /* SHRMUIWebViewJavaScriptBridge.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SHRMUIWebViewJavaScriptBridge.m; sourceTree = "<group>"; };
 		0AC786EE2255AB3C00CD5054 /* SHRMWebViewCookieMgr.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SHRMWebViewCookieMgr.h; sourceTree = "<group>"; };
@@ -61,7 +83,6 @@
 		832F7E5521BA38F70076D164 /* SHRMWebViewEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHRMWebViewEngine.m; sourceTree = "<group>"; };
 		832F7E5721BA38F70076D164 /* SHRMMsgCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHRMMsgCommand.m; sourceTree = "<group>"; };
 		832F7E5821BA38F70076D164 /* SHRMWebViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHRMWebViewDelegate.h; sourceTree = "<group>"; };
-		832F7E6121BA52920076D164 /* SHRMWebViewProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SHRMWebViewProtocol.h; sourceTree = "<group>"; };
 		832F7E7721BA84EE0076D164 /* SHRMWebViewHandleFactory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SHRMWebViewHandleFactory.h; sourceTree = "<group>"; };
 		832F7E7821BA84EE0076D164 /* SHRMWebViewHandleFactory.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SHRMWebViewHandleFactory.m; sourceTree = "<group>"; };
 		832F7E7A21BB72C50076D164 /* SHRMWebPluginAnnotation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SHRMWebPluginAnnotation.h; sourceTree = "<group>"; };
@@ -105,19 +126,24 @@
 			isa = PBXGroup;
 			children = (
 				832F7CB621B904C50076D164 /* index.html */,
+				0A9A3961226D940600D0DF43 /* index1.html */,
 				832F7E6221BA54820076D164 /* NativePlugin */,
 				832F7E5021BA38F70076D164 /* JSBridge */,
 				832F7C8621B822510076D164 /* AppDelegate.h */,
 				832F7C8721B822510076D164 /* AppDelegate.m */,
 				832F7C8921B822510076D164 /* ViewController.h */,
 				832F7C8A21B822510076D164 /* ViewController.m */,
+				0A9A395E226D940500D0DF43 /* TestUIWebViewController.h */,
+				0A9A3960226D940600D0DF43 /* TestUIWebViewController.m */,
+				0A9A395F226D940500D0DF43 /* TestWKWebViewController.h */,
+				0A9A3962226D940600D0DF43 /* TestWKWebViewController.m */,
+				0A9E468E225B2922003F6574 /* TestViewController.h */,
+				0A9E468F225B2922003F6574 /* TestViewController.m */,
 				832F7C8C21B822510076D164 /* Main.storyboard */,
 				832F7C8F21B822530076D164 /* Assets.xcassets */,
 				832F7C9121B822530076D164 /* LaunchScreen.storyboard */,
 				832F7C9421B822530076D164 /* Info.plist */,
 				832F7C9521B822530076D164 /* main.m */,
-				0A9E468E225B2922003F6574 /* TestViewController.h */,
-				0A9E468F225B2922003F6574 /* TestViewController.m */,
 			);
 			path = "Hybrid-framework";
 			sourceTree = "<group>";
@@ -133,7 +159,14 @@
 		832F7E5021BA38F70076D164 /* JSBridge */ = {
 			isa = PBXGroup;
 			children = (
-				832F7E6121BA52920076D164 /* SHRMWebViewProtocol.h */,
+				0A9A3953226D93E500D0DF43 /* SHRMBasePlugin.h */,
+				0A9A3950226D93E500D0DF43 /* SHRMBasePlugin.m */,
+				0A9A3954226D93E500D0DF43 /* SHRMCommandImpl.h */,
+				0A9A3957226D93E600D0DF43 /* SHRMCommandImpl.m */,
+				0A9A3951226D93E500D0DF43 /* SHRMCommandProtocol.h */,
+				0A9A3952226D93E500D0DF43 /* SHRMJavaScriptBridgeProtocol.h */,
+				0A9A3955226D93E500D0DF43 /* UIWebView+TS_JavaScriptContext.h */,
+				0A9A3956226D93E500D0DF43 /* UIWebView+TS_JavaScriptContext.m */,
 				832F7E5121BA38F70076D164 /* SHRMWebViewEngine.h */,
 				832F7E5521BA38F70076D164 /* SHRMWebViewEngine.m */,
 				832F7E5221BA38F70076D164 /* SHRMMsgCommand.h */,
@@ -148,6 +181,8 @@
 				0AC786EF2255AB3C00CD5054 /* SHRMWebViewCookieMgr.m */,
 				0ABC13D2226323DA009E19E6 /* SHRMUIWebViewJavaScriptBridge.h */,
 				0ABC13D3226323DA009E19E6 /* SHRMUIWebViewJavaScriptBridge.m */,
+				0A0922372265CF87002BDEBE /* SHRMWKWebViewJavaScriptBridge.h */,
+				0A0922382265CF87002BDEBE /* SHRMWKWebViewJavaScriptBridge.m */,
 			);
 			path = JSBridge;
 			sourceTree = "<group>";
@@ -155,16 +190,16 @@
 		832F7E6221BA54820076D164 /* NativePlugin */ = {
 			isa = PBXGroup;
 			children = (
+				0A9A395B226D93F300D0DF43 /* SHRMTestUIWebViewPlguin.h */,
+				0A9A395C226D93F300D0DF43 /* SHRMTestUIWebViewPlguin.m */,
+				0A09224722674D2E002BDEBE /* SHRMFetchPlugin.h */,
+				0A09224622674D2D002BDEBE /* SHRMFetchPlugin.m */,
 				832F7E8921BBC12A0076D164 /* SHRMDevicePlugin.h */,
-				0A9E46A4225E0330003F6574 /* SHRMFetchPlugin.h */,
-				0A9E46A3225E0330003F6574 /* SHRMFetchPlugin.m */,
 				832F7E8A21BBC12A0076D164 /* SHRMDevicePlugin.m */,
 				832F7E8C21BEB6220076D164 /* SHRMPhontoPlugin.h */,
 				832F7E8D21BEB6220076D164 /* SHRMPhontoPlugin.m */,
 				0A9E4691225B2F07003F6574 /* SHRMPushDemoPlugin.h */,
 				0A9E4692225B2F07003F6574 /* SHRMPushDemoPlugin.m */,
-				0A9E46A6225E0342003F6574 /* test.h */,
-				0A9E46A7225E0342003F6574 /* test.m */,
 			);
 			path = NativePlugin;
 			sourceTree = "<group>";
@@ -227,6 +262,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				832F7C9321B822530076D164 /* LaunchScreen.storyboard in Resources */,
+				0A9A3964226D940600D0DF43 /* index1.html in Resources */,
 				832F7CB721B904C60076D164 /* index.html in Resources */,
 				832F7C9021B822530076D164 /* Assets.xcassets in Resources */,
 				832F7C8E21B822510076D164 /* Main.storyboard in Resources */,
@@ -240,20 +276,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A9A395D226D93F300D0DF43 /* SHRMTestUIWebViewPlguin.m in Sources */,
 				0AC786F02255AB3C00CD5054 /* SHRMWebViewCookieMgr.m in Sources */,
 				832F7E5A21BA38F70076D164 /* SHRMWebViewEngine.m in Sources */,
+				0A0922392265CF87002BDEBE /* SHRMWKWebViewJavaScriptBridge.m in Sources */,
 				0A9E4690225B2922003F6574 /* TestViewController.m in Sources */,
-				0A9E46A5225E0330003F6574 /* SHRMFetchPlugin.m in Sources */,
+				0A9A3963226D940600D0DF43 /* TestUIWebViewController.m in Sources */,
 				832F7E5C21BA38F70076D164 /* SHRMMsgCommand.m in Sources */,
-				0A9E46A8225E0342003F6574 /* test.m in Sources */,
 				832F7E8E21BEB6220076D164 /* SHRMPhontoPlugin.m in Sources */,
+				0A9A395A226D93E600D0DF43 /* SHRMCommandImpl.m in Sources */,
 				832F7C8B21B822510076D164 /* ViewController.m in Sources */,
 				832F7E7921BA84EE0076D164 /* SHRMWebViewHandleFactory.m in Sources */,
+				0A9A3958226D93E600D0DF43 /* SHRMBasePlugin.m in Sources */,
 				832F7C9621B822530076D164 /* main.m in Sources */,
 				832F7E7C21BB72C50076D164 /* SHRMWebPluginAnnotation.m in Sources */,
+				0A9A3959226D93E600D0DF43 /* UIWebView+TS_JavaScriptContext.m in Sources */,
 				0A9E4693225B2F07003F6574 /* SHRMPushDemoPlugin.m in Sources */,
 				832F7E5921BA38F70076D164 /* SHRMWebViewDelegate.m in Sources */,
+				0A9A3965226D940600D0DF43 /* TestWKWebViewController.m in Sources */,
 				832F7C8821B822510076D164 /* AppDelegate.m in Sources */,
+				0A09224822674D2E002BDEBE /* SHRMFetchPlugin.m in Sources */,
 				832F7E8B21BBC12A0076D164 /* SHRMDevicePlugin.m in Sources */,
 				0ABC13D4226323DA009E19E6 /* SHRMUIWebViewJavaScriptBridge.m in Sources */,
 			);

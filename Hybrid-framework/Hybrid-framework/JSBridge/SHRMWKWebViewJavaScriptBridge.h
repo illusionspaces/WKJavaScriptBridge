@@ -1,8 +1,8 @@
 //
-//  test.h
+//  SHRMWKWebViewJavaScriptBridge.h
 //  Hybrid-framework
 //
-//  Created by Kevin on 2019/4/10.
+//  Created by Kevin on 2019/4/20.
 //  Copyright © 2019 王凯. All rights reserved.
 //
 
@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface test : NSObject
+@interface SHRMWKWebViewJavaScriptBridge : NSObject
 
 @end
 

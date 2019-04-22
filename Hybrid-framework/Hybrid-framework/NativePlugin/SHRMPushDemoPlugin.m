@@ -14,7 +14,7 @@
 @implementation SHRMPushDemoPlugin
 
 - (void)pushTestVC:(SHRMMsgCommand *)command {
-    UIViewController *rootVC = command.delegate.rootViewController;
+    UIViewController *rootVC = self.rootViewController;
     
     TestViewController *testVC = [[TestViewController alloc] init];
     [rootVC.navigationController pushViewController:testVC animated:YES];

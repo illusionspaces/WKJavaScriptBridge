@@ -1,19 +1,19 @@
 //
-//  SHRMWebViewHandleFactory.h
+//  SHRMCommandImpl.h
 //  Hybrid-framework
 //
-//  Created by 王凯 on 2018/12/7.
-//  Copyright © 2018 王凯. All rights reserved.
+//  Created by Kevin on 2019/4/20.
+//  Copyright © 2019 王凯. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
+#import "SHRMCommandProtocol.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @class SHRMWebViewEngine;
 
-@interface SHRMWebViewHandleFactory : NSObject
-- (void)handleMsgCommand:(NSArray *)arguments;
+@interface SHRMCommandImpl : NSObject<SHRMCommandProtocol>
 - (instancetype)initWithWebViewEngine:(SHRMWebViewEngine *)webViewEngine;
 @end
 

@@ -8,37 +8,34 @@
 
 #import <Foundation/Foundation.h>
 #import <WebKit/WebKit.h>
-#import "SHRMWebViewProtocol.h"
 #import "SHRMWebPluginAnnotation.h"
 #import "SHRMWebViewCookieMgr.h"
+#import "SHRMCommandProtocol.h"
+#import "SHRMJavaScriptBridgeProtocol.h"
+#import "SHRMWebViewHandleFactory.h"
+
+#define WVJB_WEBVIEW_DELEGATE_TYPE NSObject<UIWebViewDelegate>
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface SHRMWebViewEngine : NSObject<WKScriptMessageHandler, SHRMWebViewProtocol>
+@class SHRMWebViewHandleFactory;
+
+@interface SHRMWebViewEngine : NSObject<WKScriptMessageHandler, SHRMJavaScriptBridgeProtocol>
+
+@property (nonatomic, readonly, strong) id <SHRMCommandProtocol> commandDelegate;
+@property (nonatomic, readonly, strong) SHRMWebViewHandleFactory *webViewhandleFactory;
+@property (nonatomic, readonly, strong) id <SHRMJavaScriptBridgeProtocol>bridge;
 
 /**
  外部提供的webView
  */
-@property (nonatomic, weak, readonly) WKWebView *webView;
+@property (nonatomic, weak, readonly) id webView;
 
 
 /**
  webView容器
  */
 @property (nonatomic, weak) id webViewDelegate;
-
-/**
- 使用hybrid能力的viewController
- */
-- (void)setWebViewDelegate:(id)webViewDelegate;
-
-/**
- 获取插件plugin的实例对象
-
- @param pluginName 插件名称
- @return 实例对象
- */
-- (id)getCommandInstance:(NSString*)pluginName;
 
 /**
  webView绑定 bridge初始化
@@ -54,7 +51,15 @@ NS_ASSUME_NONNULL_BEGIN
  @param pluginName name
  @param onload onload
  */
-- (void)registerStartupPluginName:(NSString *)pluginName onload:(NSNumber *)onload;
+- (void)setupPluginName:(NSString *)pluginName onload:(NSNumber *)onload;
+
+/**
+ 获取plugin实例
+
+ @param pluginName plugin name
+ @return instance
+ */
+- (id)getCommandInstance:(NSString*)pluginName;
 @end
 
 NS_ASSUME_NONNULL_END

@@ -16,6 +16,6 @@
     NSString *url = [command argumentAtIndex:1];
     NSString *param = [command argumentAtIndex:2];
     NSLog(@"(%@):%@,%@,%@",command.callbackId, method, url, param);
-    [command.delegate sendPluginResult:@"device success" callbackId:command.callbackId];
+    [self.commandDelegate sendPluginResult:@"device seccess" callbackId:command.callbackId];
 }
 @end

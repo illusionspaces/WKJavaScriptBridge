@@ -8,49 +8,86 @@
 
 #import "SHRMWebViewEngine.h"
 #import "SHRMWebViewDelegate.h"
-#import "SHRMWebViewHandleFactory.h"
 #import "SHRMUIWebViewJavaScriptBridge.h"
+#import "SHRMBasePlugin.h"
+#import "SHRMCommandImpl.h"
 
 @interface SHRMWebViewEngine ()
 @property (nonatomic, strong) SHRMWebViewDelegate *WKWebViewDelegate;
-@property (nonatomic, strong) SHRMWebViewHandleFactory *webViewhandleFactory;
 @property (nonatomic, strong) SHRMWebPluginAnnotation *webPluginAnnotation;
 @property (nonatomic, strong) NSMutableDictionary *pluginObject;
-@property (nonatomic, weak, readwrite) WKWebView *webView;
+@property (nonatomic, weak, readwrite) id webView;
 @end
 
 @implementation SHRMWebViewEngine
 
-@synthesize rootViewController = _rootViewController;
-
-#pragma mark - bridge
+#pragma mark - public
 
 + (instancetype)bindBridgeWithWebView:(id)webView {
     return [self bridge:webView];
 }
 
+- (void)setupPluginName:(NSString *)pluginName onload:(NSNumber *)onload {
+    if ([onload boolValue]) {
+        [self getCommandInstance:pluginName];
+    }
+}
+
+- (id)getCommandInstance:(NSString*)pluginName {
+    id obj = [_pluginObject objectForKey:[pluginName lowercaseString]];
+    
+    if (!obj) {
+        obj = [[NSClassFromString(pluginName) alloc] initWithWebViewEngine:self];
+        
+        if (!obj) {
+            NSString* fullClassName = [NSString stringWithFormat:@"%@.%@",
+                                       NSBundle.mainBundle.infoDictionary[@"CFBundleExecutable"],
+                                       pluginName];
+            obj = [[NSClassFromString(fullClassName)alloc] init];
+        }
+        
+        if (obj != nil) {
+            [self registerPlugin:obj withPluginName:pluginName];
+        }else {
+            NSLog(@"(pluginName: (%@) does not exist.", pluginName);
+        }
+    }
+    return obj;
+}
+
+- (void)setWebViewDelegate:(NSObject<UIWebViewDelegate> *)webViewDelegate {
+    _webViewDelegate = webViewDelegate;
+}
+
+#pragma mark - privite
+
 + (instancetype)bridge:(id)webView {
+    SHRMWebViewEngine *bridge = [[SHRMWebViewEngine alloc] init];
+    bridge.webView = webView;
+    [bridge setupInstance];
+    [bridge loadStartupPlugin];
+    
     if ([webView isKindOfClass:[WKWebView class]]) {
-        SHRMWebViewEngine *bridge = [[SHRMWebViewEngine alloc] init];
         [bridge configWKWebView:webView];
         [bridge addUserScript:webView];
-        [bridge setupInstance];
-        [bridge loadStartupPlugin];
+        [bridge setJavaScriptBridge:bridge];
         return bridge;
     }
     
     if ([webView isKindOfClass:[UIWebView class]]) {
-       return (SHRMWebViewEngine *)[SHRMUIWebViewJavaScriptBridge bindBridgeWithWebView:webView];
+        SHRMUIWebViewJavaScriptBridge *uiBridge = [SHRMUIWebViewJavaScriptBridge bindBridgeWithWebView:webView];
+        [uiBridge setWebViewEngine:bridge];
+        [bridge setJavaScriptBridge:uiBridge];
+        return (SHRMWebViewEngine *)uiBridge;
     }
     [NSException raise:@"BadWebViewType" format:@"Unknown web view type."];
     return nil;
 }
 
 - (void)configWKWebView:(WKWebView *)webView {
-    _webView = webView;
-    _webView.navigationDelegate = _WKWebViewDelegate;
-    _webView.configuration.userContentController = [[WKUserContentController alloc] init];
-    [_webView.configuration.userContentController addScriptMessageHandler:self name:@"SHRMWKJSBridge"];
+    webView.navigationDelegate = _WKWebViewDelegate;
+    webView.configuration.userContentController = [[WKUserContentController alloc] init];
+    [webView.configuration.userContentController addScriptMessageHandler:self name:@"SHRMWKJSBridge"];
 }
 
 - (void)addUserScript:(WKWebView *)webView {
@@ -64,11 +101,38 @@
 
 - (void)setupInstance{
     _webViewhandleFactory = [[SHRMWebViewHandleFactory alloc] initWithWebViewEngine:self];
-    _webViewhandleFactory.webViewBridge = self;
     _WKWebViewDelegate = [[SHRMWebViewDelegate alloc] initWithWebViewEngine:self];
     _webPluginAnnotation = [[SHRMWebPluginAnnotation alloc] initWithWebViewEngine:self];
     _pluginObject = [NSMutableDictionary dictionary];
+    _commandDelegate = [[SHRMCommandImpl alloc] initWithWebViewEngine:self];
 }
+
+- (void)loadStartupPlugin {
+    [_webPluginAnnotation getAllRegisterPluginName];
+}
+
+- (void)registerPlugin:(SHRMBasePlugin *)plugin withPluginName:(NSString *)pluginName {
+    
+    if ([plugin respondsToSelector:@selector(setCommandDelegate:)]) {
+        [plugin setCommandDelegate:_commandDelegate];
+    }
+    
+     [_pluginObject setObject:plugin forKey:[pluginName lowercaseString]];
+}
+
+- (void)setJavaScriptBridge:(id<SHRMJavaScriptBridgeProtocol>)bridge {
+    _bridge = bridge;
+}
+
+#pragma mark - dealloc
+
+- (void)dealloc {
+    if ([self.webView isKindOfClass:[WKWebView class]]) {
+        WKWebView *webView = self.webView;
+        [webView.configuration.userContentController removeScriptMessageHandlerForName:@"SHRMWKJSBridge"];
+    }
+}
+
 
 #pragma mark - WKScriptMessageHandler
 
@@ -78,53 +142,11 @@
     }
 }
 
-#pragma mark - SHRMWebViewProtocol
+#pragma mark - SHRMJavaScriptBridgeProtocol
 
 - (void)sendPluginResult:(NSString *)result callbackId:(NSString*)callbackId {
     NSString *jsStr = [NSString stringWithFormat:@"fetchComplete('(%@)','%@')",callbackId,result];
     [self.webView evaluateJavaScript:jsStr completionHandler:nil];
-}
-
-- (void)runInBackground:(void (^)(void))block {
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), block);
-}
-
-#pragma mark - plugin handle
-
-- (void)loadStartupPlugin {
-    [_webPluginAnnotation getAllRegisterPluginName];
-}
-
-- (id)getCommandInstance:(NSString*)pluginName {
-    id obj = [_pluginObject objectForKey:[pluginName lowercaseString]];
-    if (!obj) {
-        obj = [[NSClassFromString(pluginName) alloc] init];
-        if (obj != nil) {
-            [_pluginObject setObject:obj forKey:[pluginName lowercaseString]];
-        }else {
-            NSLog(@"(pluginName: (%@) does not exist.", pluginName);
-        }
-    }
-    return obj;
-}
-
-- (void)setWebViewDelegate:(NSObject<UIWebViewDelegate> *)webViewDelegate {
-    _webViewDelegate = webViewDelegate;
-    if ([webViewDelegate isKindOfClass:[UIViewController class]]) {
-        self.rootViewController = (UIViewController *)webViewDelegate;
-    }
-}
-
-- (void)registerStartupPluginName:(NSString *)pluginName onload:(NSNumber *)onload {
-    if ([onload boolValue]) {
-        [self getCommandInstance:pluginName];
-    }
-}
-
-#pragma mark - dealloc
-
-- (void)dealloc {
-    [self.webView.configuration.userContentController removeScriptMessageHandlerForName:@"SHRMWKJSBridge"];
 }
 
 @end

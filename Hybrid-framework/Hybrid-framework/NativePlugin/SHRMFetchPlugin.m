@@ -16,7 +16,7 @@
     NSString *url = [command argumentAtIndex:1];
     NSString *param = [command argumentAtIndex:2];
     NSLog(@"(%@):%@,%@,%@",command.callbackId, method, url, param);
-    [command.delegate sendPluginResult:@"fetch success" callbackId:command.callbackId];
+    [self.commandDelegate sendPluginResult:@"fetch success" callbackId:command.callbackId];
 }
 
 @end

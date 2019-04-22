@@ -7,11 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "SHRMMsgCommand.h"
+#import "SHRMBasePlugin.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface SHRMDevicePlugin : NSObject
+@interface SHRMDevicePlugin : SHRMBasePlugin
 - (void)nativeDevice:(SHRMMsgCommand *)command;
 @end
 

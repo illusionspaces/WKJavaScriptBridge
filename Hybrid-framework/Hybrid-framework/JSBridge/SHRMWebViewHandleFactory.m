@@ -36,7 +36,6 @@
 
 - (void)executePending:(NSArray *)command {
     SHRMMsgCommand *msgCommand = [SHRMMsgCommand commandFromJson:command];
-    msgCommand.delegate = _webViewBridge;
     if (![self execute:msgCommand]) {
         NSLog(@"%@.%@ execute fail",msgCommand.className, msgCommand.methodName);
     }
@@ -51,7 +50,7 @@
     BOOL retVal = YES;
     double started = [[NSDate date] timeIntervalSince1970] * 1000.0;
     
-    id instance = [_webViewEngine getCommandInstance:command.className];
+    id instance = [_webViewEngine.commandDelegate getCommandInstance:command.className];
 
     NSString* methodName = [NSString stringWithFormat:@"%@:", command.methodName];
     SEL normalSelector = NSSelectorFromString(methodName);
