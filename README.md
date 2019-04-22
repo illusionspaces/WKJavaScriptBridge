@@ -1,4 +1,5 @@
 # 简介
+### 兼容WKWebView和UIWebView
 ### WKWebView通信：addScriptMessageHandler
 ### UIWebView通信：JavaScriptCore
 ### 框架详细介绍戳这里：https://juejin.im/post/5c07d95ee51d451d930b04c7
