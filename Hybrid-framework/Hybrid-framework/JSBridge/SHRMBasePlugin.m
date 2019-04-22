@@ -9,6 +9,10 @@
 #import "SHRMBasePlugin.h"
 #import "SHRMWebViewEngine.h"
 
+@interface SHRMBasePlugin ()
+@property (nonatomic, weak) SHRMWebViewEngine *webViewEngine;
+@end
+
 @implementation SHRMBasePlugin
 
 - (instancetype)initWithWebViewEngine:(SHRMWebViewEngine *)webViewEngine {

@@ -17,10 +17,9 @@ NS_ASSUME_NONNULL_BEGIN
 @interface SHRMBasePlugin : NSObject
 
 @property (nonatomic, weak) id <SHRMCommandProtocol> commandDelegate;
-@property (nonatomic, weak) SHRMWebViewEngine *webViewEngine;
 @property (nonatomic, readonly, weak) UIViewController* rootViewController;
-- (instancetype)initWithWebViewEngine:(SHRMWebViewEngine *)webViewEngine;
 
+- (instancetype)initWithWebViewEngine:(SHRMWebViewEngine *)webViewEngine;
 - (void)pluginInitialize;
 - (void)onAppTerminate;
 - (void)onMemoryWarning;
