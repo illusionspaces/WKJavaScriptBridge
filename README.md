@@ -14,7 +14,7 @@
 
 
 # 使用说明：
-## WebView绑定，让WebView具有Hybrid能力：
+## 一、WebView绑定，让WebView具有Hybrid能力：
 ```
 #import "SHRMWebViewEngine.h"
 @interface TestUIWebViewController ()
@@ -29,7 +29,7 @@ _bridge = [SHRMWebViewEngine bindBridgeWithWebView:webView];
 ```
 
 
-## 自定义业务插件（当有了一个新的需求或者JS-Native的交互需要将其定义为插件，例如JS端想获取当前定位，或者JS端想获取设备信息等等）
+## 二、自定义业务插件（当有了一个新的需求或者JS-Native的交互需要将其定义为插件，例如JS端想获取当前定位，或者JS端想获取设备信息等等）
 
 ### 1.创建插件类，继承自SHRMBasePlugin。
 ### 2.插件类里面添加@SHRMRegisterWebPlugin宏，暂时用于插件是否需要提前初始化，加快第一次调用速度。也可以扩充一些其他功能。
