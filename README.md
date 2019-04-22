@@ -1,6 +1,6 @@
 # 简介
-### 两行代码让webView拥有Hybrid能力，兼容WKWebView和UIWebView
-### WKWebView通信：addScriptMessageHandler
+### 两行代码让WebView拥有Hybrid能力，兼容WKWebView和UIWebView
+### WKWebView通信：addScritMessageHandler
 ### UIWebView通信：JavaScriptCore
 ### 框架详细介绍戳这里：https://juejin.im/post/5c07d95ee51d451d930b04c7
 
