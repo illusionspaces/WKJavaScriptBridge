@@ -33,6 +33,7 @@ _bridge = [SHRMWebViewEngine bindBridgeWithWebView:webView];
 
 ### 1.创建插件类，继承自SHRMBasePlugin。
 ### 2.插件类里面添加@SHRMRegisterWebPlugin宏，暂时用于插件是否需要提前初始化，加快第一次调用速度。也可以扩充一些其他功能。
+### 3.插件里构建业务逻辑，并把结果回传给JS侧。
 
 ```
 #import "SHRMBasePlugin.h"
