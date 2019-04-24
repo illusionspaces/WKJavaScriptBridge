@@ -14,7 +14,7 @@
 
 
 # 使用说明：
-## 一、WebView绑定，让WebView具有Hybrid能力：
+## 一、WebView绑定，让WebView具有Hybrid能力：（任意webView，UI&WK）
 ```
 #import "SHRMWebViewEngine.h"
 @interface TestUIWebViewController ()
@@ -52,7 +52,9 @@ _bridge = [SHRMWebViewEngine bindBridgeWithWebView:webView];
     NSString *url = [command argumentAtIndex:1];
     NSString *param = [command argumentAtIndex:2];
     NSLog(@"(%@):%@,%@,%@",command.callbackId, method, url, param);
-    [self.commandDelegate sendPluginResult:@"uiwebview test success!" callbackId:command.callbackId];
+
+    SHRMPluginResult *result = [SHRMPluginResult resultWithStatus:SHRMCommandStatus_OK messageAsString:@"uiwebview test success!"];
+    [self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
 }
 @end
 ```
