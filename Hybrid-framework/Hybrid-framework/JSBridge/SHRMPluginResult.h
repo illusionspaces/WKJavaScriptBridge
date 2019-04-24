@@ -22,6 +22,8 @@ typedef NS_ENUM(NSInteger, SHRMCommandStatus) {
 
 + (SHRMPluginResult*)resultWithStatus:(SHRMCommandStatus)statusOrdinal messageAsDictionary:(NSDictionary*)theMessage;
 
++ (SHRMPluginResult *)resultWithStatus:(SHRMCommandStatus)statusOrdinal messageAsString:(NSString *)theMessage;
+
 - (NSString*)argumentsAsJSON;
 
 @end

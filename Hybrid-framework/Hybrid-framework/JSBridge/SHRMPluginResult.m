@@ -17,12 +17,15 @@
 
 @implementation SHRMPluginResult
 
-+ (SHRMPluginResult*)resultWithStatus:(SHRMCommandStatus)statusOrdinal messageAsDictionary:(NSDictionary*)theMessage {
++ (SHRMPluginResult *)resultWithStatus:(SHRMCommandStatus)statusOrdinal messageAsDictionary:(NSDictionary *)theMessage {
     return [[self alloc] initWithStatus:statusOrdinal message:theMessage];
 }
 
-- (SHRMPluginResult*)initWithStatus:(SHRMCommandStatus)statusOrdinal message:(id)theMessage
-{
++ (SHRMPluginResult *)resultWithStatus:(SHRMCommandStatus)statusOrdinal messageAsString:(NSString *)theMessage {
+    return [[self alloc] initWithStatus:statusOrdinal message:theMessage];
+}
+
+- (SHRMPluginResult*)initWithStatus:(SHRMCommandStatus)statusOrdinal message:(id)theMessage {
     self = [super init];
     if (self) {
         self.status = [NSNumber numberWithInt:statusOrdinal];
