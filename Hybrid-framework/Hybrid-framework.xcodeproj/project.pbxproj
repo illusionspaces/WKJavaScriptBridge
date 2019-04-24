@@ -15,6 +15,7 @@
 		0A9A3963226D940600D0DF43 /* TestUIWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A9A3960226D940600D0DF43 /* TestUIWebViewController.m */; };
 		0A9A3964226D940600D0DF43 /* index1.html in Resources */ = {isa = PBXBuildFile; fileRef = 0A9A3961226D940600D0DF43 /* index1.html */; };
 		0A9A3965226D940600D0DF43 /* TestWKWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A9A3962226D940600D0DF43 /* TestWKWebViewController.m */; };
+		0A9A3968226F027B00D0DF43 /* SHRMPluginResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A9A3967226F027B00D0DF43 /* SHRMPluginResult.m */; };
 		0A9E4690225B2922003F6574 /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A9E468F225B2922003F6574 /* TestViewController.m */; };
 		0A9E4693225B2F07003F6574 /* SHRMPushDemoPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A9E4692225B2F07003F6574 /* SHRMPushDemoPlugin.m */; };
 		0ABC13D4226323DA009E19E6 /* SHRMUIWebViewJavaScriptBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ABC13D3226323DA009E19E6 /* SHRMUIWebViewJavaScriptBridge.m */; };
@@ -54,6 +55,8 @@
 		0A9A3960226D940600D0DF43 /* TestUIWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestUIWebViewController.m; sourceTree = "<group>"; };
 		0A9A3961226D940600D0DF43 /* index1.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index1.html; sourceTree = "<group>"; };
 		0A9A3962226D940600D0DF43 /* TestWKWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestWKWebViewController.m; sourceTree = "<group>"; };
+		0A9A3966226F027B00D0DF43 /* SHRMPluginResult.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SHRMPluginResult.h; sourceTree = "<group>"; };
+		0A9A3967226F027B00D0DF43 /* SHRMPluginResult.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SHRMPluginResult.m; sourceTree = "<group>"; };
 		0A9E468E225B2922003F6574 /* TestViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestViewController.h; sourceTree = "<group>"; };
 		0A9E468F225B2922003F6574 /* TestViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestViewController.m; sourceTree = "<group>"; };
 		0A9E4691225B2F07003F6574 /* SHRMPushDemoPlugin.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SHRMPushDemoPlugin.h; sourceTree = "<group>"; };
@@ -156,16 +159,14 @@
 		832F7E5021BA38F70076D164 /* JSBridge */ = {
 			isa = PBXGroup;
 			children = (
+				0A9A3951226D93E500D0DF43 /* SHRMCommandProtocol.h */,
+				0A9A3952226D93E500D0DF43 /* SHRMJavaScriptBridgeProtocol.h */,
+				832F7E5121BA38F70076D164 /* SHRMWebViewEngine.h */,
+				832F7E5521BA38F70076D164 /* SHRMWebViewEngine.m */,
 				0A9A3953226D93E500D0DF43 /* SHRMBasePlugin.h */,
 				0A9A3950226D93E500D0DF43 /* SHRMBasePlugin.m */,
 				0A9A3954226D93E500D0DF43 /* SHRMCommandImpl.h */,
 				0A9A3957226D93E600D0DF43 /* SHRMCommandImpl.m */,
-				0A9A3951226D93E500D0DF43 /* SHRMCommandProtocol.h */,
-				0A9A3952226D93E500D0DF43 /* SHRMJavaScriptBridgeProtocol.h */,
-				0A9A3955226D93E500D0DF43 /* UIWebView+TS_JavaScriptContext.h */,
-				0A9A3956226D93E500D0DF43 /* UIWebView+TS_JavaScriptContext.m */,
-				832F7E5121BA38F70076D164 /* SHRMWebViewEngine.h */,
-				832F7E5521BA38F70076D164 /* SHRMWebViewEngine.m */,
 				832F7E5221BA38F70076D164 /* SHRMMsgCommand.h */,
 				832F7E5721BA38F70076D164 /* SHRMMsgCommand.m */,
 				832F7E5821BA38F70076D164 /* SHRMWebViewDelegate.h */,
@@ -178,6 +179,10 @@
 				0AC786EF2255AB3C00CD5054 /* SHRMWebViewCookieMgr.m */,
 				0ABC13D2226323DA009E19E6 /* SHRMUIWebViewJavaScriptBridge.h */,
 				0ABC13D3226323DA009E19E6 /* SHRMUIWebViewJavaScriptBridge.m */,
+				0A9A3955226D93E500D0DF43 /* UIWebView+TS_JavaScriptContext.h */,
+				0A9A3956226D93E500D0DF43 /* UIWebView+TS_JavaScriptContext.m */,
+				0A9A3966226F027B00D0DF43 /* SHRMPluginResult.h */,
+				0A9A3967226F027B00D0DF43 /* SHRMPluginResult.m */,
 			);
 			path = JSBridge;
 			sourceTree = "<group>";
@@ -276,6 +281,7 @@
 				832F7E5A21BA38F70076D164 /* SHRMWebViewEngine.m in Sources */,
 				0A9E4690225B2922003F6574 /* TestViewController.m in Sources */,
 				0A9A3963226D940600D0DF43 /* TestUIWebViewController.m in Sources */,
+				0A9A3968226F027B00D0DF43 /* SHRMPluginResult.m in Sources */,
 				832F7E5C21BA38F70076D164 /* SHRMMsgCommand.m in Sources */,
 				832F7E8E21BEB6220076D164 /* SHRMPhontoPlugin.m in Sources */,
 				0A9A395A226D93E600D0DF43 /* SHRMCommandImpl.m in Sources */,

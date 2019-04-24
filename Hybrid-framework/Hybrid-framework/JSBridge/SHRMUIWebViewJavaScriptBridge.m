@@ -92,9 +92,12 @@
 
 #pragma mark - SHRMJavaScriptBridgeProtocol
 
-- (void)sendPluginResult:(NSString *)result callbackId:(NSString*)callbackId {
-    NSString *jsStr = [NSString stringWithFormat:@"fetchComplete('(%@)','%@')",callbackId,result];
-    [_webView stringByEvaluatingJavaScriptFromString:jsStr];
+- (void)evaluateJavaScript:(NSString *)javaScriptString completionHandler:(void (^)(id , NSError * ))completionHandler {
+    NSString* ret = [(UIWebView*)_webView stringByEvaluatingJavaScriptFromString:javaScriptString];
+    
+    if (completionHandler) {
+        completionHandler(ret, nil);
+    }
 }
 
 @end

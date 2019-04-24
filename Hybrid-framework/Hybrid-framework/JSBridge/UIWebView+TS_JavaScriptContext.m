@@ -32,7 +32,7 @@ static NSHashTable* g_webViews = nil;
     if ( [frame respondsToSelector: @selector( parentFrame) ] && [frame parentFrame] != nil )
         return;
     
-    void (^notifyDidCreateJavaScriptContext)() = ^{
+    void (^notifyDidCreateJavaScriptContext)(void) = ^{
         
         for ( UIWebView* webView in g_webViews )
         {

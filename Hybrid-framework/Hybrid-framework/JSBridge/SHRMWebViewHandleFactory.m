@@ -50,8 +50,13 @@
     BOOL retVal = YES;
     double started = [[NSDate date] timeIntervalSince1970] * 1000.0;
     
-    id instance = [_webViewEngine.commandDelegate getCommandInstance:command.className];
-
+    SHRMBasePlugin *instance = [_webViewEngine.commandDelegate getCommandInstance:command.className];
+    
+    if (!([instance isKindOfClass:[SHRMBasePlugin class]])) {
+        NSLog(@"ERROR: Plugin '%@' not found, or is not a Plugin. Check your plugin mapping in config.xml.", command.className);
+        return NO;
+    }
+    
     NSString* methodName = [NSString stringWithFormat:@"%@:", command.methodName];
     SEL normalSelector = NSSelectorFromString(methodName);
     if ([instance respondsToSelector:normalSelector]) {

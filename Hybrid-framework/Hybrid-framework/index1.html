@@ -8,7 +8,7 @@
                 postUIWebViewParamer(['13383446','SHRMTestUIWebViewPlguin','nativeTestUIWebView',['post','openFile','user']])
             }
             
-            function fetchComplete(id,result) {
+            function fetchComplete(id,status,result) {
                 asyncAlert(result);
                 document.getElementById("returnValue").value = (id) + result;
             }
