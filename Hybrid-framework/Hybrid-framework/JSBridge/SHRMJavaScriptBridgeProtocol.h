@@ -11,13 +11,14 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @protocol SHRMJavaScriptBridgeProtocol <NSObject>
+
 /**
- native 调用 js 接口
- 
- @param result simulate data
- @param callbackId callbackId
+ native 调用 js接口
+
+ @param javaScriptString js
+ @param completionHandler 结果回调
  */
-- (void)sendPluginResult:(NSString *)result callbackId:(NSString*)callbackId;
+- (void)evaluateJavaScript:(NSString *)javaScriptString completionHandler:(void (^)(id, NSError *))completionHandler;
 @end
 
 NS_ASSUME_NONNULL_END

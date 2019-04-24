@@ -13,6 +13,7 @@
 #import "SHRMCommandProtocol.h"
 #import "SHRMJavaScriptBridgeProtocol.h"
 #import "SHRMWebViewHandleFactory.h"
+#import "SHRMBasePlugin.h"
 
 #define WVJB_WEBVIEW_DELEGATE_TYPE NSObject<UIWebViewDelegate>
 
@@ -29,11 +30,11 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  外部提供的webView
  */
-@property (nonatomic, weak, readonly) id webView;
+@property (nonatomic, readonly, weak) id webView;
 
 
 /**
- webView容器
+ webView容器VC
  */
 @property (nonatomic, weak) id webViewDelegate;
 

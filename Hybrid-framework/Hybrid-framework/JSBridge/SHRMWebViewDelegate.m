@@ -9,9 +9,10 @@
 #import "SHRMWebViewDelegate.h"
 #import "SHRMWebViewEngine.h"
 
+#define WVJB_WKWEBVIEW_DELEGATE_TYPE NSObject<WKNavigationDelegate>
+
 @implementation SHRMWebViewDelegate {
     __weak SHRMWebViewEngine *_webViewEngine;
-    UIProgressView *_progressView;
 }
 
 - (instancetype)initWithWebViewEngine:(SHRMWebViewEngine *)webViewEngine {
@@ -31,10 +32,89 @@
     //302 cookie注入
     [SHRMWebViewCookieMgr resetCookie];
     
-    if (_webViewEngine.webViewDelegate && [_webViewEngine.webViewDelegate respondsToSelector:@selector(webView:decidePolicyForNavigationAction:decisionHandler:)]) {
+    __strong WVJB_WKWEBVIEW_DELEGATE_TYPE* strongDelegate = _webViewEngine.webViewDelegate;
+    if (strongDelegate && [strongDelegate respondsToSelector:@selector(webView:decidePolicyForNavigationAction:decisionHandler:)]) {
         [_webViewEngine.webViewDelegate webView:webView decidePolicyForNavigationAction:navigationAction decisionHandler:decisionHandler];
     }else {
         decisionHandler(WKNavigationActionPolicyAllow);
+    }
+}
+
+- (void)webView:(WKWebView *)webView decidePolicyForNavigationResponse:(WKNavigationResponse *)navigationResponse decisionHandler:(void (^)(WKNavigationResponsePolicy))decisionHandler {
+    
+    __strong WVJB_WKWEBVIEW_DELEGATE_TYPE* strongDelegate = _webViewEngine.webViewDelegate;
+    if (strongDelegate && [strongDelegate respondsToSelector:@selector(webView:decidePolicyForNavigationResponse:decisionHandler:)]) {
+        [strongDelegate webView:webView decidePolicyForNavigationResponse:navigationResponse decisionHandler:decisionHandler];
+    }else {
+        decisionHandler(WKNavigationResponsePolicyAllow);
+    }
+}
+
+- (void)webView:(WKWebView *)webView didStartProvisionalNavigation:(null_unspecified WKNavigation *)navigation {
+    
+    __strong WVJB_WKWEBVIEW_DELEGATE_TYPE* strongDelegate = _webViewEngine.webViewDelegate;
+    if (strongDelegate && [strongDelegate respondsToSelector:@selector(webView:didStartProvisionalNavigation:)]) {
+        [strongDelegate webView:webView didStartProvisionalNavigation:navigation];
+    }
+}
+
+- (void)webView:(WKWebView *)webView didReceiveServerRedirectForProvisionalNavigation:(null_unspecified WKNavigation *)navigation {
+    
+    __strong WVJB_WKWEBVIEW_DELEGATE_TYPE* strongDelegate = _webViewEngine.webViewDelegate;
+    if (strongDelegate && [strongDelegate respondsToSelector:@selector(webView:didReceiveServerRedirectForProvisionalNavigation:)]) {
+        [strongDelegate webView:webView didReceiveServerRedirectForProvisionalNavigation:navigation];
+    }
+}
+
+- (void)webView:(WKWebView *)webView didFailProvisionalNavigation:(null_unspecified WKNavigation *)navigation withError:(NSError *)error {
+    
+    __strong WVJB_WKWEBVIEW_DELEGATE_TYPE* strongDelegate = _webViewEngine.webViewDelegate;
+    if (strongDelegate && [strongDelegate respondsToSelector:@selector(webView:didFailProvisionalNavigation:withError:)]) {
+        [strongDelegate webView:webView didFailProvisionalNavigation:navigation withError:error];
+    }
+}
+
+- (void)webView:(WKWebView *)webView didCommitNavigation:(null_unspecified WKNavigation *)navigation {
+    
+    __strong WVJB_WKWEBVIEW_DELEGATE_TYPE* strongDelegate = _webViewEngine.webViewDelegate;
+    if (strongDelegate && [strongDelegate respondsToSelector:@selector(webView:didCommitNavigation:)]) {
+        [strongDelegate webView:webView didCommitNavigation:navigation];
+    }
+}
+
+- (void)webView:(WKWebView *)webView didFinishNavigation:(null_unspecified WKNavigation *)navigation {
+    
+    __strong WVJB_WKWEBVIEW_DELEGATE_TYPE* strongDelegate = _webViewEngine.webViewDelegate;
+    if (strongDelegate && [strongDelegate respondsToSelector:@selector(webView:didFinishNavigation:)]) {
+        [strongDelegate webView:webView didFinishNavigation:navigation];
+    }
+}
+
+- (void)webView:(WKWebView *)webView didFailNavigation:(null_unspecified WKNavigation *)navigation withError:(NSError *)error {
+    
+    __strong WVJB_WKWEBVIEW_DELEGATE_TYPE* strongDelegate = _webViewEngine.webViewDelegate;
+    if (strongDelegate && [strongDelegate respondsToSelector:@selector(webView:didFailNavigation:withError:)]) {
+        [strongDelegate webView:webView didFailNavigation:navigation withError:error];
+    }
+}
+
+- (void)webView:(WKWebView *)webView didReceiveAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge completionHandler:(void (^)(NSURLSessionAuthChallengeDisposition disposition, NSURLCredential * _Nullable credential))completionHandler {
+    
+    __strong WVJB_WKWEBVIEW_DELEGATE_TYPE* strongDelegate = _webViewEngine.webViewDelegate;
+    if (strongDelegate && [strongDelegate respondsToSelector:@selector(webView:didReceiveAuthenticationChallenge:completionHandler:)]) {
+        [strongDelegate webView:webView didReceiveAuthenticationChallenge:challenge completionHandler:completionHandler];
+    }
+}
+
+- (void)webViewWebContentProcessDidTerminate:(WKWebView *)webView {
+    
+    __strong WVJB_WKWEBVIEW_DELEGATE_TYPE* strongDelegate = _webViewEngine.webViewDelegate;
+    if (strongDelegate && [strongDelegate respondsToSelector:@selector(webViewWebContentProcessDidTerminate:)]) {
+        if (@available(iOS 9.0, *)) {
+            [strongDelegate webViewWebContentProcessDidTerminate:webView];
+        } else {
+            
+        }
     }
 }
 

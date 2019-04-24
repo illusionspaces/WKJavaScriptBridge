@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface TestUIWebViewController : UIViewController
+@interface TestUIWebViewController : UIViewController <UIWebViewDelegate>
 
 @end
 

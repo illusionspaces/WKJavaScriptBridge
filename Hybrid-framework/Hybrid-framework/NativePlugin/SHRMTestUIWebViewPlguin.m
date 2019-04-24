@@ -16,6 +16,8 @@
     NSString *url = [command argumentAtIndex:1];
     NSString *param = [command argumentAtIndex:2];
     NSLog(@"(%@):%@,%@,%@",command.callbackId, method, url, param);
-    [self.commandDelegate sendPluginResult:@"uiwebview test success!" callbackId:command.callbackId];
+
+    SHRMPluginResult *result = [SHRMPluginResult resultWithStatus:SHRMCommandStatus_OK messageAsString:@"uiwebview test success!"];
+    [self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
 }
 @end

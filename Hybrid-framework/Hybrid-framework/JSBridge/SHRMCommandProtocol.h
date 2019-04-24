@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "SHRMMsgCommand.h"
+#import "SHRMPluginResult.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -19,7 +20,7 @@ NS_ASSUME_NONNULL_BEGIN
  @param result simulate data
  @param callbackId callbackId
  */
-- (void)sendPluginResult:(NSString *)result callbackId:(NSString*)callbackId;
+- (void)sendPluginResult:(SHRMPluginResult *)result callbackId:(NSString*)callbackId;
 
 /**
  封装个子线程接口 执行耗时插件

@@ -9,7 +9,6 @@
 #import "SHRMWebViewEngine.h"
 #import "SHRMWebViewDelegate.h"
 #import "SHRMUIWebViewJavaScriptBridge.h"
-#import "SHRMBasePlugin.h"
 #import "SHRMCommandImpl.h"
 
 @interface SHRMWebViewEngine ()
@@ -133,7 +132,6 @@
     }
 }
 
-
 #pragma mark - WKScriptMessageHandler
 
 - (void)userContentController:(WKUserContentController *)userContentController didReceiveScriptMessage:(WKScriptMessage *)message {
@@ -144,9 +142,14 @@
 
 #pragma mark - SHRMJavaScriptBridgeProtocol
 
-- (void)sendPluginResult:(NSString *)result callbackId:(NSString*)callbackId {
-    NSString *jsStr = [NSString stringWithFormat:@"fetchComplete('(%@)','%@')",callbackId,result];
-    [self.webView evaluateJavaScript:jsStr completionHandler:nil];
+- (void)evaluateJavaScript:(NSString *)javaScriptString completionHandler:(void (^)(id , NSError *))completionHandler {
+    WKWebView *webView = self.webView;
+    [webView evaluateJavaScript:javaScriptString completionHandler:^(id obj, NSError * _Nullable error) {
+        if (completionHandler) {
+            completionHandler(obj, error);
+        }
+    }];
 }
+
 
 @end

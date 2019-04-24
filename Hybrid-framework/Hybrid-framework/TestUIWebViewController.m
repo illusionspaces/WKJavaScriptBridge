@@ -29,14 +29,21 @@
     [webView loadRequest:[NSURLRequest requestWithURL:fileURL]];
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)webViewDidStartLoad:(UIWebView *)webView {
+    NSLog(@"UIWebView webViewDidStartLoad");
 }
-*/
+
+- (void)webViewDidFinishLoad:(UIWebView *)webView {
+    NSLog(@"UIWebView webViewDidFinishLoad");
+}
+
+- (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
+    NSLog(@"UIWebView webView:didFailLoadWithError:");
+}
+
+- (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
+    return YES;
+}
+
 
 @end

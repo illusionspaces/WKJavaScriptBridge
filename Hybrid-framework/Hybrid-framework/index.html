@@ -19,7 +19,7 @@
                 window.webkit.messageHandlers.SHRMWKJSBridge.postMessage(['13383446','SHRMPushDemoPlugin','pushTestVC',['post','device info','user']]);
             }
             
-            function fetchComplete(id,result) {
+            function fetchComplete(id,status,result) {
                 asyncAlert(result);
                 document.getElementById("returnValue").value = (id) + result;
             }
