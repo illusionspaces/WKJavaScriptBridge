@@ -10,7 +10,7 @@
 #import <WebKit/WebKit.h>
 #import "SHRMWebViewEngine.h"
 
-@interface TestWKWebViewController ()
+@interface TestWKWebViewController ()<WKNavigationDelegate>
 @property (nonatomic, strong) SHRMWebViewEngine* bridge;
 @end
 
@@ -26,6 +26,7 @@
     preferences.minimumFontSize = 40.0;
     configuration.preferences = preferences;
     WKWebView *webView = [[WKWebView alloc] initWithFrame:self.view.frame configuration:configuration];
+    webView.navigationDelegate = self;
     /***/
     _bridge = [SHRMWebViewEngine bindBridgeWithWebView:webView];
     [_bridge setWebViewDelegate:self];
@@ -40,14 +41,9 @@
     }
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)webView:(WKWebView *)webView decidePolicyForNavigationAction:(WKNavigationAction *)navigationAction decisionHandler:(void (^)(WKNavigationActionPolicy))decisionHandler {
+    
+    decisionHandler(WKNavigationActionPolicyAllow);
 }
-*/
 
 @end
