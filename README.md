@@ -107,8 +107,23 @@ SHRMPluginResult *result = [SHRMPluginResult resultWithStatus:SHRMCommandStatus_
 ### 3.自定义业务插件（JS侧）
 
 JS侧目前还没有开放插件化功能，只是说还不够完善，但它不影响功能使用：
-1. 如果JS加载在WKWebView，JS调用Native通过`window.webkit.messageHandlers.SHRMWKJSBridge.postMessage(['13383445','SHRMFetchPlugin','nativeFentch',['post','https:www.baidu.com','user']])`即可，`['post','https:www.baidu.com','user']`为想要传递的参数。`13383445`为此次通信ID，`SHRMFetchPlugin`为Native侧插件类名，`nativeFentch`为插件方法名。
-2. 如果JS加载在UIWebView，JS调用Native通过`postUIWebViewParamer(['13383446','SHRMTestUIWebViewPlguin','nativeTestUIWebView',['post','openFile','user']])`即可，其中`['post','openFile','user']`依旧为你想要传递的参数，另外三个参数含义同上。
+1. 如果JS加载在`WKWebView`，JS调用Native通过
+```
+window.webkit.messageHandlers.SHRMWKJSBridge.postMessage(['13383445','SHRMFetchPlugin','nativeFentch',['post','https:www.baidu.com','user']])
+```
+即可。
+`['post','https:www.baidu.com','user']`为想要传递的参数。
+`13383445`为此次通信ID。
+`SHRMFetchPlugin`为Native侧插件类名。
+`nativeFentch`为插件方法名。
+
+2. 如果JS加载在`UIWebView`，JS调用Native通过
+```
+postUIWebViewParamer(['13383446','SHRMTestUIWebViewPlguin','nativeTestUIWebView',['post','openFile','user']])
+```
+即可，其中`['post','openFile','user']`
+依旧为你想要传递的参数，另外三个参数含义同上。
+
 3. 详细使用参照Demo。
 
 ## 后续功能延伸：
