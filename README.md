@@ -25,6 +25,11 @@
 
 下载SHRMJavaScriptBridge文件夹，将SHRMJavaScriptBridge文件夹拖入到你的工程中。
 
+### 2.CocoaPods
+1. 在 Podfile 中添加 `pod 'SHRMJavaScriptBridge'`。
+2. 执行 `pod install` 或 `pod update`。
+3. 导入 `<SHRMWebViewEngine.h>`。
+
 
 ## 用法
 `SHRMWebViewEngine`是框架的主体类，对外提供两个函数：`bindBridgeWithWebView:`传入你的webView，`setWebViewDelegate:`传入你的controller，用来拦截webView的代理函数。具体参照demo。
