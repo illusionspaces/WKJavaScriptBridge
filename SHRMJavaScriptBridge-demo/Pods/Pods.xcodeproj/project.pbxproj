@@ -1,0 +1,586 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		00B9A12C0C293BC8928B5546EA1A70A4 /* SHRMPluginResult.m in Sources */ = {isa = PBXBuildFile; fileRef = B49D500B291B32AE145F999E690A99EA /* SHRMPluginResult.m */; };
+		0AE6A0588B7473D6A2A3C3612F3223D0 /* SHRMWebPluginAnnotation.h in Headers */ = {isa = PBXBuildFile; fileRef = 9F7D67E0AC3AF56430FBA3F0134DF562 /* SHRMWebPluginAnnotation.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		0F3331B9D10C7EEEFB4D06B1A1F118C3 /* SHRMBasePlugin.h in Headers */ = {isa = PBXBuildFile; fileRef = 9109589CA05829F03AD8C4AFAD39F9F6 /* SHRMBasePlugin.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		25C2477B4086DACC3405DAAE7AA4BB57 /* SHRMBasePlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = E4ECA83F17D7862F571FF4AAB581913E /* SHRMBasePlugin.m */; };
+		46D786A561CCE0697D38BC3ECA32ACA1 /* SHRMWebViewCookieMgr.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C1A0F04BD95EF7C7144B83B5F440E56 /* SHRMWebViewCookieMgr.m */; };
+		51669E01BF5556F20A82EA18B665A9A8 /* SHRMWebViewEngine.h in Headers */ = {isa = PBXBuildFile; fileRef = FCD9E486A9C38887E70B9B54331AC2A5 /* SHRMWebViewEngine.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		54E8D680FC8B6BC85B5AAFC92D750CEA /* UIWebView+TS_JavaScriptContext.h in Headers */ = {isa = PBXBuildFile; fileRef = F369E891AE03ABD3BFDA195B2E0ED754 /* UIWebView+TS_JavaScriptContext.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		825D76D605C761C66CE9A6B404548CEA /* SHRMWebViewHandleFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AF587C3DBC693A6BA10E3D68941CB97 /* SHRMWebViewHandleFactory.m */; };
+		939425362786485204C9D436C7B93BE3 /* SHRMMsgCommand.h in Headers */ = {isa = PBXBuildFile; fileRef = AB12986A587B3249EB3D091661A2F0B9 /* SHRMMsgCommand.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		97C0FB7DBD838BE14D6F594045134AF7 /* SHRMWebViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 69D4D4F94C8B874A4E4472D552995085 /* SHRMWebViewDelegate.m */; };
+		A4B35E1F7D97A3B9D9AAF1B1120DAC00 /* SHRMCommandImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = 635699880E4520ACEAA0B1A4DACF3228 /* SHRMCommandImpl.m */; };
+		AC2518CE97C0F593604A3221137C6EA3 /* Pods-SHRMJavaScriptBridge-demo-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 764B777C217AD69594499F30C3318D9A /* Pods-SHRMJavaScriptBridge-demo-dummy.m */; };
+		B5D9C34FA934DFF53B9CF16532107B28 /* SHRMWebViewCookieMgr.h in Headers */ = {isa = PBXBuildFile; fileRef = 8142865A146977B78C0FB939473D232B /* SHRMWebViewCookieMgr.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		BBFFAAA92314D4B993C656784273FD79 /* SHRMWebViewEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F1A5BCCE3559A4AE74805F1FE1FF7F8 /* SHRMWebViewEngine.m */; };
+		BC9708ED9F9895066891EBF583D5BFD5 /* SHRMPluginResult.h in Headers */ = {isa = PBXBuildFile; fileRef = 203ED2C883E455BDC2E0FB3E46BE83C7 /* SHRMPluginResult.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		C1E9138D0866895A439DECC4D641481D /* UIWebView+TS_JavaScriptContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 60DD30AFA17DD24B82BB17C92F9FB053 /* UIWebView+TS_JavaScriptContext.m */; };
+		C410E85AAFACEC4E838CD737F05AF15E /* SHRMUIWebViewJavaScriptBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = CB3AEBC55D81E25CB1F75B19510C9053 /* SHRMUIWebViewJavaScriptBridge.m */; };
+		D38C0E838B94A27B748FAB894BF8D11D /* SHRMWebViewHandleFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D6DA0F308A1A96CBC8E000FAA7291E5 /* SHRMWebViewHandleFactory.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		E298EE7C832C2C3694990EBD5C59A463 /* SHRMCommandImpl.h in Headers */ = {isa = PBXBuildFile; fileRef = FA8D38E7C376148E212111B60FB1C1C5 /* SHRMCommandImpl.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		E2CFE3A75D2B8EBB5A1B21FD1C474D82 /* SHRMJavaScriptBridgeProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = DBF1E2873C3FD864B5248F630C53E8CC /* SHRMJavaScriptBridgeProtocol.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		E683046A6E5CD14E5C946D448B755764 /* SHRMCommandProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = D21240A8AF5AC113D37D5EC8B8065F83 /* SHRMCommandProtocol.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		EB53D0130E28CB49E600A6CA6DC7A91D /* SHRMMsgCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 203E003B083E495E4D63E677D03D6042 /* SHRMMsgCommand.m */; };
+		ED43227D2691DB10B919A9A16266FE0C /* SHRMWebPluginAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 007C864772C1FF10A73675BCD6065A30 /* SHRMWebPluginAnnotation.m */; };
+		FB704ACB8A09FB3582711EE0ADF9A83E /* SHRMWebViewDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = BFF6CBD829B16CA1937F4787F15B542D /* SHRMWebViewDelegate.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		FB9808D2809739135E06BF21DD6A7B24 /* SHRMUIWebViewJavaScriptBridge.h in Headers */ = {isa = PBXBuildFile; fileRef = 65467DF428F75474095823B7FE795F51 /* SHRMUIWebViewJavaScriptBridge.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		FC3CA942CF323BFBEA3D463D95090AB4 /* SHRMJavaScriptBridge-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = AE95AAF29DC84456AF24BF0DD435923D /* SHRMJavaScriptBridge-dummy.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		CCCCC6673FE61036350C7811FAB6E988 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C1A58403B1D5A9E3C9B1F04F24F3294D;
+			remoteInfo = SHRMJavaScriptBridge;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		007C864772C1FF10A73675BCD6065A30 /* SHRMWebPluginAnnotation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SHRMWebPluginAnnotation.m; path = SHRMJavaScriptBridge/SHRMWebPluginAnnotation.m; sourceTree = "<group>"; };
+		04E1AC7AEEB7129A59E75839C430C0D8 /* SHRMJavaScriptBridge.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SHRMJavaScriptBridge.xcconfig; sourceTree = "<group>"; };
+		203E003B083E495E4D63E677D03D6042 /* SHRMMsgCommand.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SHRMMsgCommand.m; path = SHRMJavaScriptBridge/SHRMMsgCommand.m; sourceTree = "<group>"; };
+		203ED2C883E455BDC2E0FB3E46BE83C7 /* SHRMPluginResult.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SHRMPluginResult.h; path = SHRMJavaScriptBridge/SHRMPluginResult.h; sourceTree = "<group>"; };
+		25C2C74092128E1AA6EB7D3987EFD105 /* Pods-SHRMJavaScriptBridge-demo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SHRMJavaScriptBridge-demo.debug.xcconfig"; sourceTree = "<group>"; };
+		582876C50B74D2B1CA0E902E649766F2 /* libPods-SHRMJavaScriptBridge-demo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libPods-SHRMJavaScriptBridge-demo.a"; path = "libPods-SHRMJavaScriptBridge-demo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		60DD30AFA17DD24B82BB17C92F9FB053 /* UIWebView+TS_JavaScriptContext.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIWebView+TS_JavaScriptContext.m"; path = "SHRMJavaScriptBridge/UIWebView+TS_JavaScriptContext.m"; sourceTree = "<group>"; };
+		635699880E4520ACEAA0B1A4DACF3228 /* SHRMCommandImpl.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SHRMCommandImpl.m; path = SHRMJavaScriptBridge/SHRMCommandImpl.m; sourceTree = "<group>"; };
+		65467DF428F75474095823B7FE795F51 /* SHRMUIWebViewJavaScriptBridge.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SHRMUIWebViewJavaScriptBridge.h; path = SHRMJavaScriptBridge/SHRMUIWebViewJavaScriptBridge.h; sourceTree = "<group>"; };
+		69750666F0B1C5764D7E181072959633 /* SHRMJavaScriptBridge-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SHRMJavaScriptBridge-prefix.pch"; sourceTree = "<group>"; };
+		69D4D4F94C8B874A4E4472D552995085 /* SHRMWebViewDelegate.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SHRMWebViewDelegate.m; path = SHRMJavaScriptBridge/SHRMWebViewDelegate.m; sourceTree = "<group>"; };
+		764B777C217AD69594499F30C3318D9A /* Pods-SHRMJavaScriptBridge-demo-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-SHRMJavaScriptBridge-demo-dummy.m"; sourceTree = "<group>"; };
+		8142865A146977B78C0FB939473D232B /* SHRMWebViewCookieMgr.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SHRMWebViewCookieMgr.h; path = SHRMJavaScriptBridge/SHRMWebViewCookieMgr.h; sourceTree = "<group>"; };
+		8F1A5BCCE3559A4AE74805F1FE1FF7F8 /* SHRMWebViewEngine.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SHRMWebViewEngine.m; path = SHRMJavaScriptBridge/SHRMWebViewEngine.m; sourceTree = "<group>"; };
+		9109589CA05829F03AD8C4AFAD39F9F6 /* SHRMBasePlugin.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SHRMBasePlugin.h; path = SHRMJavaScriptBridge/SHRMBasePlugin.h; sourceTree = "<group>"; };
+		9AF587C3DBC693A6BA10E3D68941CB97 /* SHRMWebViewHandleFactory.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SHRMWebViewHandleFactory.m; path = SHRMJavaScriptBridge/SHRMWebViewHandleFactory.m; sourceTree = "<group>"; };
+		9C1A0F04BD95EF7C7144B83B5F440E56 /* SHRMWebViewCookieMgr.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SHRMWebViewCookieMgr.m; path = SHRMJavaScriptBridge/SHRMWebViewCookieMgr.m; sourceTree = "<group>"; };
+		9D6DA0F308A1A96CBC8E000FAA7291E5 /* SHRMWebViewHandleFactory.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SHRMWebViewHandleFactory.h; path = SHRMJavaScriptBridge/SHRMWebViewHandleFactory.h; sourceTree = "<group>"; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9F7D67E0AC3AF56430FBA3F0134DF562 /* SHRMWebPluginAnnotation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SHRMWebPluginAnnotation.h; path = SHRMJavaScriptBridge/SHRMWebPluginAnnotation.h; sourceTree = "<group>"; };
+		A90FD62E67F05AF98CBAB34464DC9602 /* Pods-SHRMJavaScriptBridge-demo-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-SHRMJavaScriptBridge-demo-acknowledgements.markdown"; sourceTree = "<group>"; };
+		AB12986A587B3249EB3D091661A2F0B9 /* SHRMMsgCommand.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SHRMMsgCommand.h; path = SHRMJavaScriptBridge/SHRMMsgCommand.h; sourceTree = "<group>"; };
+		ADBF7EA754A0B071B827FA6CFC4BA5BF /* libSHRMJavaScriptBridge.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libSHRMJavaScriptBridge.a; path = libSHRMJavaScriptBridge.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		AE95AAF29DC84456AF24BF0DD435923D /* SHRMJavaScriptBridge-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SHRMJavaScriptBridge-dummy.m"; sourceTree = "<group>"; };
+		B49D500B291B32AE145F999E690A99EA /* SHRMPluginResult.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SHRMPluginResult.m; path = SHRMJavaScriptBridge/SHRMPluginResult.m; sourceTree = "<group>"; };
+		BFF6CBD829B16CA1937F4787F15B542D /* SHRMWebViewDelegate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SHRMWebViewDelegate.h; path = SHRMJavaScriptBridge/SHRMWebViewDelegate.h; sourceTree = "<group>"; };
+		C373BD885F2FF09864D938D0D3CCC90E /* Pods-SHRMJavaScriptBridge-demo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SHRMJavaScriptBridge-demo.release.xcconfig"; sourceTree = "<group>"; };
+		CB3AEBC55D81E25CB1F75B19510C9053 /* SHRMUIWebViewJavaScriptBridge.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SHRMUIWebViewJavaScriptBridge.m; path = SHRMJavaScriptBridge/SHRMUIWebViewJavaScriptBridge.m; sourceTree = "<group>"; };
+		CF36CB4206661E6B26E5ACEF058748D4 /* Pods-SHRMJavaScriptBridge-demo-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-SHRMJavaScriptBridge-demo-acknowledgements.plist"; sourceTree = "<group>"; };
+		D21240A8AF5AC113D37D5EC8B8065F83 /* SHRMCommandProtocol.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SHRMCommandProtocol.h; path = SHRMJavaScriptBridge/SHRMCommandProtocol.h; sourceTree = "<group>"; };
+		DBF1E2873C3FD864B5248F630C53E8CC /* SHRMJavaScriptBridgeProtocol.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SHRMJavaScriptBridgeProtocol.h; path = SHRMJavaScriptBridge/SHRMJavaScriptBridgeProtocol.h; sourceTree = "<group>"; };
+		E4ECA83F17D7862F571FF4AAB581913E /* SHRMBasePlugin.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SHRMBasePlugin.m; path = SHRMJavaScriptBridge/SHRMBasePlugin.m; sourceTree = "<group>"; };
+		F369E891AE03ABD3BFDA195B2E0ED754 /* UIWebView+TS_JavaScriptContext.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIWebView+TS_JavaScriptContext.h"; path = "SHRMJavaScriptBridge/UIWebView+TS_JavaScriptContext.h"; sourceTree = "<group>"; };
+		FA8D38E7C376148E212111B60FB1C1C5 /* SHRMCommandImpl.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SHRMCommandImpl.h; path = SHRMJavaScriptBridge/SHRMCommandImpl.h; sourceTree = "<group>"; };
+		FCD9E486A9C38887E70B9B54331AC2A5 /* SHRMWebViewEngine.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SHRMWebViewEngine.h; path = SHRMJavaScriptBridge/SHRMWebViewEngine.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		306420EC8DFBF815D0EE64AA16EE9CC7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3962CE2E6A365DF71FFA6FD3763A0564 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0A7C5CACFA2DD57D43B8F2B98E830291 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				582876C50B74D2B1CA0E902E649766F2 /* libPods-SHRMJavaScriptBridge-demo.a */,
+				ADBF7EA754A0B071B827FA6CFC4BA5BF /* libSHRMJavaScriptBridge.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		506B96501E0321955AAB7EAEF5151F47 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C3649314082AC7AC6E024FADFA62BFF7 /* SHRMJavaScriptBridge */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		C3649314082AC7AC6E024FADFA62BFF7 /* SHRMJavaScriptBridge */ = {
+			isa = PBXGroup;
+			children = (
+				9109589CA05829F03AD8C4AFAD39F9F6 /* SHRMBasePlugin.h */,
+				E4ECA83F17D7862F571FF4AAB581913E /* SHRMBasePlugin.m */,
+				FA8D38E7C376148E212111B60FB1C1C5 /* SHRMCommandImpl.h */,
+				635699880E4520ACEAA0B1A4DACF3228 /* SHRMCommandImpl.m */,
+				D21240A8AF5AC113D37D5EC8B8065F83 /* SHRMCommandProtocol.h */,
+				DBF1E2873C3FD864B5248F630C53E8CC /* SHRMJavaScriptBridgeProtocol.h */,
+				AB12986A587B3249EB3D091661A2F0B9 /* SHRMMsgCommand.h */,
+				203E003B083E495E4D63E677D03D6042 /* SHRMMsgCommand.m */,
+				203ED2C883E455BDC2E0FB3E46BE83C7 /* SHRMPluginResult.h */,
+				B49D500B291B32AE145F999E690A99EA /* SHRMPluginResult.m */,
+				65467DF428F75474095823B7FE795F51 /* SHRMUIWebViewJavaScriptBridge.h */,
+				CB3AEBC55D81E25CB1F75B19510C9053 /* SHRMUIWebViewJavaScriptBridge.m */,
+				9F7D67E0AC3AF56430FBA3F0134DF562 /* SHRMWebPluginAnnotation.h */,
+				007C864772C1FF10A73675BCD6065A30 /* SHRMWebPluginAnnotation.m */,
+				8142865A146977B78C0FB939473D232B /* SHRMWebViewCookieMgr.h */,
+				9C1A0F04BD95EF7C7144B83B5F440E56 /* SHRMWebViewCookieMgr.m */,
+				BFF6CBD829B16CA1937F4787F15B542D /* SHRMWebViewDelegate.h */,
+				69D4D4F94C8B874A4E4472D552995085 /* SHRMWebViewDelegate.m */,
+				FCD9E486A9C38887E70B9B54331AC2A5 /* SHRMWebViewEngine.h */,
+				8F1A5BCCE3559A4AE74805F1FE1FF7F8 /* SHRMWebViewEngine.m */,
+				9D6DA0F308A1A96CBC8E000FAA7291E5 /* SHRMWebViewHandleFactory.h */,
+				9AF587C3DBC693A6BA10E3D68941CB97 /* SHRMWebViewHandleFactory.m */,
+				F369E891AE03ABD3BFDA195B2E0ED754 /* UIWebView+TS_JavaScriptContext.h */,
+				60DD30AFA17DD24B82BB17C92F9FB053 /* UIWebView+TS_JavaScriptContext.m */,
+				ED7B44FB442E8511A92B6020622D8C97 /* Support Files */,
+			);
+			name = SHRMJavaScriptBridge;
+			path = SHRMJavaScriptBridge;
+			sourceTree = "<group>";
+		};
+		C998C279F29DBB54827C1ED60B3CA320 /* Pods-SHRMJavaScriptBridge-demo */ = {
+			isa = PBXGroup;
+			children = (
+				A90FD62E67F05AF98CBAB34464DC9602 /* Pods-SHRMJavaScriptBridge-demo-acknowledgements.markdown */,
+				CF36CB4206661E6B26E5ACEF058748D4 /* Pods-SHRMJavaScriptBridge-demo-acknowledgements.plist */,
+				764B777C217AD69594499F30C3318D9A /* Pods-SHRMJavaScriptBridge-demo-dummy.m */,
+				25C2C74092128E1AA6EB7D3987EFD105 /* Pods-SHRMJavaScriptBridge-demo.debug.xcconfig */,
+				C373BD885F2FF09864D938D0D3CCC90E /* Pods-SHRMJavaScriptBridge-demo.release.xcconfig */,
+			);
+			name = "Pods-SHRMJavaScriptBridge-demo";
+			path = "Target Support Files/Pods-SHRMJavaScriptBridge-demo";
+			sourceTree = "<group>";
+		};
+		CF1408CF629C7361332E53B88F7BD30C = {
+			isa = PBXGroup;
+			children = (
+				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
+				D89477F20FB1DE18A04690586D7808C4 /* Frameworks */,
+				506B96501E0321955AAB7EAEF5151F47 /* Pods */,
+				0A7C5CACFA2DD57D43B8F2B98E830291 /* Products */,
+				FA4A7B7B631F24603B083D5A758577B3 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		D89477F20FB1DE18A04690586D7808C4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		ED7B44FB442E8511A92B6020622D8C97 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				04E1AC7AEEB7129A59E75839C430C0D8 /* SHRMJavaScriptBridge.xcconfig */,
+				AE95AAF29DC84456AF24BF0DD435923D /* SHRMJavaScriptBridge-dummy.m */,
+				69750666F0B1C5764D7E181072959633 /* SHRMJavaScriptBridge-prefix.pch */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/SHRMJavaScriptBridge";
+			sourceTree = "<group>";
+		};
+		FA4A7B7B631F24603B083D5A758577B3 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				C998C279F29DBB54827C1ED60B3CA320 /* Pods-SHRMJavaScriptBridge-demo */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		55CFDFBC778128BE86A8E8D69FDC1FB8 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0F3331B9D10C7EEEFB4D06B1A1F118C3 /* SHRMBasePlugin.h in Headers */,
+				E298EE7C832C2C3694990EBD5C59A463 /* SHRMCommandImpl.h in Headers */,
+				E683046A6E5CD14E5C946D448B755764 /* SHRMCommandProtocol.h in Headers */,
+				E2CFE3A75D2B8EBB5A1B21FD1C474D82 /* SHRMJavaScriptBridgeProtocol.h in Headers */,
+				939425362786485204C9D436C7B93BE3 /* SHRMMsgCommand.h in Headers */,
+				BC9708ED9F9895066891EBF583D5BFD5 /* SHRMPluginResult.h in Headers */,
+				FB9808D2809739135E06BF21DD6A7B24 /* SHRMUIWebViewJavaScriptBridge.h in Headers */,
+				0AE6A0588B7473D6A2A3C3612F3223D0 /* SHRMWebPluginAnnotation.h in Headers */,
+				B5D9C34FA934DFF53B9CF16532107B28 /* SHRMWebViewCookieMgr.h in Headers */,
+				FB704ACB8A09FB3582711EE0ADF9A83E /* SHRMWebViewDelegate.h in Headers */,
+				51669E01BF5556F20A82EA18B665A9A8 /* SHRMWebViewEngine.h in Headers */,
+				D38C0E838B94A27B748FAB894BF8D11D /* SHRMWebViewHandleFactory.h in Headers */,
+				54E8D680FC8B6BC85B5AAFC92D750CEA /* UIWebView+TS_JavaScriptContext.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EFF3472841A82A6B1F4C755DC9B9477C /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		BC20F9F06C49EA345124529A14CFE182 /* Pods-SHRMJavaScriptBridge-demo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FA6C298454820DD1EC9809A6D5ECFF5B /* Build configuration list for PBXNativeTarget "Pods-SHRMJavaScriptBridge-demo" */;
+			buildPhases = (
+				EFF3472841A82A6B1F4C755DC9B9477C /* Headers */,
+				9AD5B24BED20E424DCB9518C4FEB850C /* Sources */,
+				3962CE2E6A365DF71FFA6FD3763A0564 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				859B0661C1851ECEA27D0CE270080060 /* PBXTargetDependency */,
+			);
+			name = "Pods-SHRMJavaScriptBridge-demo";
+			productName = "Pods-SHRMJavaScriptBridge-demo";
+			productReference = 582876C50B74D2B1CA0E902E649766F2 /* libPods-SHRMJavaScriptBridge-demo.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		C1A58403B1D5A9E3C9B1F04F24F3294D /* SHRMJavaScriptBridge */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 66C8A8FC15016A1B16305554B2ABF0AF /* Build configuration list for PBXNativeTarget "SHRMJavaScriptBridge" */;
+			buildPhases = (
+				55CFDFBC778128BE86A8E8D69FDC1FB8 /* Headers */,
+				1D49575E3866896D7872FCD838944BB8 /* Sources */,
+				306420EC8DFBF815D0EE64AA16EE9CC7 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SHRMJavaScriptBridge;
+			productName = SHRMJavaScriptBridge;
+			productReference = ADBF7EA754A0B071B827FA6CFC4BA5BF /* libSHRMJavaScriptBridge.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BFDFE7DC352907FC980B868725387E98 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0930;
+				LastUpgradeCheck = 0930;
+			};
+			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
+			productRefGroup = 0A7C5CACFA2DD57D43B8F2B98E830291 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				BC20F9F06C49EA345124529A14CFE182 /* Pods-SHRMJavaScriptBridge-demo */,
+				C1A58403B1D5A9E3C9B1F04F24F3294D /* SHRMJavaScriptBridge */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1D49575E3866896D7872FCD838944BB8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				25C2477B4086DACC3405DAAE7AA4BB57 /* SHRMBasePlugin.m in Sources */,
+				A4B35E1F7D97A3B9D9AAF1B1120DAC00 /* SHRMCommandImpl.m in Sources */,
+				FC3CA942CF323BFBEA3D463D95090AB4 /* SHRMJavaScriptBridge-dummy.m in Sources */,
+				EB53D0130E28CB49E600A6CA6DC7A91D /* SHRMMsgCommand.m in Sources */,
+				00B9A12C0C293BC8928B5546EA1A70A4 /* SHRMPluginResult.m in Sources */,
+				C410E85AAFACEC4E838CD737F05AF15E /* SHRMUIWebViewJavaScriptBridge.m in Sources */,
+				ED43227D2691DB10B919A9A16266FE0C /* SHRMWebPluginAnnotation.m in Sources */,
+				46D786A561CCE0697D38BC3ECA32ACA1 /* SHRMWebViewCookieMgr.m in Sources */,
+				97C0FB7DBD838BE14D6F594045134AF7 /* SHRMWebViewDelegate.m in Sources */,
+				BBFFAAA92314D4B993C656784273FD79 /* SHRMWebViewEngine.m in Sources */,
+				825D76D605C761C66CE9A6B404548CEA /* SHRMWebViewHandleFactory.m in Sources */,
+				C1E9138D0866895A439DECC4D641481D /* UIWebView+TS_JavaScriptContext.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9AD5B24BED20E424DCB9518C4FEB850C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AC2518CE97C0F593604A3221137C6EA3 /* Pods-SHRMJavaScriptBridge-demo-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		859B0661C1851ECEA27D0CE270080060 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SHRMJavaScriptBridge;
+			target = C1A58403B1D5A9E3C9B1F04F24F3294D /* SHRMJavaScriptBridge */;
+			targetProxy = CCCCC6673FE61036350C7811FAB6E988 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		05DF210AC65EBB0E593AAF976B2C2177 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 4.2;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Release;
+		};
+		421ECB1396280A8D83853C3DDBED1700 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.2;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		9A78A9189C7F7F0898579362E04520CC /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 04E1AC7AEEB7129A59E75839C430C0D8 /* SHRMJavaScriptBridge.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				GCC_PREFIX_HEADER = "Target Support Files/SHRMJavaScriptBridge/SHRMJavaScriptBridge-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_MODULE_NAME = SHRMJavaScriptBridge;
+				PRODUCT_NAME = SHRMJavaScriptBridge;
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		9F121B7862BB0A807940C2099596ECFA /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C373BD885F2FF09864D938D0D3CCC90E /* Pods-SHRMJavaScriptBridge-demo.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MACH_O_TYPE = staticlib;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C08CDB2040BD33D70B65A4F4EEE8DB10 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 25C2C74092128E1AA6EB7D3987EFD105 /* Pods-SHRMJavaScriptBridge-demo.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MACH_O_TYPE = staticlib;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		EF83451F4C5636D3C0FB2AD7AACFCC49 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 04E1AC7AEEB7129A59E75839C430C0D8 /* SHRMJavaScriptBridge.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				GCC_PREFIX_HEADER = "Target Support Files/SHRMJavaScriptBridge/SHRMJavaScriptBridge-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_MODULE_NAME = SHRMJavaScriptBridge;
+				PRODUCT_NAME = SHRMJavaScriptBridge;
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				421ECB1396280A8D83853C3DDBED1700 /* Debug */,
+				05DF210AC65EBB0E593AAF976B2C2177 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		66C8A8FC15016A1B16305554B2ABF0AF /* Build configuration list for PBXNativeTarget "SHRMJavaScriptBridge" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EF83451F4C5636D3C0FB2AD7AACFCC49 /* Debug */,
+				9A78A9189C7F7F0898579362E04520CC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FA6C298454820DD1EC9809A6D5ECFF5B /* Build configuration list for PBXNativeTarget "Pods-SHRMJavaScriptBridge-demo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C08CDB2040BD33D70B65A4F4EEE8DB10 /* Debug */,
+				9F121B7862BB0A807940C2099596ECFA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+}

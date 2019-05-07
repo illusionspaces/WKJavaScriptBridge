@@ -1,0 +1,1 @@
+../../../SHRMJavaScriptBridge/SHRMJavaScriptBridge/SHRMBasePlugin.h
