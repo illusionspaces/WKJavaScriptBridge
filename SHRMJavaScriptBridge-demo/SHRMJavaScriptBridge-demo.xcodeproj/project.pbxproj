@@ -65,7 +65,7 @@
 		0ABC13D3226323DA009E19E6 /* SHRMUIWebViewJavaScriptBridge.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SHRMUIWebViewJavaScriptBridge.m; sourceTree = "<group>"; };
 		0AC786EE2255AB3C00CD5054 /* SHRMWebViewCookieMgr.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SHRMWebViewCookieMgr.h; sourceTree = "<group>"; };
 		0AC786EF2255AB3C00CD5054 /* SHRMWebViewCookieMgr.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SHRMWebViewCookieMgr.m; sourceTree = "<group>"; };
-		832F7C8321B822510076D164 /* Hybrid-framework.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Hybrid-framework.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		832F7C8321B822510076D164 /* SHRMJavaScriptBridge-demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SHRMJavaScriptBridge-demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		832F7C8621B822510076D164 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		832F7C8721B822510076D164 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		832F7C8921B822510076D164 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
@@ -108,7 +108,7 @@
 		832F7C7A21B822510076D164 = {
 			isa = PBXGroup;
 			children = (
-				832F7C8521B822510076D164 /* Hybrid-framework */,
+				832F7C8521B822510076D164 /* SHRMJavaScriptBridge-demo */,
 				832F7C8421B822510076D164 /* Products */,
 				832F7CB021B8E6460076D164 /* Frameworks */,
 			);
@@ -117,18 +117,18 @@
 		832F7C8421B822510076D164 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				832F7C8321B822510076D164 /* Hybrid-framework.app */,
+				832F7C8321B822510076D164 /* SHRMJavaScriptBridge-demo.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		832F7C8521B822510076D164 /* Hybrid-framework */ = {
+		832F7C8521B822510076D164 /* SHRMJavaScriptBridge-demo */ = {
 			isa = PBXGroup;
 			children = (
 				832F7CB621B904C50076D164 /* index.html */,
 				0A9A3961226D940600D0DF43 /* index1.html */,
 				832F7E6221BA54820076D164 /* NativePlugin */,
-				832F7E5021BA38F70076D164 /* JSBridge */,
+				832F7E5021BA38F70076D164 /* SHRMJavaScriptBridge */,
 				832F7C8621B822510076D164 /* AppDelegate.h */,
 				832F7C8721B822510076D164 /* AppDelegate.m */,
 				832F7C8921B822510076D164 /* ViewController.h */,
@@ -145,7 +145,7 @@
 				832F7C9421B822530076D164 /* Info.plist */,
 				832F7C9521B822530076D164 /* main.m */,
 			);
-			path = "Hybrid-framework";
+			path = "SHRMJavaScriptBridge-demo";
 			sourceTree = "<group>";
 		};
 		832F7CB021B8E6460076D164 /* Frameworks */ = {
@@ -156,7 +156,7 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		832F7E5021BA38F70076D164 /* JSBridge */ = {
+		832F7E5021BA38F70076D164 /* SHRMJavaScriptBridge */ = {
 			isa = PBXGroup;
 			children = (
 				0A9A3952226D93E500D0DF43 /* SHRMJavaScriptBridgeProtocol.h */,
@@ -184,7 +184,7 @@
 				0AC786EE2255AB3C00CD5054 /* SHRMWebViewCookieMgr.h */,
 				0AC786EF2255AB3C00CD5054 /* SHRMWebViewCookieMgr.m */,
 			);
-			path = JSBridge;
+			path = SHRMJavaScriptBridge;
 			sourceTree = "<group>";
 		};
 		832F7E6221BA54820076D164 /* NativePlugin */ = {
@@ -207,9 +207,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		832F7C8221B822510076D164 /* Hybrid-framework */ = {
+		832F7C8221B822510076D164 /* SHRMJavaScriptBridge-demo */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 832F7C9921B822530076D164 /* Build configuration list for PBXNativeTarget "Hybrid-framework" */;
+			buildConfigurationList = 832F7C9921B822530076D164 /* Build configuration list for PBXNativeTarget "SHRMJavaScriptBridge-demo" */;
 			buildPhases = (
 				832F7C7F21B822510076D164 /* Sources */,
 				832F7C8021B822510076D164 /* Frameworks */,
@@ -219,9 +219,9 @@
 			);
 			dependencies = (
 			);
-			name = "Hybrid-framework";
+			name = "SHRMJavaScriptBridge-demo";
 			productName = "Hybrid-framework";
-			productReference = 832F7C8321B822510076D164 /* Hybrid-framework.app */;
+			productReference = 832F7C8321B822510076D164 /* SHRMJavaScriptBridge-demo.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -238,7 +238,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 832F7C7E21B822510076D164 /* Build configuration list for PBXProject "Hybrid-framework" */;
+			buildConfigurationList = 832F7C7E21B822510076D164 /* Build configuration list for PBXProject "SHRMJavaScriptBridge-demo" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -251,7 +251,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				832F7C8221B822510076D164 /* Hybrid-framework */,
+				832F7C8221B822510076D164 /* SHRMJavaScriptBridge-demo */,
 			);
 		};
 /* End PBXProject section */
@@ -441,13 +441,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 929467FPP6;
-				INFOPLIST_FILE = "Hybrid-framework/Info.plist";
+				INFOPLIST_FILE = "SHRMJavaScriptBridge-demo/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.wangkai.responder.Hybrid-framework";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.wangkai.responder.SHRMJavaScriptBridge-demo";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -459,13 +459,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 929467FPP6;
-				INFOPLIST_FILE = "Hybrid-framework/Info.plist";
+				INFOPLIST_FILE = "SHRMJavaScriptBridge-demo/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.wangkai.responder.Hybrid-framework";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.wangkai.responder.SHRMJavaScriptBridge-demo";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -474,7 +474,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		832F7C7E21B822510076D164 /* Build configuration list for PBXProject "Hybrid-framework" */ = {
+		832F7C7E21B822510076D164 /* Build configuration list for PBXProject "SHRMJavaScriptBridge-demo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				832F7C9721B822530076D164 /* Debug */,
@@ -483,7 +483,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		832F7C9921B822530076D164 /* Build configuration list for PBXNativeTarget "Hybrid-framework" */ = {
+		832F7C9921B822530076D164 /* Build configuration list for PBXNativeTarget "SHRMJavaScriptBridge-demo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				832F7C9A21B822530076D164 /* Debug */,
