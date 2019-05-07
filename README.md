@@ -1,9 +1,10 @@
 # Link
 * Blog : [写一个易于维护使用方便性能可靠的Hybrid框架](https://juejin.im/post/5c07d95ee51d451d930b04c7)
 
-* [中文介绍](#中文介绍)
+* [介绍](#中文介绍)
 
-# 中文介绍
+## 介绍
+
 **iOS JS-Native交互框架（支持WKWebView/UIWebView），功能强大，轻松集成，两行代码即可，业务框架分离，易于拓展。**
 **关于通信方案说明：**
 * WKWebView使用addScritMessageHandler构建通信，苹果提供的bridge，可以理解为亲儿子，好处自然不用多说。
@@ -20,7 +21,7 @@
 
 ## 安装
 
-### 手动导入
+### 1.手动导入
 
 下载SHRMJavaScriptBridge文件夹，将SHRMJavaScriptBridge文件夹拖入到你的工程中。
 
@@ -28,7 +29,7 @@
 ## 用法
 `SHRMWebViewEngine`是框架的主体类，对外提供两个函数：`bindBridgeWithWebView:`传入你的webView，`setWebViewDelegate:`传入你的controller，用来拦截webView的代理函数。具体参照demo。
 
-### 使用框架
+### 1.使用框架
 
 ```objc
 // WKWebView
@@ -67,7 +68,7 @@ NSURL *fileURL = [NSURL fileURLWithPath:urlStr];
 ```
 两种WebView在使用上并无差别，完全兼容。具体的请下载Demo进行查看。
 
-### 自定义业务插件（原生侧）
+### 2.自定义业务插件（原生侧）
 
 1. 创建插件类，继承自`SHRMBasePlugin`。
 2. 插件类里面添加`@SHRMRegisterWebPlugin`宏，暂时用于插件是否需要提前初始化，加快第一次调用速度。也可以扩充一些其他功能。
@@ -99,15 +100,21 @@ SHRMPluginResult *result = [SHRMPluginResult resultWithStatus:SHRMCommandStatus_
 
 这样一个插件就定义完毕了：插件的意思就是独立的，与其他功能模块无耦合的业务模块，用来处理一类JS-Native的交互。例如JS想要获取地图信息、wifi信息、文件处理等都可以定义为一个插件。插件的好处就是无耦合！！！拖入项目可以直接使用，删除后项目也不需要做任何修改，直接build！以后再有新的交互需求你只需要按照上面的步骤创建插件完成功能并把结果返回给JS就可以了！不需要动框架！！
 
-### 自定义业务插件（JS侧）
+### 3.自定义业务插件（JS侧）
 
 JS侧目前还没有开放插件化功能，只是说还不够完善，但它不影响功能使用：
 1. 如果JS加载在WKWebView，JS调用Native通过`window.webkit.messageHandlers.SHRMWKJSBridge.postMessage(['13383445','SHRMFetchPlugin','nativeFentch',['post','https:www.baidu.com','user']])`即可，`['post','https:www.baidu.com','user']`为想要传递的参数。`13383445`为此次通信ID，`SHRMFetchPlugin`为Native侧插件类名，`nativeFentch`为插件方法名。
 2. 如果JS加载在UIWebView，JS调用Native通过`postUIWebViewParamer(['13383446','SHRMTestUIWebViewPlguin','nativeTestUIWebView',['post','openFile','user']])`即可，其中`['post','openFile','user']`依旧为你想要传递的参数，另外三个参数含义同上。
 3. 详细使用参照Demo。
 
-<br>
-<br>
-<br>
+## 后续功能延伸：
 
+1. JS侧插件化。
+2. 基于此引入离线包。
+3. 引入flutter构建小程序。
+   ...
+
+## License
+
+SHRMJavaScriptBridge is available under the Apache License 2.0. See the LICENSE file for more info.
 
