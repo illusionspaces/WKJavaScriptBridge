@@ -121,5 +121,5 @@ JS侧目前还没有开放插件化功能，只是说还不够完善，但它不
 
 ## License
 
-SHRMJavaScriptBridge is available under the Apache License 2.0. See the LICENSE file for more info.
+SHRMJavaScriptBridge is available under the Apache License 2.0. See the [LICENSE](https://github.com/GitWangKai/SHRMJavaScriptBridge/blob/master/LICENSE) file for more info.
 
