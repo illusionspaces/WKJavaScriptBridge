@@ -106,6 +106,10 @@ JS侧目前还没有开放插件化功能，只是说还不够完善，但它不
 2. 如果JS加载在UIWebView，JS调用Native通过`postUIWebViewParamer(['13383446','SHRMTestUIWebViewPlguin','nativeTestUIWebView',['post','openFile','user']])`即可，其中`['post','openFile','user']`依旧为你想要传递的参数，另外三个参数含义同上。
 3. 详细使用参照Demo。
 
+## License
+
+SHRMJavaScriptBridge is available under the Apache License 2.0. See the LICENSE file for more info.
+
 <br>
 <br>
 <br>
