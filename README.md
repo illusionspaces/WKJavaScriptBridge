@@ -1,3 +1,12 @@
+# SHRMJavaScriptBridge
+
+[![Version](https://img.shields.io/cocoapods/v/SHRMJavaScriptBridge.svg?style=flat)](http://cocoapods.org/pods/SHRMJavaScriptBridge)
+[![Pod License](http://img.shields.io/cocoapods/l/SHRMJavaScriptBridge.svg?style=flat)](https://opensource.org/licenses/Apache-2.0)
+![](https://img.shields.io/badge/language-objc-orange.svg)
+![iOS 8.0+](https://img.shields.io/badge/iOS-6.0%2B-blue.svg)
+![](https://img.shields.io/badge/language-objc-orange.svg)
+![ARC](https://img.shields.io/badge/ARC-orange.svg)
+
 ## Link
 * Blog : [写一个易于维护使用方便性能可靠的Hybrid框架](https://juejin.im/post/5c07d95ee51d451d930b04c7)
 
