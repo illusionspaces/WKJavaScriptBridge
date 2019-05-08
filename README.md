@@ -2,7 +2,7 @@
 
 [![Version](https://img.shields.io/cocoapods/v/SHRMJavaScriptBridge.svg?style=flat)](http://cocoapods.org/pods/SHRMJavaScriptBridge)
 [![Pod License](http://img.shields.io/cocoapods/l/SHRMJavaScriptBridge.svg?style=flat)](https://opensource.org/licenses/Apache-2.0)
-![iOS 8.0+](https://img.shields.io/badge/iOS-6.0%2B-blue.svg)
+![iOS 8.0+](https://img.shields.io/badge/iOS-8.0%2B-blue.svg)
 ![](https://img.shields.io/badge/language-objc-orange.svg)
 ![ARC](https://img.shields.io/badge/ARC-orange.svg)
 
