@@ -130,8 +130,9 @@ postUIWebViewParamer(['13383446','SHRMTestUIWebViewPlguin','nativeTestUIWebView'
 
 1. JS侧插件化。
 2. 基于此引入离线包。
-3. 引入flutter构建小程序。
-4. other  ...
+3. 引入flutter。
+4. 构建小程序。
+5. other  ...
 
 ## License
 
