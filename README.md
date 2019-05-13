@@ -8,7 +8,7 @@
 
 ## Link
 * Blog : [Hybrid治理(UIWebView&WKWebView)](https://juejin.im/post/5cd2c6a2f265da037516ba1c)
-
+* 注：为解决UIWebView使用JavaScriptCore在最佳时机获取JSContext对象，使用了[《UIWebView-TS_JavaScriptContext》](https://github.com/TomSwift/UIWebView-TS_JavaScriptContext)分类进行处理。
 
 ## 介绍
 
