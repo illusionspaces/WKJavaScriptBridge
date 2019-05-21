@@ -22,7 +22,7 @@
 - 支持WKWebView和UIWebView，两行代码即可让webView能力无限。
 - 针对WKWebView进行了Cookie丢失处理。
 - 插件化JS-Native业务逻辑，业务完全分离，解耦。
-- 基于__attribute( )函数进行插件注册，业务模块的注册只需要在自己内部注册即可，摆脱plist等传统注册方式。目前已知[阿里BeeHive](https://github.com/alibaba/BeeHive)/[美团Kylin组件](https://juejin.im/post/5c0a17d6e51d4570cf60d102)皆使用此方式进行注册。
+- 基于__attribute( )函数进行插件注册，业务模块的注册只需要在自己内部注册即可，摆脱plist等传统注册方式。目前已知[阿里BeeHive](https://github.com/alibaba/BeeHive)/[美团Kylin组件](https://juejin.im/post/5c0a17d6e51d4570cf60d102)皆使用此方式进行注册。目前注册功能为插件是否提前预加载提供。
 - 业务模块回调参框架数给JS侧进行了统一回调处理：业务模块完全不关心是WK or UI。
 
 
