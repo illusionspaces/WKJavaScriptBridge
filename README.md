@@ -1,6 +1,14 @@
-# Link
-* Blog : [写一个易于维护使用方便性能可靠的Hybrid框架](https://juejin.im/post/5c07d95ee51d451d930b04c7)
+# SHRMJavaScriptBridge
 
+[![Version](https://img.shields.io/cocoapods/v/SHRMJavaScriptBridge.svg?style=flat)](http://cocoapods.org/pods/SHRMJavaScriptBridge)
+[![Pod License](http://img.shields.io/cocoapods/l/SHRMJavaScriptBridge.svg?style=flat)](https://opensource.org/licenses/Apache-2.0)
+![iOS 8.0+](https://img.shields.io/badge/iOS-8.0%2B-blue.svg)
+![](https://img.shields.io/badge/language-objc-orange.svg)
+![ARC](https://img.shields.io/badge/ARC-orange.svg)
+
+## Link
+* Blog : [手把手教你搭一个Hybrid框架](https://juejin.im/post/5cd2c6a2f265da037516ba1c)
+* 注：为解决UIWebView使用JavaScriptCore在最佳时机获取JSContext对象，使用了[《UIWebView-TS_JavaScriptContext》](https://github.com/TomSwift/UIWebView-TS_JavaScriptContext)分类进行处理。
 
 ## 介绍
 
@@ -14,8 +22,8 @@
 - 支持WKWebView和UIWebView，两行代码即可让webView能力无限。
 - 针对WKWebView进行了Cookie丢失处理。
 - 插件化JS-Native业务逻辑，业务完全分离，解耦。
-- 基于__attribute( )函数进行插件注册，业务模块的注册只需要在自己内部注册即可，摆脱plist等传统注册方式。目前已知[阿里BeeHive](https://github.com/alibaba/BeeHive)/[美团Kylin组件](https://juejin.im/post/5c0a17d6e51d4570cf60d102)皆使用此方式进行注册。
-- 业务模块回调参数给JS侧进行了统一回调处理：业务模块完全不关心是WK or UI。
+- 基于__attribute( )函数进行插件注册，业务模块的注册只需要在自己内部注册即可，摆脱plist等传统注册方式。目前已知[阿里BeeHive](https://github.com/alibaba/BeeHive)/[美团Kylin组件](https://juejin.im/post/5c0a17d6e51d4570cf60d102)皆使用此方式进行注册。目前注册功能为插件是否提前预加载提供。
+- 业务模块回调参框架数给JS侧进行了统一回调处理：业务模块完全不关心是WK or UI。
 
 
 ## 安装
@@ -107,16 +115,32 @@ SHRMPluginResult *result = [SHRMPluginResult resultWithStatus:SHRMCommandStatus_
 ### 3.自定义业务插件（JS侧）
 
 JS侧目前还没有开放插件化功能，只是说还不够完善，但它不影响功能使用：
-1. 如果JS加载在WKWebView，JS调用Native通过`window.webkit.messageHandlers.SHRMWKJSBridge.postMessage(['13383445','SHRMFetchPlugin','nativeFentch',['post','https:www.baidu.com','user']])`即可，`['post','https:www.baidu.com','user']`为想要传递的参数。`13383445`为此次通信ID，`SHRMFetchPlugin`为Native侧插件类名，`nativeFentch`为插件方法名。
-2. 如果JS加载在UIWebView，JS调用Native通过`postUIWebViewParamer(['13383446','SHRMTestUIWebViewPlguin','nativeTestUIWebView',['post','openFile','user']])`即可，其中`['post','openFile','user']`依旧为你想要传递的参数，另外三个参数含义同上。
+1. 如果JS加载在`WKWebView`，JS调用Native通过
+```
+window.webkit.messageHandlers.SHRMWKJSBridge.postMessage(['13383445','SHRMFetchPlugin','nativeFentch',['post','https:www.baidu.com','user']])
+```
+即可。
+`['post','https:www.baidu.com','user']`为想要传递的参数。
+`13383445`为此次通信ID。
+`SHRMFetchPlugin`为Native侧插件类名。
+`nativeFentch`为插件方法名。
+
+2. 如果JS加载在`UIWebView`，JS调用Native通过
+```
+postUIWebViewParamer(['13383446','SHRMTestUIWebViewPlguin','nativeTestUIWebView',['post','openFile','user']])
+```
+即可，其中`['post','openFile','user']`
+依旧为你想要传递的参数，另外三个参数含义同上。
+
 3. 详细使用参照Demo。
 
 ## 后续功能延伸：
 
 1. JS侧插件化。
 2. 基于此引入离线包。
-3. 引入flutter构建小程序。
-4. other  ...
+3. 引入flutter。
+4. 构建小程序。
+5. other  ...
 
 ## License
 
