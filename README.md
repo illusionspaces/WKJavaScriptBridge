@@ -137,7 +137,7 @@ configuration.processPool = self.processPool;
 2. 插件类里面添加`@SHRMRegisterWebPlugin`宏，暂时用于插件是否需要提前初始化，加快第一次调用速度。也可以扩充一些其他功能。
 3. 插件里构建业务逻辑，通过`sendPluginResult:callbackId:`函数把结果回传给JS侧。
 
-```
+```objc
 #import "SHRMBasePlugin.h"
 @interface SHRMTestUIWebViewPlguin : SHRMBasePlugin
 - (void)nativeTestUIWebView:(SHRMMsgCommand *)command;
@@ -145,18 +145,18 @@ configuration.processPool = self.processPool;
 
 ```
 
-```
+```objc
 @SHRMRegisterWebPlugin(SHRMTestUIWebViewPlguin, 1)
 
 @implementation SHRMTestUIWebViewPlguin
 - (void)nativeTestUIWebView:(SHRMMsgCommand *)command {
-NSString *method = [command argumentAtIndex:0];
-NSString *url = [command argumentAtIndex:1];
-NSString *param = [command argumentAtIndex:2];
-NSLog(@"(%@):%@,%@,%@",command.callbackId, method, url, param);
+    NSString *method = [command argumentAtIndex:0];
+    NSString *url = [command argumentAtIndex:1];
+    NSString *param = [command argumentAtIndex:2];
+    NSLog(@"(%@):%@,%@,%@",command.callbackId, method, url, param);
 
-SHRMPluginResult *result = [SHRMPluginResult resultWithStatus:SHRMCommandStatus_OK messageAsString:@"uiwebview test success!"];
-[self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
+    SHRMPluginResult *result = [SHRMPluginResult resultWithStatus:SHRMCommandStatus_OK messageAsString:@"uiwebview test success!"];
+    [self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
 }
 @end
 ```
@@ -167,7 +167,7 @@ SHRMPluginResult *result = [SHRMPluginResult resultWithStatus:SHRMCommandStatus_
 
 JS侧目前还没有开放插件化功能，只是说还不够完善，但它不影响功能使用：
 1. 如果JS加载在`WKWebView`，JS调用Native通过
-```
+```js
 window.webkit.messageHandlers.SHRMWKJSBridge.postMessage(['13383445','SHRMFetchPlugin','nativeFentch',['post','https:www.baidu.com','user']])
 ```
 即可。
@@ -177,7 +177,7 @@ window.webkit.messageHandlers.SHRMWKJSBridge.postMessage(['13383445','SHRMFetchP
 `nativeFentch`为插件方法名。
 
 2. 如果JS加载在`UIWebView`，JS调用Native通过
-```
+```js
 postUIWebViewParamer(['13383446','SHRMTestUIWebViewPlguin','nativeTestUIWebView',['post','openFile','user']])
 ```
 即可，其中`['post','openFile','user']`
