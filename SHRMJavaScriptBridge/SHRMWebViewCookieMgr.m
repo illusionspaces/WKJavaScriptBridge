@@ -43,7 +43,16 @@
     return nil;
 }
 
-+ (void)resetCookie {
++ (NSMutableURLRequest *)newRequest:(NSURLRequest *)request {
+    NSMutableURLRequest *newReq = [request mutableCopy];
+    NSMutableArray *array = [NSMutableArray array];
+    for (NSHTTPCookie *cookie in [[NSHTTPCookieStorage sharedHTTPCookieStorage] cookiesForURL:request.URL]) {
+        NSString *value = [NSString stringWithFormat:@"%@=%@", cookie.name, cookie.value];
+        [array addObject:value];
+    }
     
+    NSString *cookie = [array componentsJoinedByString:@";"];
+    [newReq setValue:cookie forHTTPHeaderField:@"Cookie"];
+    return newReq;
 }
 @end

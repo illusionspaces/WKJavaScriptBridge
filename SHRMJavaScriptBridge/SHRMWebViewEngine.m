@@ -68,7 +68,6 @@
     
     if ([webView isKindOfClass:[WKWebView class]]) {
         [bridge configWKWebView:webView];
-        [bridge addUserScript:webView];
         [bridge setJavaScriptBridge:bridge];
         return bridge;
     }
@@ -87,15 +86,6 @@
     webView.navigationDelegate = _WKWebViewDelegate;
     webView.configuration.userContentController = [[WKUserContentController alloc] init];
     [webView.configuration.userContentController addScriptMessageHandler:self name:@"SHRMWKJSBridge"];
-}
-
-- (void)addUserScript:(WKWebView *)webView {
-    NSString *js = [SHRMWebViewCookieMgr clientCookieScripts];
-    if (!js) return;
-    WKUserScript *jsscript = [[WKUserScript alloc]initWithSource:js
-                                                   injectionTime:WKUserScriptInjectionTimeAtDocumentStart
-                                                forMainFrameOnly:NO];
-    [webView.configuration.userContentController addUserScript:jsscript];
 }
 
 - (void)setupInstance{

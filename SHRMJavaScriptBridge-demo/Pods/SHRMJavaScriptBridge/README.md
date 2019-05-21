@@ -1,7 +1,6 @@
 # Link
 * Blog : [写一个易于维护使用方便性能可靠的Hybrid框架](https://juejin.im/post/5c07d95ee51d451d930b04c7)
 
-* [介绍](#中文介绍)
 
 ## 介绍
 
@@ -24,6 +23,11 @@
 ### 1.手动导入
 
 下载SHRMJavaScriptBridge文件夹，将SHRMJavaScriptBridge文件夹拖入到你的工程中。
+
+### 2.CocoaPods
+1. 在 Podfile 中添加 `pod 'SHRMJavaScriptBridge', '~> 0.0.1'`。
+2. 执行 `pod install` 或 `pod update`。
+3. 导入 `<SHRMWebViewEngine.h>`。
 
 
 ## 用法
@@ -112,9 +116,9 @@ JS侧目前还没有开放插件化功能，只是说还不够完善，但它不
 1. JS侧插件化。
 2. 基于此引入离线包。
 3. 引入flutter构建小程序。
-   ...
+4. other  ...
 
 ## License
 
-SHRMJavaScriptBridge is available under the Apache License 2.0. See the LICENSE file for more info.
+SHRMJavaScriptBridge is available under the Apache License 2.0. See the [LICENSE](https://github.com/GitWangKai/SHRMJavaScriptBridge/blob/master/LICENSE) file for more info.
 

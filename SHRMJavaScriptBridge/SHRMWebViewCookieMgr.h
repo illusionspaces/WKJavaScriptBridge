@@ -13,7 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface SHRMWebViewCookieMgr : NSObject
 + (void)syncRequestCookie:(NSMutableURLRequest *)request;
 + (NSString *)clientCookieScripts;
-+ (void)resetCookie;
++ (NSMutableURLRequest *)newRequest:(NSURLRequest *)request;
 @end
 
 NS_ASSUME_NONNULL_END
