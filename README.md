@@ -172,7 +172,7 @@ window.webkit.messageHandlers.SHRMWKJSBridge.postMessage(['13383445','SHRMFetchP
 ```
 即可。
 `['post','https:www.baidu.com','user']`为想要传递的参数。
-`13383445`为此次通信ID。
+`13383445`为此次通信ID，ID可不传，为后续JS侧插件化预留。
 `SHRMFetchPlugin`为Native侧插件类名。
 `nativeFentch`为插件方法名。
 
