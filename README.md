@@ -129,7 +129,7 @@ configuration.processPool = self.processPool;
         completionHandler();
 }
 ```
-2.3 详细参考demo处理。
+2.3 其他处理参考demo。
 
 ### 3.自定义业务插件（原生侧）
 
