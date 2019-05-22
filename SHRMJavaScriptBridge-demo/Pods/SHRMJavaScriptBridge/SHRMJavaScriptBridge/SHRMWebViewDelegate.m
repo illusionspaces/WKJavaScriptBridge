@@ -29,8 +29,6 @@
 // 但是，对于Safari是允许跨域的，不用这么处理。
 // 这个是决定是否Request
 - (void)webView:(WKWebView *)webView decidePolicyForNavigationAction:(WKNavigationAction *)navigationAction decisionHandler:(void (^)(WKNavigationActionPolicy))decisionHandler{
-    //302 cookie注入
-    [SHRMWebViewCookieMgr resetCookie];
     
     __strong WVJB_WKWEBVIEW_DELEGATE_TYPE* strongDelegate = _webViewEngine.webViewDelegate;
     if (strongDelegate && [strongDelegate respondsToSelector:@selector(webView:decidePolicyForNavigationAction:decisionHandler:)]) {
