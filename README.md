@@ -16,7 +16,11 @@
 **关于通信方案说明：**
 * WKWebView使用addScritMessageHandler构建通信，苹果提供的bridge，可以理解为亲儿子，好处自然不用多说。
 * UIWebView使用JavaScriptCore框架构建通信，JavaScriptCore的黑魔法，连RN都没能逃过，功能可见一斑。
+
+**架构图**
 ![image text](https://user-gold-cdn.xitu.io/2019/5/9/16a9a86c581a1b78?imageView2/0/w/1280/h/960/ignore-error/1)
+
+**框架类图**
 ![image text](https://github.com/GitWangKai/SHRMJavaScriptBridge/blob/master/16a9aac15baf6f9e.png)
 
 ## 特性
