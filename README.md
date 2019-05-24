@@ -7,7 +7,7 @@
 ![ARC](https://img.shields.io/badge/ARC-orange.svg)
 
 ## Link
-* Blog : [手把手教你搭一个Hybrid框架](https://juejin.im/post/5cd2c6a2f265da037516ba1c)
+* Blog : [《写一个易于维护使用方便性能可靠的Hybrid框架（四）—— 框架构建》](https://juejin.im/post/5cd2c6a2f265da037516ba1c)
 * 注：为解决UIWebView使用JavaScriptCore在最佳时机获取JSContext对象，使用了[《UIWebView-TS_JavaScriptContext》](https://github.com/TomSwift/UIWebView-TS_JavaScriptContext)分类进行处理。
 
 ## 介绍
@@ -17,12 +17,12 @@
 * WKWebView使用addScritMessageHandler构建通信，苹果提供的bridge，可以理解为亲儿子，好处自然不用多说。
 * UIWebView使用JavaScriptCore框架构建通信，JavaScriptCore的黑魔法，连RN都没能逃过，功能可见一斑。
 ![image text](https://user-gold-cdn.xitu.io/2019/5/9/16a9a86c581a1b78?imageView2/0/w/1280/h/960/ignore-error/1)
-
+![image text](https://github.com/GitWangKai/SHRMJavaScriptBridge/blob/master/16a9aac15baf6f9e.png)
 
 ## 特性
 - 支持WKWebView和UIWebView，两行代码即可让WebView能力无限。
 - 针对WKWebView进行了Cookie丢失处理。
-- 针对WKWebView白屏问题进行了处理。
+- 针对WKWebView白框架屏问题进行了处理。
 - 针对WKWebView所带来的一些Crash问题进行了容错处理。
 - 插件化JS-Native业务逻辑，业务完全分离，解耦。
 - 基于__attribute( )函数进行插件注册，业务模块的注册只需要在自己内部注册即可，摆脱plist等传统注册方式。目前已知[阿里BeeHive](https://github.com/alibaba/BeeHive)/[美团Kylin组件](https://juejin.im/post/5c0a17d6e51d4570cf60d102)皆使用此方式进行注册。目前注册功能为插件是否提前预加载提供。
