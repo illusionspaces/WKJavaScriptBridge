@@ -7,7 +7,12 @@
 ![ARC](https://img.shields.io/badge/ARC-orange.svg)
 
 ## Link
-* Blog : [《写一个易于维护使用方便性能可靠的Hybrid框架（四）—— 框架构建》](https://juejin.im/post/5cd2c6a2f265da037516ba1c)
+* Blog : 
+[《写一个易于维护使用方便性能可靠的Hybrid框架（四）—— 框架构建》](https://juejin.im/post/5cd2c6a2f265da037516ba1c)
+[《写一个易于维护使用方便性能可靠的Hybrid框架（三）—— 配置插件》](https://juejin.im/post/5c0ca4bde51d4541284cab56)
+[《写一个易于维护使用方便性能可靠的Hybrid框架（二）—— 插件化》](https://juejin.im/post/5c0a41e5f265da61335664ba)
+[《写一个易于维护使用方便性能可靠的Hybrid框架（一）—— 思路构建》](https://juejin.im/post/5c07d95ee51d451d930b04c7)
+
 * 注：为解决UIWebView使用JavaScriptCore在最佳时机获取JSContext对象，使用了[《UIWebView-TS_JavaScriptContext》](https://github.com/TomSwift/UIWebView-TS_JavaScriptContext)分类进行处理。
 
 ## 介绍
