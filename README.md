@@ -178,6 +178,40 @@ var command = ['13383446','SHRMTestUIWebViewPlguin','nativeTestUIWebView',['post
 
 即可。
 
+拦截部分的源码如下：
+
+```objc
+- (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
+    
+    NSURL *url = [request URL];
+    if ([[url scheme] isEqualToString:@"protocol"]) {
+        NSString *decodedURL = request.URL.absoluteString.stringByRemovingPercentEncoding;
+        NSArray *paramArray = [decodedURL componentsSeparatedByString:@"#"];
+        NSString * command = [paramArray lastObject];
+        
+        NSError* error = nil;
+        id object = [NSJSONSerialization JSONObjectWithData:[command dataUsingEncoding:NSUTF8StringEncoding]
+                                                    options:NSJSONReadingMutableContainers
+                                                      error:&error];
+        if (error != nil) {
+            NSLog(@"NSString JSONObject error: %@, Malformed Data: %@", [error localizedDescription], self);
+        }
+        
+        if (self.webViewEngine) {
+            [self.webViewEngine.webViewhandleFactory handleMsgCommand:(NSArray *)object];
+        }
+        
+        return NO;
+    }
+    
+    if (self.UIWebViewDelegateCalss && [self.UIWebViewDelegateCalss respondsToSelector:@selector(webView:shouldStartLoadWithRequest:navigationType:)]) {
+        return [self.UIWebViewDelegateCalss webView:webView shouldStartLoadWithRequest:request navigationType:navigationType];
+    }else {
+        return YES;
+    }
+}
+```
+
 ### 4.自定义业务插件（原生侧）
 
 1. 创建插件类，继承自`SHRMBasePlugin`。
