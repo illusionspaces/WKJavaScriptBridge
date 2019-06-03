@@ -9,18 +9,20 @@
 #import <Foundation/Foundation.h>
 #import <WebKit/WebKit.h>
 #import "SHRMJavaScriptBridgeProtocol.h"
+#import <JavaScriptCore/JavaScriptCore.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
 @class SHRMWebViewEngine;
 
-@interface SHRMUIWebViewJavaScriptBridge : NSObject <UIWebViewDelegate, SHRMJavaScriptBridgeProtocol>
+@interface SHRMUIWebViewJavaScriptBridge : NSObject <SHRMJavaScriptBridgeProtocol>
 + (instancetype)bindBridgeWithWebView:(UIWebView *)webView;
 /**
  webView容器
  */
 @property (nonatomic, weak) id webViewDelegate;
 - (void)setWebViewEngine:(SHRMWebViewEngine *)webViewEngine;
+- (void)webView:(UIWebView *)webView didCreateJavaScriptContext:(JSContext*)ctx;
 @end
 
 NS_ASSUME_NONNULL_END

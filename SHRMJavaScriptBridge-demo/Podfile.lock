@@ -1,16 +1,3 @@
-PODS:
-  - SHRMJavaScriptBridge (0.0.3)
-
-DEPENDENCIES:
-  - SHRMJavaScriptBridge (~> 0.0.3)
-
-SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
-    - SHRMJavaScriptBridge
-
-SPEC CHECKSUMS:
-  SHRMJavaScriptBridge: 25077e06cdfb68a9d7b97bc8318e4389a48a0987
-
-PODFILE CHECKSUM: 5cd1abacadf83ebdabf542e0931c6c886adde964
+PODFILE CHECKSUM: ec62e3ec46753841a6f519d91ae3e15097b7c174
 
 COCOAPODS: 1.6.1

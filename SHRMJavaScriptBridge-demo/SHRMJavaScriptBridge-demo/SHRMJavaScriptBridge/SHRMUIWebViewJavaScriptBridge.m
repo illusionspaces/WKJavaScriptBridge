@@ -8,10 +8,11 @@
 
 #import "SHRMUIWebViewJavaScriptBridge.h"
 #import "SHRMWebViewEngine.h"
-#import "UIWebView+TS_JavaScriptContext.h"
+#import "SHRMUIWebViewBridgeProtocol.h"
 
-@interface SHRMUIWebViewJavaScriptBridge () <TSWebViewDelegate>
+@interface SHRMUIWebViewJavaScriptBridge () <UIWebViewDelegate>
 @property (nonatomic, strong) SHRMWebViewEngine *webViewEngine;
+@property (nonatomic, strong) id <SHRMUIWebViewBridgeProtocol>UIWebViewBridge;
 @end
 
 @implementation SHRMUIWebViewJavaScriptBridge {
@@ -25,13 +26,16 @@
 - (instancetype)initWithWebView:(UIWebView *)webView {
     if (self = [super init]) {
         _webView = webView;
-        _webView.delegate = self;
     }
     return self;
 }
 
 - (void)setWebViewDelegate:(NSObject<UIWebViewDelegate> *)webViewDelegate {
     _webViewDelegate = webViewDelegate;
+}
+
+- (void)webView:(UIWebView *)webView didCreateJavaScriptContext:(JSContext *)ctx {
+    
 }
 
 #pragma mark - uiwebview delegate
@@ -73,21 +77,16 @@
     }
 }
 
-#pragma mark - TSWebViewDelegate
-
-- (void)webView:(UIWebView *)webView didCreateJavaScriptContext:(JSContext*)ctx {
-    __weak SHRMUIWebViewJavaScriptBridge *weakSelf = self;
-    ctx[@"postUIWebViewParamer"] = ^(NSArray *paramer){
-        dispatch_async( dispatch_get_main_queue(), ^{
-            [weakSelf.webViewEngine.webViewhandleFactory handleMsgCommand:paramer];
-        });
-    };
-}
-
 #pragma mark - setter&getter
 
 - (void)setWebViewEngine:(SHRMWebViewEngine *)webViewEngine {
-    _webViewEngine = webViewEngine;
+    
+//    NSString *defaultUIWebViewBridgeClass = @"SHRMJSCoreBrdige";
+    NSString *baseUIWebViewBridgeClass = @"SHRMUIBaseBridge";
+    self.UIWebViewBridge = [[NSClassFromString(baseUIWebViewBridgeClass) alloc] init];
+    self->_webView.delegate = self.UIWebViewBridge;
+    [self.UIWebViewBridge setWebViewEngine:webViewEngine];
+    self.UIWebViewBridge.UIWebViewDelegateCalss = self;
 }
 
 #pragma mark - SHRMJavaScriptBridgeProtocol

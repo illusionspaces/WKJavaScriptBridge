@@ -10,7 +10,7 @@
 #import <WebKit/WebKit.h>
 #import "SHRMWebViewEngine.h"
 
-@interface TestWKWebViewController ()<WKNavigationDelegate, WKUIDelegate>
+@interface TestWKWebViewController ()<WKNavigationDelegate, WKUIDelegate, WKURLSchemeHandler>
 @property (nonatomic, strong) SHRMWebViewEngine* bridge;
 @property (nonatomic, strong) WKWebView *webView;
 @property (nonatomic, strong) WKProcessPool *processPool;

@@ -8,6 +8,15 @@
                 postUIWebViewParamer(['13383446','SHRMTestUIWebViewPlguin','nativeTestUIWebView',['post','openFile','user']])
             }
             
+            function testUIWebView1() {
+                
+                var command = ['13383446','SHRMTestUIWebViewPlguin','nativeTestUIWebView',['post','openFile','user']];
+                
+                var json = JSON.stringify(command);
+    
+    window.location.href = "protocol://#" + json;
+            }
+            
             function fetchComplete(id,status,result) {
                 asyncAlert(result);
                 document.getElementById("returnValue").value = (id) + result;
@@ -25,7 +34,8 @@
     <body>
         <h1>按钮调用</h1>
         
-        <button type='button' onclick='testUIWebView()'>test UIWebView</button>
+        <button type='button' onclick='testUIWebView()'>JSContext注入</button>
+        <button type='button' onclick='testUIWebView1()'>URL拦截</button>
         
         <h1>回调结果展示区</h1>
         <textarea id ="returnValue" type="value" rows="5" cols="40">
