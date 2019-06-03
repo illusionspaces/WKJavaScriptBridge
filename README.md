@@ -212,6 +212,8 @@ window.location.href = "protocol://#" + json;
 }
 ```
 
+业务插件，不需要改变。
+
 ### 4.自定义业务插件（原生侧）
 
 1. 创建插件类，继承自`SHRMBasePlugin`。
