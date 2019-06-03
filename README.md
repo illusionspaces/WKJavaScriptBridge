@@ -172,8 +172,8 @@ postUIWebViewParamer(['13383446','SHRMTestUIWebViewPlguin','nativeTestUIWebView'
 
 ```js
 var command = ['13383446','SHRMTestUIWebViewPlguin','nativeTestUIWebView',['post','openFile','user']];
-                var json = JSON.stringify(command);
-                window.location.href = "protocol://#" + json;
+var json = JSON.stringify(command);
+window.location.href = "protocol://#" + json;
 ```
 
 即可。
