@@ -18,6 +18,7 @@
 [《写一个易于维护使用方便性能可靠的Hybrid框架（一）—— 思路构建》](https://juejin.im/post/5c07d95ee51d451d930b04c7)
 
 * 注：为解决UIWebView使用JavaScriptCore在最佳时机获取JSContext对象，使用了[《UIWebView-TS_JavaScriptContext》](https://github.com/TomSwift/UIWebView-TS_JavaScriptContext)分类进行处理。
+* 注：为了解决《UIWebView-TS_JavaScriptContext》上架可能被拒绝的情况，用插件化的方式为UIWebView额外构建了对URL进行拦截方式的通信。
 
 ## 介绍
 
@@ -148,7 +149,72 @@ configuration.processPool = self.processPool;
 ```
 2.3 其他处理参考demo。
 
-### 3.自定义业务插件（原生侧）
+### 3.为了解决UIWebView使用《UIWebView-TS_JavaScriptContext》可能上架被拒绝的问题，又不想丢弃JSContext的通信方式，基于此目的，对UIWebView的通信方式构建了两套，将原有的JSContext通信方式单独拆分为`SHRMJSCoreBrdige`对象进行处理。另外新增了`SHRMUIBaseBridge`对象处理URL拦截的通信。并且基于面向协议的方式，将两种通信方式进行了插件化分离，如果不想使用其中的一种，直接将对应的类直接删除即可！不需要额外的操作。例如上架发现《UIWebView-TS_JavaScriptContext》被拒绝，可以直接删除`SHRMJSCoreBrdige`，不会影响框架使用，直接build即可。然后在`SHRMUIWebViewJavaScriptBridge`中对通信进行变更，打开注释即可，打开相对应的注视，即代表使用对应的通信方式，其他什么都不需要改变！！！
+
+```objc
+- (void)setWebViewEngine:(SHRMWebViewEngine *)webViewEngine {
+    
+//    NSString *defaultUIWebViewBridgeClass = @"SHRMJSCoreBrdige";
+    NSString *baseUIWebViewBridgeClass = @"SHRMUIBaseBridge";
+    self.UIWebViewBridge = [[NSClassFromString(baseUIWebViewBridgeClass) alloc] init];
+    self->_webView.delegate = self.UIWebViewBridge;
+    [self.UIWebViewBridge setWebViewEngine:webViewEngine];
+    self.UIWebViewBridge.UIWebViewDelegateCalss = self;
+}
+```
+
+如果使用了URL拦截的方式进行通信，那么前端的调用方式也需要变更，由原来的：
+```js
+postUIWebViewParamer(['13383446','SHRMTestUIWebViewPlguin','nativeTestUIWebView',['post','openFile','user']])
+```
+
+变更为：
+
+```js
+var command = ['13383446','SHRMTestUIWebViewPlguin','nativeTestUIWebView',['post','openFile','user']];
+var json = JSON.stringify(command);
+window.location.href = "protocol://#" + json;
+```
+
+即可。
+
+拦截部分的源码如下：
+
+```objc
+- (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
+    
+    NSURL *url = [request URL];
+    if ([[url scheme] isEqualToString:@"protocol"]) {
+        NSString *decodedURL = request.URL.absoluteString.stringByRemovingPercentEncoding;
+        NSArray *paramArray = [decodedURL componentsSeparatedByString:@"#"];
+        NSString * command = [paramArray lastObject];
+        
+        NSError* error = nil;
+        id object = [NSJSONSerialization JSONObjectWithData:[command dataUsingEncoding:NSUTF8StringEncoding]
+                                                    options:NSJSONReadingMutableContainers
+                                                      error:&error];
+        if (error != nil) {
+            NSLog(@"NSString JSONObject error: %@, Malformed Data: %@", [error localizedDescription], self);
+        }
+        
+        if (self.webViewEngine) {
+            [self.webViewEngine.webViewhandleFactory handleMsgCommand:(NSArray *)object];
+        }
+        
+        return NO;
+    }
+    
+    if (self.UIWebViewDelegateCalss && [self.UIWebViewDelegateCalss respondsToSelector:@selector(webView:shouldStartLoadWithRequest:navigationType:)]) {
+        return [self.UIWebViewDelegateCalss webView:webView shouldStartLoadWithRequest:request navigationType:navigationType];
+    }else {
+        return YES;
+    }
+}
+```
+
+业务插件，不需要改变。
+
+### 4.自定义业务插件（原生侧）
 
 1. 创建插件类，继承自`SHRMBasePlugin`。
 2. 插件类里面添加`@SHRMRegisterWebPlugin`宏，暂时用于插件是否需要提前初始化，加快第一次调用速度。也可以扩充一些其他功能。
@@ -180,7 +246,7 @@ configuration.processPool = self.processPool;
 
 这样一个插件就定义完毕了：插件的意思就是独立的，与其他功能模块无耦合的业务模块，用来处理一类JS-Native的交互。例如JS想要获取地图信息、wifi信息、文件处理等都可以定义为一个插件。插件的好处就是无耦合！！！拖入项目可以直接使用，删除后项目也不需要做任何修改，直接build！以后再有新的交互需求你只需要按照上面的步骤创建插件完成功能并把结果返回给JS就可以了！不需要动框架！！
 
-### 4.自定义业务插件（JS侧）
+### 5.自定义业务插件（JS侧）
 
 JS侧目前还没有开放插件化功能，只是说还不够完善，但它不影响功能使用：
 1. 如果JS加载在`WKWebView`，JS调用Native通过
