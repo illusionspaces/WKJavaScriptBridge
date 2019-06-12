@@ -141,5 +141,10 @@
     }];
 }
 
+- (void)reload {
+    WKWebView *webView = (WKWebView *)self.webView;
+    [webView reload];
+}
+
 
 @end

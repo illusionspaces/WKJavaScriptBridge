@@ -99,4 +99,8 @@
     }
 }
 
+- (void)reload {
+    [_webView reload];
+}
+
 @end

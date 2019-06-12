@@ -19,6 +19,13 @@ NS_ASSUME_NONNULL_BEGIN
  @param completionHandler 结果回调
  */
 - (void)evaluateJavaScript:(NSString *)javaScriptString completionHandler:(void (^)(id, NSError *))completionHandler;
+
+
+/**
+ 刷新webView
+ */
+- (void)reload;
+
 @end
 
 NS_ASSUME_NONNULL_END
