@@ -11,33 +11,61 @@
 #import "SHRMWebViewEngine.h"
 #import <objc/message.h>
 
+static const NSInteger JSON_SIZE_FOR_MAIN_THREAD = 4 * 1024; // Chosen arbitrarily.
+
 @implementation SHRMWebViewHandleFactory {
     __weak SHRMWebViewEngine *_webViewEngine;
+    NSDictionary *_commandDictionary;
 }
 
 - (instancetype)initWithWebViewEngine:(SHRMWebViewEngine *)webViewEngine {
     if (self = [super init]) {
         _webViewEngine = webViewEngine;
+        _commandDictionary = [NSDictionary dictionary];
     }
     return self;
 }
 
-- (void)handleMsgCommand:(NSArray *)arguments {
+- (void)handleMsgCommand:(NSString *)arguments {
     [self handleCommand:arguments];
 }
 
 #pragma mark - handle
 
-- (void)handleCommand:(NSArray *)commandArray {
-    if (commandArray.count > 0) {
-        [self executePending:commandArray];
+- (void)handleCommand:(NSString *)commandJson {
+    if (commandJson.length > 0) {
+        [self fetchCommands:commandJson];
+        [self executePending];
     }
 }
 
-- (void)executePending:(NSArray *)command {
-    SHRMMsgCommand *msgCommand = [SHRMMsgCommand commandFromJson:command];
-    if (![self execute:msgCommand]) {
-        NSLog(@"%@.%@ execute fail",msgCommand.className, msgCommand.methodName);
+- (void)fetchCommands:(NSString *)command {
+    
+    if ([command length] < JSON_SIZE_FOR_MAIN_THREAD) {
+        _commandDictionary = [self JSONObject:command];
+    } else {
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^() {
+            _commandDictionary = [self JSONObject:command];
+            [self performSelectorOnMainThread:@selector(executePending) withObject:nil waitUntilDone:NO];
+        });
+    }
+}
+
+- (void)executePending {
+    if (_commandDictionary.allKeys.count > 0) {
+        SHRMMsgCommand *msgCommand = [SHRMMsgCommand commandFromJson:_commandDictionary];
+        NSLog(@"Exec(%@): Calling %@.%@", msgCommand.callbackId, msgCommand.className, msgCommand.methodName);
+        if (![self execute:msgCommand]) {
+#ifdef DEBUG
+            NSString *commandJson = [NSString stringWithFormat:@"%@",_commandDictionary];
+            static NSUInteger maxLogLength = 1024;
+            NSString *commandString = ([commandJson length] > maxLogLength) ?
+            [NSString stringWithFormat : @"%@[...]", [commandJson substringToIndex:maxLogLength]] :
+            commandJson;
+            
+            NSLog(@"FAILED pluginJSON = %@", commandString);
+#endif
+        }
     }
 }
 
@@ -74,6 +102,22 @@
 
 - (void)dealloc {
     _webViewEngine = nil;
+}
+
+- (id)JSONObject:(NSString *)json
+{
+    @autoreleasepool {
+        NSError* error = nil;
+        id object = [NSJSONSerialization JSONObjectWithData:[json dataUsingEncoding:NSUTF8StringEncoding]
+                                                    options:NSJSONReadingMutableContainers
+                                                      error:&error];
+        
+        if (error != nil) {
+            NSLog(@"NSString JSONObject error: %@, Malformed Data: %@", [error localizedDescription], self);
+        }
+        
+        return object;
+    }
 }
 
 @end

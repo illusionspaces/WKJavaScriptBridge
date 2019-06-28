@@ -13,7 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 @class SHRMWebViewEngine;
 
 @interface SHRMWebViewHandleFactory : NSObject
-- (void)handleMsgCommand:(NSArray *)arguments;
+- (void)handleMsgCommand:(NSString *)arguments;
 - (instancetype)initWithWebViewEngine:(SHRMWebViewEngine *)webViewEngine;
 @end
 

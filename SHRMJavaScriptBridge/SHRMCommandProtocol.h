@@ -37,6 +37,11 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (id)getCommandInstance:(NSString*)pluginName;
 
+/**
+ 刷新webView
+ */
+- (void)reloadWebView;
+
 @end
 
 NS_ASSUME_NONNULL_END

@@ -13,8 +13,11 @@
 #define SHRMWebPlugins "SHRMWebPlugins"
 
 #define SHRMWebPluginDATA(sectname) __attribute((used, section("__DATA,"#sectname" ")))
-#define SHRMRegisterWebPlugin(servicename,impl) \
-class SHRMWebViewEngine;char * k##servicename##_service SHRMWebPluginDATA(SHRMWebPlugins) = "{ \""#servicename"\" : \""#impl"\"}";
+//#define SHRMRegisterWebPlugin(servicename,impl) \
+//class SHRMWebViewEngine;char * k##servicename##_service SHRMWebPluginDATA(SHRMWebPlugins) = "{ \""#servicename"\" : \""#impl"\"}";
+
+#define SHRMRegisterWebPlugin(name) \
+class SHRMWebViewEngine; char * k##name##_mod SHRMWebPluginDATA(SHRMWebPlugins) = ""#name"";
 
 
 

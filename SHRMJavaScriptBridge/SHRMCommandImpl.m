@@ -70,6 +70,10 @@
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), block);
 }
 
+- (void)reloadWebView {
+    [_webViewEngine.bridge reload];
+}
+
 - (BOOL)isValidCallbackId:(NSString*)callbackId
 {
     if ((callbackId == nil) || (_callbackIdPattern == nil)) {

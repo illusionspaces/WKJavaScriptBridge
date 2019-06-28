@@ -12,12 +12,11 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface SHRMMsgCommand : NSObject
-@property (nonatomic, readonly) NSArray* arguments;
-@property (nonatomic, readonly) NSString* callbackId;
-@property (nonatomic, readonly) NSString* className;
-@property (nonatomic, readonly) NSString* methodName;
-+ (SHRMMsgCommand *)commandFromJson:(NSArray*)jsonEntry;
-- (id)argumentAtIndex:(NSUInteger)index;
+@property (nonatomic, readonly) NSDictionary *arguments;
+@property (nonatomic, readonly) NSString *callbackId;
+@property (nonatomic, readonly) NSString *className;
+@property (nonatomic, readonly) NSString *methodName;
++ (SHRMMsgCommand *)commandFromJson:(NSString *)jsonEntry;
 @end
 
 NS_ASSUME_NONNULL_END
