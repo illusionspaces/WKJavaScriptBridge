@@ -26,6 +26,11 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (void)reload;
 
+/**
+ 是否开启插件白名单，默认开启
+ */
+@property (nonatomic, assign, getter=isOpenWhiteList) BOOL openWhiteList;
+
 @end
 
 NS_ASSUME_NONNULL_END

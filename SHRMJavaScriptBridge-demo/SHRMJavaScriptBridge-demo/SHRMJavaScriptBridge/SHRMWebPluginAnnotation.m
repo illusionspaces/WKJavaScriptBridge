@@ -33,22 +33,9 @@ __weak SHRMWebViewEngine *_webViewEngine;
 
 - (void)registedAnnotationModules {
     NSArray<NSString *>*services = [SHRMWebPluginAnnotation AnnotationModules];
-    for (NSString *map in services) {
-        NSData *jsonData =  [map dataUsingEncoding:NSUTF8StringEncoding];
-        NSError *error = nil;
-        id json = [NSJSONSerialization JSONObjectWithData:jsonData options:0 error:&error];
-        if (error) {
-            return;
-        }
-        if (![json isKindOfClass:[NSDictionary class]] || [json allKeys].count < 1) {
-            return;
-        }
-        
-        NSString *pluginName = [json allKeys][0];
-        NSNumber *onload  = [json allValues][0];
-        
-        if (pluginName && onload) {
-            [_webViewEngine setupPluginName:pluginName onload:onload];
+    for (NSString *pluginName in services) {
+        if (pluginName) {
+            [_webViewEngine setupPluginName:pluginName];
         }
     }
 }

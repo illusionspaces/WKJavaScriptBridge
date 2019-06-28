@@ -8,15 +8,16 @@
 
 #import "SHRMFetchPlugin.h"
 
-@SHRMRegisterWebPlugin(SHRMFetchPlugin, 0)
+@SHRMRegisterWebPlugin(SHRMFetchPlugin)
 
 @implementation SHRMFetchPlugin
 - (void)nativeFentch:(SHRMMsgCommand *)command {
-    NSString *method = [command argumentAtIndex:0];
-    NSString *url = [command argumentAtIndex:1];
-    NSString *param = [command argumentAtIndex:2];
-    NSLog(@"(%@):%@,%@,%@",command.callbackId, method, url, param);
-    SHRMPluginResult *result = [SHRMPluginResult resultWithStatus:SHRMCommandStatus_OK messageAsDictionary:@{@"success" : @"fetch success"}];
+    NSString *method = [command.arguments objectForKey:@"method"];
+    NSString *url = [command.arguments objectForKey:@"url"];
+    
+    NSLog(@"method : %@ ; url : %@", method, url);
+    
+    SHRMPluginResult *result = [SHRMPluginResult resultWithStatus:SHRMCommandStatus_OK messageAsString:@"uiwebview test success!"];
     [self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
 }
 

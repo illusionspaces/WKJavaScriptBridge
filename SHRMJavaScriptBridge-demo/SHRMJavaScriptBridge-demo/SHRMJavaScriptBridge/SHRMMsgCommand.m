@@ -9,23 +9,25 @@
 #import "SHRMMsgCommand.h"
 
 @interface SHRMMsgCommand ()
-@property (nonatomic, readwrite) NSArray* arguments;
+@property (nonatomic, readwrite) NSDictionary* arguments;
 @property (nonatomic, readwrite) NSString* callbackId;
 @property (nonatomic, readwrite) NSString* className;
 @property (nonatomic, readwrite) NSString* methodName;
 @end
 
 @implementation SHRMMsgCommand
-+ (SHRMMsgCommand *)commandFromJson:(NSArray*)jsonEntry {
+
++ (SHRMMsgCommand *)commandFromJson:(NSDictionary *)jsonEntry {
     return [[SHRMMsgCommand alloc] initFromJson:jsonEntry];
 }
 
-- (id)initFromJson:(NSArray*)jsonEntry {
-    id tmp = [jsonEntry objectAtIndex:0];
-    NSString* callbackId = tmp == [NSNull null] ? nil : tmp;
-    NSString* className = [jsonEntry objectAtIndex:1];
-    NSString* methodName = [jsonEntry objectAtIndex:2];
-    NSMutableArray* arguments = [jsonEntry objectAtIndex:3];
+- (id)initFromJson:(NSDictionary *)jsonEntry {
+    
+    id tmp = [jsonEntry objectForKey:@"id"];
+    NSString *callbackId = tmp == [NSNull null] ? nil : tmp;
+    NSString *className = [jsonEntry objectForKey:@"service"];
+    NSString *methodName = [jsonEntry objectForKey:@"action"];
+    NSDictionary *arguments = [jsonEntry objectForKey:@"actionArgs"];
     
     return [self initWithArguments:arguments
                         callbackId:callbackId
@@ -33,10 +35,10 @@
                         methodName:methodName];
 }
 
-- (id)initWithArguments:(NSArray*)arguments
-             callbackId:(NSString*)callbackId
-              className:(NSString*)className
-             methodName:(NSString*)methodName {
+- (id)initWithArguments:(NSDictionary *)arguments
+             callbackId:(NSString *)callbackId
+              className:(NSString *)className
+             methodName:(NSString *)methodName {
     self = [super init];
     if (self != nil) {
         _arguments = arguments;
@@ -46,16 +48,4 @@
     }
     return self;
 }
-
-- (id)argumentAtIndex:(NSUInteger)index {
-    if (index >= [_arguments count]) {
-        return nil;
-    }
-    id argument = [_arguments objectAtIndex:index];
-    if (argument == [NSNull null]) {
-        argument = nil;
-    }
-    return argument;
-}
-
 @end

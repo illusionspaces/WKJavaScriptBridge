@@ -80,8 +80,6 @@
 #pragma mark - setter&getter
 
 - (void)setWebViewEngine:(SHRMWebViewEngine *)webViewEngine {
-    
-//    NSString *defaultUIWebViewBridgeClass = @"SHRMJSCoreBrdige";
     NSString *baseUIWebViewBridgeClass = @"SHRMUIBaseBridge";
     self.UIWebViewBridge = [[NSClassFromString(baseUIWebViewBridgeClass) alloc] init];
     self->_webView.delegate = self.UIWebViewBridge;
@@ -101,6 +99,10 @@
 
 - (void)reload {
     [_webView reload];
+}
+
+- (void)setOpenWhiteList:(BOOL)openWhiteList {
+    self.webViewEngine.openWhiteList = openWhiteList;
 }
 
 @end

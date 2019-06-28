@@ -3,20 +3,32 @@
         <meta http-equiv="Content-Type" content="text/html; charset=utf8">
             <script language="javascript">
                 
-            function fetchClick() {
-                window.webkit.messageHandlers.SHRMWKJSBridge.postMessage(['13383445','SHRMFetchPlugin','nativeFentch',['post','https:www.baidu.com','user']]);
-            }
-            
-            function ioClick() {
-                window.webkit.messageHandlers.SHRMWKJSBridge.postMessage(['13383446','SHRMIOPlugin','nativeIO',['post','openFile','user']]);
-            }
-            
-            function deviceClick() {
-                window.webkit.messageHandlers.SHRMWKJSBridge.postMessage(['13383446','SHRMDevicePlugin','nativeDevice',['post','device info','user']]);
-            }
-            
-            function pushClick() {
-                window.webkit.messageHandlers.SHRMWKJSBridge.postMessage(['13383446','SHRMPushDemoPlugin','pushTestVC',['post','device info','user']]);
+            var callbacks = {};
+            var random = Math.floor(Math.random() * 2000000000);
+                
+            function pokeNative() {
+                
+                //业务参数
+                var command = {
+                    'method':'post',
+                    'url':'https:www.baidu.com'
+                }
+                
+                //封装层参数
+                var service = 'SHRMFetchPlugin';
+                var action = 'nativeFentch';
+                var callbackId = service + random++;
+                callbacks[callbackId] = {};
+                
+                var actionArgs = {
+                    'id' : callbackId, //id
+                    'service' : service,
+                    'action' : action,
+                    'actionArgs' :command
+                };
+                
+                //调用客户端
+                window.webkit.messageHandlers.SHRMWKJSBridge.postMessage(JSON.stringify(actionArgs));
             }
             
             function fetchComplete(id,status,result) {
@@ -35,13 +47,7 @@
     
     <body>
         <h1>按钮调用</h1>
-        <input type="button" value="网络请求" onclick="fetchClick()" />
-        
-        <input type="button" value="文件打开" onclick="ioClick()" />
-        
-        <input type="button" value="查询设备信息" onclick="deviceClick()" />
-        
-        <input type="button" value="页面跳转" onclick="pushClick()" />
+        <input type="button" value="网络请求" onclick="pokeNative()" />
         
         
         <h1>回调结果展示区</h1>

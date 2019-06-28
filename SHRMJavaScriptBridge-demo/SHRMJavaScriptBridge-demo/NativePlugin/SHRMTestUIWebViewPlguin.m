@@ -8,14 +8,12 @@
 
 #import "SHRMTestUIWebViewPlguin.h"
 
-@SHRMRegisterWebPlugin(SHRMTestUIWebViewPlguin, 1)
+@SHRMRegisterWebPlugin(SHRMTestUIWebViewPlguin)
 
 @implementation SHRMTestUIWebViewPlguin
 - (void)nativeTestUIWebView:(SHRMMsgCommand *)command {
-    NSString *method = [command argumentAtIndex:0];
-    NSString *url = [command argumentAtIndex:1];
-    NSString *param = [command argumentAtIndex:2];
-    NSLog(@"(%@):%@,%@,%@",command.callbackId, method, url, param);
+    NSString *method = [command.arguments objectForKey:@"method"];
+    NSString *url = [command.arguments objectForKey:@"url"];
 
     SHRMPluginResult *result = [SHRMPluginResult resultWithStatus:SHRMCommandStatus_OK messageAsString:@"uiwebview test success!"];
     [self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
