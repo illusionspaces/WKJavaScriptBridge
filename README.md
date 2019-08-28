@@ -52,7 +52,7 @@
 下载SHRMJavaScriptBridge文件夹，将SHRMJavaScriptBridge文件夹拖入到你的工程中。
 
 ### 2.CocoaPods
-1. 在 Podfile 中添加 `pod 'SHRMJavaScriptBridge', '~> 0.0.3'`。
+1. 在 Podfile 中添加 `pod 'SHRMJavaScriptBridge', '~> 0.0.4'`。
 2. 执行 `pod install` 或 `pod update`。
 3. 导入 `<SHRMWebViewEngine.h>`。
 
