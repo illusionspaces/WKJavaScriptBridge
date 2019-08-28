@@ -17,8 +17,6 @@
 
 [《写一个易于维护使用方便性能可靠的Hybrid框架（一）—— 思路构建》](https://juejin.im/post/5c07d95ee51d451d930b04c7)
 
-* 注：为解决UIWebView使用JavaScriptCore在最佳时机获取JSContext对象，使用了[《UIWebView-TS_JavaScriptContext》](https://github.com/TomSwift/UIWebView-TS_JavaScriptContext)分类进行处理。
-* 注：为了解决《UIWebView-TS_JavaScriptContext》上架可能被拒绝的情况，用插件化的方式为UIWebView额外构建了对URL进行拦截方式的通信。
 
 ## 介绍
 
@@ -149,12 +147,11 @@ configuration.processPool = self.processPool;
 ```
 2.3 其他处理参考demo。
 
-### 3.为了解决UIWebView使用《UIWebView-TS_JavaScriptContext》可能上架被拒绝的问题，又不想丢弃JSContext的通信方式，基于此目的，对UIWebView的通信方式构建了两套，将原有的JSContext通信方式单独拆分为`SHRMJSCoreBrdige`对象进行处理。另外新增了`SHRMUIBaseBridge`对象处理URL拦截的通信。并且基于面向协议的方式，将两种通信方式进行了插件化分离，如果不想使用其中的一种，直接将对应的类直接删除即可！不需要额外的操作。例如上架发现《UIWebView-TS_JavaScriptContext》被拒绝，可以直接删除`SHRMJSCoreBrdige`，不会影响框架使用，直接build即可。然后在`SHRMUIWebViewJavaScriptBridge`中对通信进行变更，打开注释即可，打开相对应的注视，即代表使用对应的通信方式，其他什么都不需要改变！！！
+### 3.因为上架问题，放弃《UIWebView-TS_JavaScriptContext》，移除`SHRMJSCoreBrdige`对象。目前UIWebView基于`SHRMUIBaseBridge`对象处理URL拦截的通信。
 
 ```objc
 - (void)setWebViewEngine:(SHRMWebViewEngine *)webViewEngine {
     
-//    NSString *defaultUIWebViewBridgeClass = @"SHRMJSCoreBrdige";
     NSString *baseUIWebViewBridgeClass = @"SHRMUIBaseBridge";
     self.UIWebViewBridge = [[NSClassFromString(baseUIWebViewBridgeClass) alloc] init];
     self->_webView.delegate = self.UIWebViewBridge;
@@ -163,12 +160,8 @@ configuration.processPool = self.processPool;
 }
 ```
 
-如果使用了URL拦截的方式进行通信，那么前端的调用方式也需要变更，由原来的：
-```js
-postUIWebViewParamer(['13383446','SHRMTestUIWebViewPlguin','nativeTestUIWebView',['post','openFile','user']])
-```
+前端调用方式：
 
-变更为：
 
 ```js
 var command = ['13383446','SHRMTestUIWebViewPlguin','nativeTestUIWebView',['post','openFile','user']];
@@ -176,7 +169,6 @@ var json = JSON.stringify(command);
 window.location.href = "protocol://#" + json;
 ```
 
-即可。
 
 拦截部分的源码如下：
 
