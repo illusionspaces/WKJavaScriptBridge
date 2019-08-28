@@ -23,7 +23,7 @@
 **iOS JS-Native交互框架（支持WKWebView/UIWebView），功能强大，轻松集成，两行代码即可，业务框架分离，易于拓展。**
 **关于通信方案说明：**
 * WKWebView使用addScritMessageHandler构建通信，苹果提供的bridge，可以理解为亲儿子，好处自然不用多说。
-* UIWebView使用JavaScriptCore框架构建通信，JavaScriptCore的黑魔法，连RN都没能逃过，功能可见一斑。
+* UIWebView使用URL拦截的方式构建通信，建议使用WKWebView取代，因为实在没有什么好的办法来构建这个bridge。
 
 **架构图**
 
