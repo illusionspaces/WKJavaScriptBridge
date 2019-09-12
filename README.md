@@ -1,7 +1,7 @@
-# SHRMJavaScriptBridge
+# WKJavaScriptBridge
 
-[![Version](https://img.shields.io/cocoapods/v/SHRMJavaScriptBridge.svg?style=flat)](http://cocoapods.org/pods/SHRMJavaScriptBridge)
-[![Pod License](http://img.shields.io/cocoapods/l/SHRMJavaScriptBridge.svg?style=flat)](https://opensource.org/licenses/Apache-2.0)
+[![Version](https://img.shields.io/cocoapods/v/WKJavaScriptBridge.svg?style=flat)](http://cocoapods.org/pods/WKJavaScriptBridge)
+[![Pod License](http://img.shields.io/cocoapods/l/WKJavaScriptBridge.svg?style=flat)](https://opensource.org/licenses/Apache-2.0)
 ![iOS 8.0+](https://img.shields.io/badge/iOS-8.0%2B-blue.svg)
 ![](https://img.shields.io/badge/language-objc-orange.svg)
 ![ARC](https://img.shields.io/badge/ARC-orange.svg)
@@ -20,10 +20,9 @@
 
 ## 介绍
 
-**iOS JS-Native交互框架（支持WKWebView/UIWebView），功能强大，轻松集成，两行代码即可，业务框架分离，易于拓展。**
+**iOS 基于WKWebView的JS-Native交互框架，功能强大，轻松集成，两行代码即可，业务框架分离，易于拓展。**
 **关于通信方案说明：**
 * WKWebView使用addScritMessageHandler构建通信，苹果提供的bridge，可以理解为亲儿子，好处自然不用多说。
-* UIWebView使用URL拦截的方式构建通信，建议使用WKWebView取代，因为实在没有什么好的办法来构建这个bridge。
 
 **架构图**
 
@@ -32,16 +31,16 @@
 
 **框架类图**
 
-![image text](https://github.com/GitWangKai/SHRMJavaScriptBridge/blob/master/16a9aac15baf6f9e.png)
+![image text](https://github.com/GitWangKai/WKJavaScriptBridge/blob/master/16a9aac15baf6f9e.png)
 
 ## 特性
-- 支持WKWebView和UIWebView，两行代码即可让WebView能力无限。
+- 两行代码即可让WebView能力无限。
 - 针对WKWebView进行了Cookie丢失处理。
 - 针对WKWebView白框架屏问题进行了处理。
 - 针对WKWebView所带来的一些Crash问题进行了容错处理。
 - 插件化JS-Native业务逻辑，业务完全分离，解耦。
 - 基于__attribute( )函数进行插件注册，业务模块的注册只需要在自己内部注册即可，摆脱plist等传统注册方式。目前已知[阿里BeeHive](https://github.com/alibaba/BeeHive)/[美团Kylin组件](https://juejin.im/post/5c0a17d6e51d4570cf60d102)皆使用此方式进行注册。目前注册功能为插件是否提前预加载提供。
-- 业务模块回调参框架数给JS侧进行了统一回调处理：业务模块完全不关心是WK or UI。
+- 业务模块回调参框架数给JS侧进行了统一回调处理。
 
 
 
@@ -49,16 +48,16 @@
 
 ### 1.手动导入
 
-下载SHRMJavaScriptBridge文件夹，将SHRMJavaScriptBridge文件夹拖入到你的工程中。
+下载WKJavaScriptBridge文件夹，将WKJavaScriptBridge文件夹拖入到你的工程中。
 
 ### 2.CocoaPods
-1. 在 Podfile 中添加 `pod 'SHRMJavaScriptBridge', '~> 0.0.4'`。
+1. 在 Podfile 中添加 `pod 'WKJavaScriptBridge', '~> 0.0.5'`。
 2. 执行 `pod install` 或 `pod update`。
-3. 导入 `<SHRMWebViewEngine.h>`。
+3. 导入 `<WKWebViewEngine.h>`。
 
 
 ## 用法
-`SHRMWebViewEngine`是框架的主体类，对外提供两个函数：`bindBridgeWithWebView:`传入你的webView，`setWebViewDelegate:`传入你的controller，用来拦截webView的代理函数。具体参照demo。
+`WKWebViewEngine`是框架的主体类，对外提供两个函数：`bindBridgeWithWebView:`传入你的webView，`setWebViewDelegate:`传入你的controller，用来拦截webView的代理函数。具体参照demo。
 
 ### 1.使用框架
 
@@ -72,7 +71,7 @@ configuration.preferences = preferences;
 WKWebView *webView = [[WKWebView alloc] initWithFrame:self.view.frame configuration:configuration];
 webView.navigationDelegate = self;
 /***/
-SHRMWebViewEngine* bridge = [SHRMWebViewEngine bindBridgeWithWebView:webView];
+WKWebViewEngine* bridge = [WKWebViewEngine bindBridgeWithWebView:webView];
 [bridge setWebViewDelegate:self];
 /***/
 [self.view addSubview:webView];
@@ -84,20 +83,6 @@ if (@available(iOS 9.0, *)) {
 // Fallback on earlier versions
 }
 ```
-
-```objc
-// UIWebView
-UIWebView *webView = [[UIWebView alloc] initWithFrame:self.view.frame];
-/***/
-SHRMWebViewEngine* bridge = [SHRMWebViewEngine bindBridgeWithWebView:webView];
-[bridge setWebViewDelegate:self];
-/***/
-[self.view addSubview:webView];
-NSString *urlStr = [[NSBundle mainBundle] pathForResource:@"index1.html" ofType:nil];
-NSURL *fileURL = [NSURL fileURLWithPath:urlStr];
-[webView loadRequest:[NSURLRequest requestWithURL:fileURL]];
-```
-两种WebView在使用上并无差别，完全兼容。
 
 ### 2.一些针对WKWebView带来的Crash问题处理
 2.1 由于WKWebView在请求过程中用户可能退出界面销毁对象，当请求回调时由于接收处理对象不存在，造成Bad Access crash，所以可将WKProcessPool设为单例
@@ -145,92 +130,33 @@ configuration.processPool = self.processPool;
         completionHandler();
 }
 ```
-2.3 其他处理参考demo。
 
-### 3.因为上架问题，放弃《UIWebView-TS_JavaScriptContext》，移除`SHRMJSCoreBrdige`对象。目前UIWebView基于`SHRMUIBaseBridge`对象处理URL拦截的通信。
-
-```objc
-- (void)setWebViewEngine:(SHRMWebViewEngine *)webViewEngine {
-    
-    NSString *baseUIWebViewBridgeClass = @"SHRMUIBaseBridge";
-    self.UIWebViewBridge = [[NSClassFromString(baseUIWebViewBridgeClass) alloc] init];
-    self->_webView.delegate = self.UIWebViewBridge;
-    [self.UIWebViewBridge setWebViewEngine:webViewEngine];
-    self.UIWebViewBridge.UIWebViewDelegateCalss = self;
-}
-```
-
-前端调用方式：
-
-
-```js
-var command = ['13383446','SHRMTestUIWebViewPlguin','nativeTestUIWebView',['post','openFile','user']];
-var json = JSON.stringify(command);
-window.location.href = "protocol://#" + json;
-```
-
-
-拦截部分的源码如下：
-
-```objc
-- (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
-    
-    NSURL *url = [request URL];
-    if ([[url scheme] isEqualToString:@"protocol"]) {
-        NSString *decodedURL = request.URL.absoluteString.stringByRemovingPercentEncoding;
-        NSArray *paramArray = [decodedURL componentsSeparatedByString:@"#"];
-        NSString * command = [paramArray lastObject];
-        
-        NSError* error = nil;
-        id object = [NSJSONSerialization JSONObjectWithData:[command dataUsingEncoding:NSUTF8StringEncoding]
-                                                    options:NSJSONReadingMutableContainers
-                                                      error:&error];
-        if (error != nil) {
-            NSLog(@"NSString JSONObject error: %@, Malformed Data: %@", [error localizedDescription], self);
-        }
-        
-        if (self.webViewEngine) {
-            [self.webViewEngine.webViewhandleFactory handleMsgCommand:(NSArray *)object];
-        }
-        
-        return NO;
-    }
-    
-    if (self.UIWebViewDelegateCalss && [self.UIWebViewDelegateCalss respondsToSelector:@selector(webView:shouldStartLoadWithRequest:navigationType:)]) {
-        return [self.UIWebViewDelegateCalss webView:webView shouldStartLoadWithRequest:request navigationType:navigationType];
-    }else {
-        return YES;
-    }
-}
-```
-
-业务插件，不需要改变。
 
 ### 4.自定义业务插件（原生侧）
 
-1. 创建插件类，继承自`SHRMBasePlugin`。
-2. 插件类里面添加`@SHRMRegisterWebPlugin`宏，暂时用于插件是否需要提前初始化，加快第一次调用速度。也可以扩充一些其他功能。
+1. 创建插件类，继承自`WKBasePlugin`。
+2. 插件类里面添加`@WKRegisterWebPlugin`宏，暂时用于插件是否需要提前初始化，加快第一次调用速度。也可以扩充一些其他功能。
 3. 插件里构建业务逻辑，通过`sendPluginResult:callbackId:`函数把结果回传给JS侧。
 
 ```objc
-#import "SHRMBasePlugin.h"
-@interface SHRMTestUIWebViewPlguin : SHRMBasePlugin
-- (void)nativeTestUIWebView:(SHRMMsgCommand *)command;
+#import "WKBasePlugin.h"
+@interface WKTestUIWebViewPlguin : WKBasePlugin
+- (void)nativeTestUIWebView:(WKMsgCommand *)command;
 @end
 
 ```
 
 ```objc
-@SHRMRegisterWebPlugin(SHRMTestUIWebViewPlguin, 1)
+@WKRegisterWebPlugin(WKTestUIWebViewPlguin, 1)
 
-@implementation SHRMTestUIWebViewPlguin
-- (void)nativeTestUIWebView:(SHRMMsgCommand *)command {
+@implementation WKTestUIWebViewPlguin
+- (void)nativeTestUIWebView:(WKMsgCommand *)command {
     NSString *method = [command argumentAtIndex:0];
     NSString *url = [command argumentAtIndex:1];
     NSString *param = [command argumentAtIndex:2];
     NSLog(@"(%@):%@,%@,%@",command.callbackId, method, url, param);
 
-    SHRMPluginResult *result = [SHRMPluginResult resultWithStatus:SHRMCommandStatus_OK messageAsString:@"uiwebview test success!"];
+    WKPluginResult *result = [WKPluginResult resultWithStatus:WKCommandStatus_OK messageAsString:@"uiwebview test success!"];
     [self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
 }
 @end
@@ -243,17 +169,17 @@ window.location.href = "protocol://#" + json;
 JS侧目前还没有开放插件化功能，只是说还不够完善，但它不影响功能使用：
 1. 如果JS加载在`WKWebView`，JS调用Native通过
 ```js
-window.webkit.messageHandlers.SHRMWKJSBridge.postMessage(['13383445','SHRMFetchPlugin','nativeFentch',['post','https:www.baidu.com','user']])
+window.webkit.messageHandlers.WKWKJSBridge.postMessage(['13383445','WKFetchPlugin','nativeFentch',['post','https:www.baidu.com','user']])
 ```
 即可。
 `['post','https:www.baidu.com','user']`为想要传递的参数。
 `13383445`为此次通信ID，ID可不传，为后续JS侧插件化预留。
-`SHRMFetchPlugin`为Native侧插件类名。
+`WKFetchPlugin`为Native侧插件类名。
 `nativeFentch`为插件方法名。
 
 2. 如果JS加载在`UIWebView`，JS调用Native通过
 ```js
-postUIWebViewParamer(['13383446','SHRMTestUIWebViewPlguin','nativeTestUIWebView',['post','openFile','user']])
+postUIWebViewParamer(['13383446','WKTestUIWebViewPlguin','nativeTestUIWebView',['post','openFile','user']])
 ```
 即可，其中`['post','openFile','user']`
 依旧为你想要传递的参数，另外三个参数含义同上。
@@ -270,5 +196,5 @@ postUIWebViewParamer(['13383446','SHRMTestUIWebViewPlguin','nativeTestUIWebView'
 
 ## License
 
-SHRMJavaScriptBridge is available under the Apache License 2.0. See the [LICENSE](https://github.com/GitWangKai/SHRMJavaScriptBridge/blob/master/LICENSE) file for more info.
+WKJavaScriptBridge is available under the Apache License 2.0. See the [LICENSE](https://github.com/GitWangKai/WKJavaScriptBridge/blob/master/LICENSE) file for more info.
 
