@@ -1,0 +1,7 @@
+# Uncomment the next line to define a global platform for your project
+  platform :ios, '8.0'
+
+target 'WKJavaScriptBridge-demo' do
+#  pod 'SHRMJavaScriptBridge', '~> 0.0.5'
+
+end
