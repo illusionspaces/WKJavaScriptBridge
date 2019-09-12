@@ -9,7 +9,7 @@ Pod::Spec.new do |spec|
   spec.homepage     = "https://github.com/GitWangKai/WKJavaScriptBridge"
   spec.license      = { :type => "Apache License 2.0", :file => "LICENSE" }
   spec.author             = { "王凯" => "18500052382@163.com" }
-  spec.source       = { :git => "https://github.com/GitWangKai/SHRMJavaScriptBridge.git", :tag => "#{spec.version}" }
+  spec.source       = { :git => "https://github.com/GitWangKai/WKJavaScriptBridge.git", :tag => "#{spec.version}" }
   spec.source_files  = "WKJavaScriptBridge/*.{h,m}"
   spec.platform = :ios, '8.0'
 end
