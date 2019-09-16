@@ -7,6 +7,8 @@
 ![](https://img.shields.io/badge/language-objc-orange.svg)
 ![ARC](https://img.shields.io/badge/ARC-orange.svg)
 
+# 注：由于苹果近期给开发者邮件说明，要求尽快删除UIWebView等相关API，因此新增release 0.0.6版本，删除UIWebView的支持。
+
 
 ## Link
 * Blog : 
@@ -41,6 +43,7 @@
 - 针对WKWebView白框架屏问题进行了处理。
 - 针对WKWebView所带来的一些Crash问题进行了容错处理。
 - 插件化JS-Native业务逻辑，业务完全分离，解耦。
+- 不提供WebView&Controller，支持在不影响原业务的情况下，插件化集成。
 - 基于__attribute( )函数进行插件注册，业务模块的注册只需要在自己内部注册即可，摆脱plist等传统注册方式。目前已知[阿里BeeHive](https://github.com/alibaba/BeeHive)/[美团Kylin组件](https://juejin.im/post/5c0a17d6e51d4570cf60d102)皆使用此方式进行注册。目前注册功能为插件是否提前预加载提供。
 - 业务模块回调参框架数给JS侧进行了统一回调处理。
 
