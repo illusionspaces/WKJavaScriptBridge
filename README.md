@@ -28,12 +28,12 @@
 
 **架构图**
 
-![image text](https://github.com/GitWangKai/WKJavaScriptBridge/blob/master/img.png)
+![image text](https://github.com/GitWangKai/WKJavaScriptBridge/blob/master/img.jpg)
 
 
 **类图**
 
-![image text](https://github.com/GitWangKai/WKJavaScriptBridge/blob/master/img_1.png)
+![image text](https://github.com/GitWangKai/WKJavaScriptBridge/blob/master/img_1.jpg)
 
 ## 特性
 - 两行代码即可让WebView能力无限。
