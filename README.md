@@ -28,12 +28,12 @@
 
 **架构图**
 
-![image text](https://user-gold-cdn.xitu.io/2019/5/9/16a9a86c581a1b78?imageView2/0/w/1280/h/960/ignore-error/1)
+![image text](https://github.com/GitWangKai/WKJavaScriptBridge/blob/master/img.png)
 
 
-**框架类图**
+**类图**
 
-![image text](https://github.com/GitWangKai/WKJavaScriptBridge/blob/master/16a9aac15baf6f9e.png)
+![image text](https://github.com/GitWangKai/WKJavaScriptBridge/blob/master/img_1.png)
 
 ## 特性
 - 两行代码即可让WebView能力无限。
