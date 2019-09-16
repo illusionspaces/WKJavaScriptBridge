@@ -171,25 +171,33 @@ configuration.processPool = self.processPool;
 
 ### 5.自定义业务插件（JS侧）
 
-JS侧目前还没有开放插件化功能，只是说还不够完善，但它不影响功能使用：
-1. 如果JS加载在`WKWebView`，JS调用Native通过
-```js
-window.webkit.messageHandlers.WKWKJSBridge.postMessage(['13383445','WKFetchPlugin','nativeFentch',['post','https:www.baidu.com','user']])
-```
-即可。
-`['post','https:www.baidu.com','user']`为想要传递的参数。
-`13383445`为此次通信ID，ID可不传，为后续JS侧插件化预留。
-`WKFetchPlugin`为Native侧插件类名。
-`nativeFentch`为插件方法名。
+JS侧目前还没有开放插件化功能，但是完成了公共接口封装，提供了成功失败回调函数，便于JS侧处理Native返回的结果：
 
-2. 如果JS加载在`UIWebView`，JS调用Native通过
-```js
-postUIWebViewParamer(['13383446','WKTestUIWebViewPlguin','nativeTestUIWebView',['post','openFile','user']])
-```
-即可，其中`['post','openFile','user']`
-依旧为你想要传递的参数，另外三个参数含义同上。
+1. JS调用Native
+index.html中引用<script type="text/javascript" src="WKJSBridge.js" ></script>
 
-3. 详细使用参照Demo。
+```js
+//功能模块
+var service = 'WKFetchPlugin';
+//具体功能
+var action = 'nativeFentch';
+//业务参数
+var command = {
+    'method':'post',
+    'url':'https:www.baidu.com'
+}
+window.WKJSBridge.callNative(service, action, command, function success(res) {
+                                 
+                             }, function fail(res) {
+                                 
+                             });
+```
+
+`command`为想要传递的参数。
+`service`为Native侧插件类名。
+`action`为插件方法名。
+
+2. 详细使用参照Demo。
 
 ## 后续功能延伸：
 
