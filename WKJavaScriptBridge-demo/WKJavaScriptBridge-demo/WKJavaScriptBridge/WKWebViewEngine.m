@@ -36,7 +36,9 @@
 - (id)getCommandInstance:(NSString*)pluginName {
     NSString* className = [self.pluginsMap objectForKey:[pluginName lowercaseString]];
     if (className == nil && self.isOpenWhiteList) {
+#ifdef DEBUG
         NSLog(@"(pluginName: (%@) does not register on the whitelist.", pluginName);
+#endif
         return nil;
     }
     
@@ -44,7 +46,9 @@
     if (obj != nil) {
         [self registerPlugin:obj];
     }else {
+#ifdef DEBUG
         NSLog(@"(pluginName: (%@) does not exist.", pluginName);
+#endif
     }
     return obj;
 }

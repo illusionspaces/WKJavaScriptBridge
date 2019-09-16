@@ -1,46 +1,27 @@
 <html>
     <head>
+        <title>WKJSBridge</title>
         <meta http-equiv="Content-Type" content="text/html; charset=utf8">
+            <script type="text/javascript" src="WKJSBridge.js" ></script>
             <script language="javascript">
                 
-            var callbacks = {};
-            var random = Math.floor(Math.random() * 2000000000);
-                
-            function pokeNative() {
-                
-                //业务参数
-                var command = {
-                    'method':'post',
-                    'url':'https:www.baidu.com'
+                function pokeNative() {
+                    
+                    //功能模块
+                    var service = 'WKFetchPlugin';
+                    //具体功能
+                    var action = 'nativeFentch';
+                    //业务参数
+                    var command = {
+                        'method':'post',
+                        'url':'https:www.baidu.com'
+                    }
+                    window.WKJSBridge.callNative(service, action, command, function success(res) {
+                                                     document.getElementById("returnValue").value = res.result;
+                                                 }, function fail(res) {
+                                                     document.getElementById("returnValue").value = res.result;
+                                                 });
                 }
-                
-                //封装层参数
-                var service = 'WKFetchPlugin';
-                var action = 'nativeFentch';
-                var callbackId = service + random++;
-                callbacks[callbackId] = {};
-                
-                var actionArgs = {
-                    'id' : callbackId, //id
-                    'service' : service,
-                    'action' : action,
-                    'actionArgs' :command
-                };
-                
-                //调用客户端
-                window.webkit.messageHandlers.WKWKJSBridge.postMessage(JSON.stringify(actionArgs));
-            }
-            
-            function fetchComplete(id,status,result) {
-                asyncAlert(result);
-                document.getElementById("returnValue").value = (id) + result;
-            }
-            
-            function asyncAlert(content) {
-                setTimeout(function(){
-                           alert(content);
-                           },1);
-            }
             
             </script>
     </head>
@@ -57,4 +38,5 @@
         
         
     </body>
+
 </html>

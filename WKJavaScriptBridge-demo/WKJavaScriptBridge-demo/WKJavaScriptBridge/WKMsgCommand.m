@@ -23,7 +23,7 @@
 
 - (id)initFromJson:(NSDictionary *)jsonEntry {
     
-    id tmp = [jsonEntry objectForKey:@"id"];
+    id tmp = [jsonEntry objectForKey:@"callbackId"];
     NSString *callbackId = tmp == [NSNull null] ? nil : tmp;
     NSString *className = [jsonEntry objectForKey:@"service"];
     NSString *methodName = [jsonEntry objectForKey:@"action"];

@@ -23,7 +23,9 @@
         _callbackIdPattern = [NSRegularExpression regularExpressionWithPattern:@"[^A-Za-z0-9._-]" options:0 error:&err];
         if (err != nil) {
             // Couldn't initialize Regex
+#ifdef DEBUG
             NSLog(@"Error: Couldn't initialize regex");
+#endif
             _callbackIdPattern = nil;
         }
     }
@@ -31,20 +33,28 @@
 }
 
 - (void)sendPluginResult:(WKPluginResult *)result callbackId:(NSString*)callbackId {
+#ifdef DEBUG
     NSLog(@"Exec(%@): Sending result. Status=%@", callbackId, result.status);
+#endif
     // 当本次交互JS侧没有回调时
     if ([@"INVALID" isEqualToString:callbackId]) {
         return;
     }
     // 回调id格式不正确
     if (![self isValidCallbackId:callbackId]) {
+#ifdef DEBUG
         NSLog(@"Invalid callback id received by sendPluginResult");
+#endif
         return;
     }
-    int status = [result.status intValue];
-    NSString* argumentsAsJSON = [result argumentsAsJSON];
     
-    NSString* js = [NSString stringWithFormat:@"fetchComplete('(%@)',%d,%@)", callbackId, status, argumentsAsJSON];
+    NSMutableDictionary *messageDict = [NSMutableDictionary dictionary];
+    messageDict[@"status"] = result.status;
+    messageDict[@"callbackId"] = callbackId;
+    messageDict[@"data"] = result.message;
+
+    NSString* argumentsAsJSON = [WKPluginResult jsSerializeWithJson:messageDict];
+    NSString* js = [NSString stringWithFormat:@"window.WKJSBridge._handleMessageFromNative('%@')", argumentsAsJSON];
     
     if (![NSThread isMainThread]) {
         //不使用GCD是防止js页面死锁产生卡死
@@ -57,7 +67,9 @@
 - (void)evalJs:(NSString *)js {
     [_webViewEngine.bridge evaluateJavaScript:js completionHandler:^(id obj, NSError * error) {
         if (error) {
+#ifdef DEBUG
             NSLog(@"evaluateJSError:%@",error.localizedDescription);
+#endif
         }
     }];
 }

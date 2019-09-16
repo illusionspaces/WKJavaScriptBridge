@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0A09224822674D2E002BDEBE /* WKFetchPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A09224622674D2D002BDEBE /* WKFetchPlugin.m */; };
+		0A7648E2232F6365006C6FFA /* WKJSBridge.js in Resources */ = {isa = PBXBuildFile; fileRef = 0A7648E1232F6365006C6FFA /* WKJSBridge.js */; };
 		0A9A3965226D940600D0DF43 /* TestWKWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A9A3962226D940600D0DF43 /* TestWKWebViewController.m */; };
 		0A9E4690225B2922003F6574 /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A9E468F225B2922003F6574 /* TestViewController.m */; };
 		0AEB5CA322A529FD00B13C09 /* WKCommandImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AEB5C8A22A529FD00B13C09 /* WKCommandImpl.m */; };
@@ -28,13 +29,13 @@
 		832F7CB221B8E6460076D164 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 832F7CB121B8E6460076D164 /* WebKit.framework */; };
 		832F7CB721B904C60076D164 /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = 832F7CB621B904C50076D164 /* index.html */; };
 		BAE91BDBD128B2356F07975D /* libPods-WKJavaScriptBridge-demo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E5973883F04EEF4EBBB3F713 /* libPods-WKJavaScriptBridge-demo.a */; };
-		FB1C6CF2A6A4C61372F02419 /* libPods-SHRMJavaScriptBridge-demo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E4A4082632E50C92ACD46E5 /* libPods-SHRMJavaScriptBridge-demo.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		05DB13B25C25AB5F7DA35A90 /* Pods-WKJavaScriptBridge-demo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WKJavaScriptBridge-demo.debug.xcconfig"; path = "Target Support Files/Pods-WKJavaScriptBridge-demo/Pods-WKJavaScriptBridge-demo.debug.xcconfig"; sourceTree = "<group>"; };
 		0A09224622674D2D002BDEBE /* WKFetchPlugin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKFetchPlugin.m; sourceTree = "<group>"; };
 		0A09224722674D2E002BDEBE /* WKFetchPlugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKFetchPlugin.h; sourceTree = "<group>"; };
+		0A7648E1232F6365006C6FFA /* WKJSBridge.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = WKJSBridge.js; sourceTree = "<group>"; };
 		0A9A395F226D940500D0DF43 /* TestWKWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestWKWebViewController.h; sourceTree = "<group>"; };
 		0A9A3962226D940600D0DF43 /* TestWKWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestWKWebViewController.m; sourceTree = "<group>"; };
 		0A9E468E225B2922003F6574 /* TestViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestViewController.h; sourceTree = "<group>"; };
@@ -60,7 +61,6 @@
 		0AEB5C9E22A529FD00B13C09 /* WKWebPluginAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKWebPluginAnnotation.h; sourceTree = "<group>"; };
 		0AEB5CA122A529FD00B13C09 /* WKBasePlugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKBasePlugin.h; sourceTree = "<group>"; };
 		29E50CB97F5DD0FD75EBAF15 /* Pods-WKJavaScriptBridge-demo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WKJavaScriptBridge-demo.release.xcconfig"; path = "Target Support Files/Pods-WKJavaScriptBridge-demo/Pods-WKJavaScriptBridge-demo.release.xcconfig"; sourceTree = "<group>"; };
-		36A74D81A85D153260527D93 /* Pods-SHRMJavaScriptBridge-demo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SHRMJavaScriptBridge-demo.release.xcconfig"; path = "Target Support Files/Pods-SHRMJavaScriptBridge-demo/Pods-SHRMJavaScriptBridge-demo.release.xcconfig"; sourceTree = "<group>"; };
 		832F7C8321B822510076D164 /* WKJavaScriptBridge-demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "WKJavaScriptBridge-demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		832F7C8621B822510076D164 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		832F7C8721B822510076D164 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -73,9 +73,7 @@
 		832F7C9521B822530076D164 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		832F7CB121B8E6460076D164 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		832F7CB621B904C50076D164 /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
-		8E4A4082632E50C92ACD46E5 /* libPods-SHRMJavaScriptBridge-demo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SHRMJavaScriptBridge-demo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5973883F04EEF4EBBB3F713 /* libPods-WKJavaScriptBridge-demo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WKJavaScriptBridge-demo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		EDCC47FA90991B9EFDA5E5EF /* Pods-SHRMJavaScriptBridge-demo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SHRMJavaScriptBridge-demo.debug.xcconfig"; path = "Target Support Files/Pods-SHRMJavaScriptBridge-demo/Pods-SHRMJavaScriptBridge-demo.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,7 +82,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				832F7CB221B8E6460076D164 /* WebKit.framework in Frameworks */,
-				FB1C6CF2A6A4C61372F02419 /* libPods-SHRMJavaScriptBridge-demo.a in Frameworks */,
 				BAE91BDBD128B2356F07975D /* libPods-WKJavaScriptBridge-demo.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -141,6 +138,7 @@
 			isa = PBXGroup;
 			children = (
 				832F7CB621B904C50076D164 /* index.html */,
+				0A7648E1232F6365006C6FFA /* WKJSBridge.js */,
 				0AEB5C8422A529FD00B13C09 /* WKJavaScriptBridge */,
 				832F7E6221BA54820076D164 /* NativePlugin */,
 				832F7C8621B822510076D164 /* AppDelegate.h */,
@@ -164,7 +162,6 @@
 			isa = PBXGroup;
 			children = (
 				832F7CB121B8E6460076D164 /* WebKit.framework */,
-				8E4A4082632E50C92ACD46E5 /* libPods-SHRMJavaScriptBridge-demo.a */,
 				E5973883F04EEF4EBBB3F713 /* libPods-WKJavaScriptBridge-demo.a */,
 			);
 			name = Frameworks;
@@ -182,8 +179,6 @@
 		EDC6E15DAEDCFEAB3060DBC2 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				EDCC47FA90991B9EFDA5E5EF /* Pods-SHRMJavaScriptBridge-demo.debug.xcconfig */,
-				36A74D81A85D153260527D93 /* Pods-SHRMJavaScriptBridge-demo.release.xcconfig */,
 				05DB13B25C25AB5F7DA35A90 /* Pods-WKJavaScriptBridge-demo.debug.xcconfig */,
 				29E50CB97F5DD0FD75EBAF15 /* Pods-WKJavaScriptBridge-demo.release.xcconfig */,
 			);
@@ -249,6 +244,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				832F7C9321B822530076D164 /* LaunchScreen.storyboard in Resources */,
+				0A7648E2232F6365006C6FFA /* WKJSBridge.js in Resources */,
 				832F7CB721B904C60076D164 /* index.html in Resources */,
 				832F7C9021B822530076D164 /* Assets.xcassets in Resources */,
 				832F7C8E21B822510076D164 /* Main.storyboard in Resources */,

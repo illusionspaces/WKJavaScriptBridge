@@ -69,8 +69,9 @@ static NSArray<NSString *>* BHReadConfiguration(char *section) {
         
         NSString *str = [NSString stringWithUTF8String:string];
         if(!str)continue;
-        
+#ifdef DEBUG
         NSLog(@"config = %@", str);
+#endif
         if(str) [configs addObject:str];
     }
     

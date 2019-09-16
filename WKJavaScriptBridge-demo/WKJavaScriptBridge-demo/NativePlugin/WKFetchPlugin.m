@@ -17,7 +17,7 @@
     
     NSLog(@"method : %@ ; url : %@", method, url);
     
-    WKPluginResult *result = [WKPluginResult resultWithStatus:WKCommandStatus_OK messageAsString:@"wkwebview test success!"];
+    WKPluginResult *result = [WKPluginResult resultWithStatus:WKCommandStatus_ERROR messageAsDictionary:@{@"result": @"success!!"}];
     [self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
 }
 

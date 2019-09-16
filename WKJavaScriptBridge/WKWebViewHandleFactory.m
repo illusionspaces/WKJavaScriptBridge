@@ -54,7 +54,9 @@ static const NSInteger JSON_SIZE_FOR_MAIN_THREAD = 4 * 1024; // Chosen arbitrari
 - (void)executePending {
     if (_commandDictionary.allKeys.count > 0) {
         WKMsgCommand *msgCommand = [WKMsgCommand commandFromJson:_commandDictionary];
+#ifdef DEBUG
         NSLog(@"Exec(%@): Calling %@.%@", msgCommand.callbackId, msgCommand.className, msgCommand.methodName);
+#endif
         if (![self execute:msgCommand]) {
 #ifdef DEBUG
             NSString *commandJson = [NSString stringWithFormat:@"%@",_commandDictionary];
@@ -71,7 +73,9 @@ static const NSInteger JSON_SIZE_FOR_MAIN_THREAD = 4 * 1024; // Chosen arbitrari
 
 - (BOOL)execute:(WKMsgCommand *)command {
     if (command.className == nil || command.methodName == nil) {
+#ifdef DEBUG
         NSLog(@"ERROR: Classname and/or methodName not found for command.");
+#endif
         return NO;
     }
     
@@ -81,7 +85,9 @@ static const NSInteger JSON_SIZE_FOR_MAIN_THREAD = 4 * 1024; // Chosen arbitrari
     WKBasePlugin *instance = [_webViewEngine.commandDelegate getCommandInstance:command.className];
     
     if (!([instance isKindOfClass:[WKBasePlugin class]])) {
+#ifdef DEBUG
         NSLog(@"ERROR: Plugin '%@' not found, or is not a Plugin. Check your plugin mapping in config.xml.", command.className);
+#endif
         return NO;
     }
     
@@ -90,12 +96,16 @@ static const NSInteger JSON_SIZE_FOR_MAIN_THREAD = 4 * 1024; // Chosen arbitrari
     if ([instance respondsToSelector:normalSelector]) {
         ((void (*)(id, SEL, id))objc_msgSend)(instance, normalSelector, command);
     } else {
+#ifdef DEBUG
         NSLog(@"ERROR: Method '%@' not defined in Plugin '%@'", methodName, command.className);
+#endif
         retVal = NO;
     }
     double elapsed = [[NSDate date] timeIntervalSince1970] * 1000.0 - started;
     if (elapsed > 10) {
+#ifdef DEBUG
         NSLog(@"THREAD WARNING: ['%@'] took '%f' ms. Plugin should use a background thread.", command.className, elapsed);
+#endif
     }
     return retVal;
 }
@@ -113,7 +123,9 @@ static const NSInteger JSON_SIZE_FOR_MAIN_THREAD = 4 * 1024; // Chosen arbitrari
                                                       error:&error];
         
         if (error != nil) {
+#ifdef DEBUG
             NSLog(@"NSString JSONObject error: %@, Malformed Data: %@", [error localizedDescription], self);
+#endif
         }
         
         return object;

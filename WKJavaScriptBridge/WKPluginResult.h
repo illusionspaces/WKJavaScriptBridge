@@ -11,8 +11,8 @@
 NS_ASSUME_NONNULL_BEGIN
 
 typedef NS_ENUM(NSInteger, WKCommandStatus) {
-    WKCommandStatus_OK = 0,
-    WKCommandStatus_ERROR
+    WKCommandStatus_ERROR = 0,
+    WKCommandStatus_OK
 };
 
 @interface WKPluginResult : NSObject
@@ -24,7 +24,7 @@ typedef NS_ENUM(NSInteger, WKCommandStatus) {
 
 + (WKPluginResult *)resultWithStatus:(WKCommandStatus)statusOrdinal messageAsString:(NSString *)theMessage;
 
-- (NSString*)argumentsAsJSON;
++ (NSString *)jsSerializeWithJson:(NSDictionary * _Nullable)json;
 
 @end
 

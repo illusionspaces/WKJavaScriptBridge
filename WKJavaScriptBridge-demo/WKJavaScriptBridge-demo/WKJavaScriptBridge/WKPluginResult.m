@@ -34,31 +34,30 @@
     return self;
 }
 
-- (NSString*)argumentsAsJSON
-{
-    id arguments = (self.message == nil ? [NSNull null] : self.message);
-    NSArray* argumentsWrappedInArray = [NSArray arrayWithObject:arguments];
-    
-    NSString* argumentsJSON = [self JSONString:argumentsWrappedInArray];
-    
-    argumentsJSON = [argumentsJSON substringWithRange:NSMakeRange(1, [argumentsJSON length] - 2)];
-    return argumentsJSON;
++ (NSString *)jsSerializeWithJson:(NSDictionary * _Nullable)json {
+    NSString *messageJSON = [self serializeWithJson:json ? json : @{} pretty:NO];
+    messageJSON = [messageJSON stringByReplacingOccurrencesOfString:@"\\" withString:@"\\\\"];
+    messageJSON = [messageJSON stringByReplacingOccurrencesOfString:@"\"" withString:@"\\\""];
+    messageJSON = [messageJSON stringByReplacingOccurrencesOfString:@"\'" withString:@"\\\'"];
+    messageJSON = [messageJSON stringByReplacingOccurrencesOfString:@"\n" withString:@"\\n"];
+    messageJSON = [messageJSON stringByReplacingOccurrencesOfString:@"\r" withString:@"\\r"];
+    messageJSON = [messageJSON stringByReplacingOccurrencesOfString:@"\f" withString:@"\\f"];
+    messageJSON = [messageJSON stringByReplacingOccurrencesOfString:@"\u2028" withString:@"\\u2028"];
+    messageJSON = [messageJSON stringByReplacingOccurrencesOfString:@"\u2029" withString:@"\\u2029"];
+
+    return messageJSON;
 }
 
-- (NSString*)JSONString:(NSArray *)array {
-    @autoreleasepool {
-        NSError* error = nil;
-        NSData* jsonData = [NSJSONSerialization dataWithJSONObject:array
-                                                           options:0
-                                                             error:&error];
-        
-        if (error != nil) {
-            NSLog(@"NSArray JSONString error: %@", [error localizedDescription]);
-            return nil;
-        } else {
-            return [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
-        }
++ (NSString *)serializeWithJson:(NSDictionary * _Nullable)json pretty:(BOOL)pretty {
+    NSError *error = nil;
+    NSString *str = [[NSString alloc] initWithData:[NSJSONSerialization dataWithJSONObject:json ? json : @{} options:(NSJSONWritingOptions)(pretty ? NSJSONWritingPrettyPrinted : 0) error:&error] encoding:NSUTF8StringEncoding];
+#ifdef DEBUG
+    if (error) {
+        NSLog(@"WKJSBridge Error: format json error %@", error.localizedDescription);
     }
+#endif
+
+    return str ? str : @"";
 }
 
 @end
