@@ -7,7 +7,9 @@
 ![](https://img.shields.io/badge/language-objc-orange.svg)
 ![ARC](https://img.shields.io/badge/ARC-orange.svg)
 
-# 注：由于苹果近期给开发者邮件说明，要求尽快删除UIWebView等相关API，因此新增release 0.0.6版本，删除UIWebView的支持。
+# 版本说明：
+## 1.由于苹果近期给开发者邮件说明，要求尽快删除UIWebView等相关API，因此新增release 0.0.6版本，删除UIWebView的支持。
+## 2.release 0.1.0版本对JS侧做了接口封装，提供成功、失败回调。
 
 
 ## Link
@@ -56,7 +58,7 @@
 下载WKJavaScriptBridge文件夹，将WKJavaScriptBridge文件夹拖入到你的工程中。
 
 ### 2.CocoaPods
-1. 在 Podfile 中添加 `pod 'WKJavaScriptBridge', '~> 0.0.5'`。
+1. 在 Podfile 中添加 `pod 'WKJavaScriptBridge', '~> 0.1.0'`。
 2. 执行 `pod install` 或 `pod update`。
 3. 导入 `<WKWebViewEngine.h>`。
 
