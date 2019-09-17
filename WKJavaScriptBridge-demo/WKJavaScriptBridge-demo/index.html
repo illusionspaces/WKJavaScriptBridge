@@ -1,11 +1,10 @@
 <html>
-    <head>
-        <title>WKJSBridge</title>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf8">
-            <script type="text/javascript" src="WKJSBridge.js" ></script>
-            <script language="javascript">
-                
-                function pokeNative() {
+<head>
+<title>WKJSBridge</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf8">
+<script type="text/javascript" src="WKJSBridge.js" ></script>
+<script language="javascript">
+function pokeNative() {
                     
                     //功能模块
                     var service = 'WKFetchPlugin';
@@ -21,20 +20,16 @@
                                                  }, function fail(res) {
                                                      document.getElementById("returnValue").value = res.result;
                                                  });
-                }
-            
-            </script>
-    </head>
-    
-    <body>
-        <h1>按钮调用</h1>
-        <input type="button" value="网络请求" onclick="pokeNative()" />
-        
-        
-        <h1>回调结果展示区</h1>
-        <textarea id ="returnValue" type="value" rows="5" cols="40">
-        
-        </textarea>
+                    }
+</script>
+</head>
+
+<body>
+<h1>按钮调用</h1>
+<input type="button" value="网络请求" onclick="pokeNative()" />
+<h1>回调结果展示区</h1>
+<textarea id ="returnValue" type="value" rows="5" cols="40">
+</textarea>
         
         
     </body>

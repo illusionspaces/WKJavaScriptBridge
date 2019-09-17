@@ -13,23 +13,27 @@ NS_ASSUME_NONNULL_BEGIN
 @protocol WKJavaScriptBridgeProtocol <NSObject>
 
 /**
- native 调用 js接口
+ 执行JS
 
  @param javaScriptString js
  @param completionHandler 结果回调
  */
 - (void)evaluateJavaScript:(NSString *)javaScriptString completionHandler:(void (^)(id, NSError *))completionHandler;
 
+/**
+ 插件加载
+ 
+ @param pluginName name
+ */
+- (void)setupPluginName:(NSString *)pluginName;
 
 /**
- 刷新webView
+ 获取plugin实例
+ 
+ @param pluginName plugin name
+ @return instance
  */
-- (void)reload;
-
-/**
- 是否开启插件白名单，默认开启
- */
-@property (nonatomic, assign, getter=isOpenWhiteList) BOOL openWhiteList;
+- (id)getCommandInstance:(NSString*)pluginName;
 
 @end
 

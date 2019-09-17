@@ -29,7 +29,7 @@
                 message.callbackId = callbackId;
             }
             // 发送消息给 Native
-            window.webkit.messageHandlers.WKWKJSBridge.postMessage(JSON.stringify(message));
+            window.webkit.messageHandlers.WKJSBridge.postMessage(JSON.stringify(message));
         };
         /**
          * 用于处理来自 Native 的消息

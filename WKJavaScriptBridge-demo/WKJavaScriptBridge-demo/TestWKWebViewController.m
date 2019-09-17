@@ -44,8 +44,7 @@
     webView.navigationDelegate = self;
     [self addUserScript:webView];
     /***/
-    _bridge = [WKWebViewEngine bindBridgeWithWebView:webView];
-    [_bridge setWebViewDelegate:self];
+    [WKWebViewEngine bindBridgeWithWebView:webView withDelegate:self];
     /***/
     [self.view addSubview:webView];
     
