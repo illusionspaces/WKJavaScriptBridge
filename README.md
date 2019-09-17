@@ -26,7 +26,7 @@
 
 ## 介绍
 
-**iOS 基于WKWebView的JS-Native交互框架，功能强大，轻松集成，两行代码即可，业务框架分离，易于拓展。**
+**iOS 基于WKWebView的JS-Native交互框架，功能强大，轻松集成，一行代码即可，业务框架分离，易于拓展。**
 **关于通信方案说明：**
 * WKWebView使用addScritMessageHandler构建通信，苹果提供的bridge，可以理解为亲儿子，好处自然不用多说。
 
@@ -40,7 +40,7 @@
 ![image text](https://github.com/GitWangKai/WKJavaScriptBridge/blob/master/img_1.jpg)
 
 ## 特性
-- 两行代码即可让WebView能力无限。
+- 一行代码即可让WebView能力无限。
 - 针对WKWebView进行了Cookie丢失处理。
 - 针对WKWebView白框架屏问题进行了处理。
 - 针对WKWebView所带来的一些Crash问题进行了容错处理。
@@ -64,7 +64,7 @@
 
 
 ## 用法
-`WKWebViewEngine`是框架的主体类，对外提供两个函数：`bindBridgeWithWebView:`传入你的webView，`setWebViewDelegate:`传入你的controller，用来拦截webView的代理函数。具体参照demo。
+`WKWebViewEngine`是框架的主体类，对外提供`bindBridgeWithWebView:withDelegate:`接口，用来拦截webView的代理函数。具体参照demo。
 
 ### 1.使用框架
 
@@ -78,8 +78,7 @@ configuration.preferences = preferences;
 WKWebView *webView = [[WKWebView alloc] initWithFrame:self.view.frame configuration:configuration];
 webView.navigationDelegate = self;
 /***/
-WKWebViewEngine* bridge = [WKWebViewEngine bindBridgeWithWebView:webView];
-[bridge setWebViewDelegate:self];
+[WKWebViewEngine bindBridgeWithWebView:webView withDelegate:self];
 /***/
 [self.view addSubview:webView];
 NSString *urlStr = [[NSBundle mainBundle] pathForResource:@"index.html" ofType:nil];
@@ -147,25 +146,26 @@ configuration.processPool = self.processPool;
 
 ```objc
 #import "WKBasePlugin.h"
-@interface WKTestUIWebViewPlguin : WKBasePlugin
-- (void)nativeTestUIWebView:(WKMsgCommand *)command;
+@interface WKFetchPlugin : WKBasePlugin
+- (void)nativeFentch:(WKMsgCommand *)command;
 @end
 
 ```
 
 ```objc
-@WKRegisterWebPlugin(WKTestUIWebViewPlguin, 1)
+@WKRegisterWebPlugin(WKFetchPlugin)
 
-@implementation WKTestUIWebViewPlguin
-- (void)nativeTestUIWebView:(WKMsgCommand *)command {
-    NSString *method = [command argumentAtIndex:0];
-    NSString *url = [command argumentAtIndex:1];
-    NSString *param = [command argumentAtIndex:2];
-    NSLog(@"(%@):%@,%@,%@",command.callbackId, method, url, param);
-
-    WKPluginResult *result = [WKPluginResult resultWithStatus:WKCommandStatus_OK messageAsString:@"uiwebview test success!"];
+@implementation WKFetchPlugin
+- (void)nativeFentch:(WKMsgCommand *)command {
+    NSString *method = [command.arguments objectForKey:@"method"];
+    NSString *url = [command.arguments objectForKey:@"url"];
+    
+    NSLog(@"method : %@ ; url : %@", method, url);
+    
+    WKPluginResult *result = [WKPluginResult resultWithStatus:WKCommandStatus_ERROR messageAsDictionary:@{@"result": @"success!!"}];
     [self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
 }
+
 @end
 ```
 
