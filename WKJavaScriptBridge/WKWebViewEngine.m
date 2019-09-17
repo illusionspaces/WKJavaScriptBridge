@@ -10,7 +10,7 @@
 #import "WKWebViewDelegate.h"
 #import "WKCommandImpl.h"
 
-@interface WKWebViewEngine ()
+@interface WKWebViewEngine ()<WKScriptMessageHandler, WKJavaScriptBridgeProtocol>
 
 @property (nonatomic, strong) WKWebViewDelegate *WKWebViewDelegate;
 @property (nonatomic, strong) WKWebPluginAnnotation *webPluginAnnotation;
