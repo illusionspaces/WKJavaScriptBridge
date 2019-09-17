@@ -19,48 +19,28 @@ NS_ASSUME_NONNULL_BEGIN
 
 @class WKWebViewHandleFactory;
 
-@interface WKWebViewEngine : NSObject <WKScriptMessageHandler, WKJavaScriptBridgeProtocol>
+@interface WKWebViewEngine : NSObject
 
 @property (nonatomic, readonly, strong) id <WKCommandProtocol> commandDelegate;
-@property (nonatomic, readonly, strong) WKWebViewHandleFactory *webViewhandleFactory;
 @property (nonatomic, readonly, strong) id <WKJavaScriptBridgeProtocol>bridge;
 
-/**
- 是否开启插件白名单，默认开启
- */
+/** 是否开启插件白名单，默认开启 */
 @property (nonatomic, assign, getter=isOpenWhiteList) BOOL openWhiteList;
-/**
- 外部提供的webView
- */
+
+/** 外部提供的webView */
 @property (nonatomic, readonly, weak) WKWebView *webView;
 
-/**
- webView容器VC
- */
-@property (nonatomic, weak) id webViewDelegate;
+/** webView的容器 */
+@property (nonatomic, readonly, weak) NSObject <WKNavigationDelegate>*webViewDelegate;
 
 /**
- webView绑定 bridge初始化
- 
- @param webView WKWebView
+ 初始化方法
+
+ @param webView webView
+ @param webViewDelegate 实现webView代理的类，没有可传空
  @return bridge
  */
-+ (instancetype)bindBridgeWithWebView:(WKWebView *)webView;
-
-/**
- 插件预加载接口 onload 为 1 表示提前初始化此插件对象 否则在调用时初始化
- 
- @param pluginName name
- */
-- (void)setupPluginName:(NSString *)pluginName;
-
-/**
- 获取plugin实例
- 
- @param pluginName plugin name
- @return instance
- */
-- (id)getCommandInstance:(NSString*)pluginName;
++ (instancetype)bindBridgeWithWebView:(WKWebView *)webView withDelegate:(NSObject <WKNavigationDelegate>*)webViewDelegate;
 
 @end
 

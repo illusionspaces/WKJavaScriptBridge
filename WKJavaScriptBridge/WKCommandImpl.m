@@ -75,7 +75,7 @@
 }
 
 - (id)getCommandInstance:(NSString*)pluginName {
-    return [_webViewEngine getCommandInstance:pluginName];
+    return [_webViewEngine.bridge getCommandInstance:pluginName];
 }
 
 - (void)runInBackground:(void (^)(void))block {
@@ -83,11 +83,10 @@
 }
 
 - (void)reloadWebView {
-    [_webViewEngine.bridge reload];
+    [_webViewEngine.webView reload];
 }
 
-- (BOOL)isValidCallbackId:(NSString*)callbackId
-{
+- (BOOL)isValidCallbackId:(NSString*)callbackId {
     if ((callbackId == nil) || (_callbackIdPattern == nil)) {
         return NO;
     }

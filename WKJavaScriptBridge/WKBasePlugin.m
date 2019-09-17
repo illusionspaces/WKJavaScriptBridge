@@ -26,7 +26,11 @@
 
 - (UIViewController *)rootViewController {
     if (_webViewEngine != nil) {
-        return self.webViewEngine.webViewDelegate;
+        if ([self.webViewEngine.webViewDelegate isKindOfClass:[UIViewController class]]) {
+            return (UIViewController *)self.webViewEngine.webViewDelegate;
+        }else {
+            return nil;
+        }
     }
     return nil;
 }

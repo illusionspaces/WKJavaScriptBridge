@@ -35,7 +35,7 @@ __weak WKWebViewEngine *_webViewEngine;
     NSArray<NSString *>*services = [WKWebPluginAnnotation AnnotationModules];
     for (NSString *pluginName in services) {
         if (pluginName) {
-            [_webViewEngine setupPluginName:pluginName];
+            [_webViewEngine.bridge setupPluginName:pluginName];
         }
     }
 }
