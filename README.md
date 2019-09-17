@@ -7,9 +7,9 @@
 ![](https://img.shields.io/badge/language-objc-orange.svg)
 ![ARC](https://img.shields.io/badge/ARC-orange.svg)
 
-# 版本说明：
-## 1.由于苹果近期给开发者邮件说明，要求尽快删除UIWebView等相关API，因此新增release 0.0.6版本，删除UIWebView的支持。
-## 2.release 0.1.0版本对JS侧做了接口封装，提供成功、失败回调。
+## 版本说明：
+### 1.release 0.0.6：由于苹果近期给开发者邮件说明，要求尽快删除UIWebView等相关API，因此新增release 0.0.6版本，删除UIWebView的支持。
+### 2.release 0.1.0：增加WKJSBridge.js，对JS侧做了接口做了完善，统一入口，提供参数传递，成功、失败回调。
 
 
 ## Link
