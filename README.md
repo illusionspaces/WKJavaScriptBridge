@@ -64,7 +64,7 @@
 
 
 ## 用法
-`WKWebViewEngine`是框架的主体类，对外提供两个函数：`bindBridgeWithWebView:`传入你的webView，`setWebViewDelegate:`传入你的controller，用来拦截webView的代理函数。具体参照demo。
+`WKWebViewEngine`是框架的主体类，对外提供bindBridgeWithWebView:withDelegate:接口，用来拦截webView的代理函数。具体参照demo。
 
 ### 1.使用框架
 
