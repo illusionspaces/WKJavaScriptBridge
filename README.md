@@ -8,9 +8,9 @@
 ![ARC](https://img.shields.io/badge/ARC-orange.svg)
 
 ## 版本说明：
-### 1.`release 0.0.6`：由于苹果近期给开发者邮件说明，要求尽快删除UIWebView等相关API，因此新增release 0.0.6版本，删除UIWebView的支持。
-### 2.`release 0.1.0`：增加`WKJSBridge.js`，对JS侧接口做了完善，统一入口，提供参数传递，成功、失败回调。
-### 3.`release 0.1.3`：将`WKJSBridge.js`拆分为`wk_bridge_ interface.js`和`wk_bridge_channel.js`，分别负责对h5暴漏接口和js-native通信使用。`wk_bridge_ interface.js`属于业务层，不包含在pod内，属于业务方自定义扩展使用，具体可以参考demo。
+#### 1.`release 0.0.6`：由于苹果近期给开发者邮件说明，要求尽快删除UIWebView等相关API，因此新增release 0.0.6版本，删除UIWebView的支持。
+#### 2.`release 0.1.0`：增加`WKJSBridge.js`，对JS侧接口做了完善，统一入口，提供参数传递，成功、失败回调。
+#### 3.`release 0.1.3`：将`WKJSBridge.js`拆分为`wk_bridge_ interface.js`和`wk_bridge_channel.js`，分别负责对h5暴漏接口和js-native通信使用。`wk_bridge_ interface.js`属于业务层，不包含在pod内，属于业务方自定义扩展使用，具体可以参考demo。
 
 
 ## Link
