@@ -11,13 +11,18 @@
 @WKRegisterWebPlugin(WKFetchPlugin)
 
 @implementation WKFetchPlugin
-- (void)nativeFentch:(WKMsgCommand *)command {
+- (void)nativePost:(WKMsgCommand *)command {
     NSString *method = [command.arguments objectForKey:@"method"];
     NSString *url = [command.arguments objectForKey:@"url"];
-    
     NSLog(@"method : %@ ; url : %@", method, url);
-    
-    WKPluginResult *result = [WKPluginResult resultWithStatus:WKCommandStatus_ERROR messageAsDictionary:@{@"result": @"success!!"}];
+    //处理
+
+    WKPluginResult *result = [WKPluginResult resultWithStatus:WKCommandStatus_OK messageAsDictionary:@{@"result": @"Post success!!"}];
+    [self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
+}
+
+- (void)nativeGet:(WKMsgCommand *)command {
+    WKPluginResult *result = [WKPluginResult resultWithStatus:WKCommandStatus_OK messageAsDictionary:@{@"result": @"Get success!!"}];
     [self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
 }
 

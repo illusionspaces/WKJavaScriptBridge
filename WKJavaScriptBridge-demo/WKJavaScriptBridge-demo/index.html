@@ -2,31 +2,43 @@
 <head>
 <title>WKJSBridge</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf8">
-<script type="text/javascript" src="WKJSBridge.js" ></script>
+<script type="text/javascript" src="wk_bridge.js" ></script>
 <script language="javascript">
-function pokeNative() {
-                    
-                    //功能模块
-                    var service = 'WKFetchPlugin';
-                    //具体功能
-                    var action = 'nativeFentch';
-                    //业务参数
-                    var command = {
-                        'method':'post',
-                        'url':'https:www.baidu.com'
-                    }
-                    window.WKJSBridge.callNative(service, action, command, function success(res) {
-                                                     document.getElementById("returnValue").value = res.result;
-                                                 }, function fail(res) {
-                                                     document.getElementById("returnValue").value = res.result;
-                                                 });
-                    }
+    
+// 模拟h5使用native来发送post请求
+function pokePost() {
+    //业务参数
+    var command = {
+        'method':'post',
+        'url':'https:www.baidu.com'
+    }
+    window.wk_bridge.nativePost(command, function success(res) {
+                                     document.getElementById("returnValue").value = res.result;
+                                 }, function fail(res) {
+                                     document.getElementById("returnValue").value = res.result;
+                                 });
+}
+
+// 模拟h5使用native来发送get请求
+function pokeGet() {
+    //业务参数
+    var command = {
+        'method':'get',
+        'url':'https:www.baidu.com'
+    }
+    window.wk_bridge.nativeGet(command, function success(res) {
+                                  document.getElementById("returnValue").value = res.result;
+                                  }, function fail(res) {
+                                  document.getElementById("returnValue").value = res.result;
+                                  });
+}
 </script>
 </head>
 
 <body>
 <h1>按钮调用</h1>
-<input type="button" value="网络请求" onclick="pokeNative()" />
+<input type="button" value="Post网络请求" onclick="pokePost()" />
+<input type="button" value="Get网络请求" onclick="pokeGet()" />
 <h1>回调结果展示区</h1>
 <textarea id ="returnValue" type="value" rows="5" cols="40">
 </textarea>

@@ -12,7 +12,8 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface WKFetchPlugin : WKBasePlugin
-- (void)nativeFentch:(WKMsgCommand *)command;
+- (void)nativePost:(WKMsgCommand *)command;
+- (void)nativeGet:(WKMsgCommand *)command;
 @end
 
 NS_ASSUME_NONNULL_END
