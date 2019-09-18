@@ -48,7 +48,7 @@
 - 插件化JS-Native业务逻辑，业务完全分离，最大化解耦。
 - 支持在不影响原业务的情况下，集成超简单。（相当于在不影响原bridge的情况下新搭建了个bridge供h5使用）
 - 支持业务模块异步回调。
-- 基于__attribute( )函数进行插件注册，业务模块的注册只需要在自己内部注册即可，摆脱plist等传统注册方式。目前已知[阿里BeeHive](https://github.com/alibaba/BeeHive)/[美团Kylin组件](https://juejin.im/post/5c0a17d6e51d4570cf60d102)皆使用此方式进行注册。目前注册功能为插件是否提前预加载提供。
+- 基于__attribute( )函数进行插件白名单注册，业务模块的注册只需要在自己内部注册即可，摆脱plist等传统注册方式。目前已知[阿里BeeHive](https://github.com/alibaba/BeeHive)/[美团Kylin组件](https://juejin.im/post/5c0a17d6e51d4570cf60d102)皆使用此方式进行注册。
 - 针对WKWebView进行了Cookie丢失处理。
 - 针对WKWebView白框架屏问题进行了处理。
 - 针对WKWebView所带来的一些Crash问题进行了容错处理。
