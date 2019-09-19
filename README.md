@@ -94,59 +94,12 @@ if (@available(iOS 9.0, *)) {
 }
 ```
 
-### 2.一些针对WKWebView带来的Crash问题处理
-2.1 由于WKWebView在请求过程中用户可能退出界面销毁对象，当请求回调时由于接收处理对象不存在，造成Bad Access crash，所以可将WKProcessPool设为单例
-```objc
-static WKProcessPool *_sharedWKProcessPoolInstance = nil;
-static dispatch_once_t onceToken;
-dispatch_once(&onceToken, ^{
-    _sharedWKProcessPoolInstance = [[WKProcessPool alloc] init];
-});
-self.processPool = _sharedWKProcessPoolInstance;
 
-WKWebViewConfiguration *configuration = [[WKWebViewConfiguration alloc] init];
-configuration.processPool = self.processPool;
-```
+### 2.自定义业务插件（原生侧）
 
-2.2 解决window.alert() 时 completionHandler 没有被调用导致崩溃问题
-
-```objc
-@property (nonatomic, assign, getter=loadFinished) BOOL isLoadFinished;
-```
-```objc
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    self.isLoadFinished = NO;
-}
-```
-```objc
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
-    self.isLoadFinished = YES;
-}
-```
-```objc
-- (void)webView:(WKWebView *)webView runJavaScriptAlertPanelWithMessage:(NSString *)message initiatedByFrame:(WKFrameInfo *)frame completionHandler:(void (^)(void))completionHandler {
-
-    if (!self.isLoadFinished) {
-        completionHandler();
-        return;
-    }
-    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"" message:message preferredStyle:UIAlertControllerStyleAlert];
-    [alertController addAction:[UIAlertAction actionWithTitle:@"确认" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) { completionHandler(); }]];
-    if (self)
-        [self presentViewController:alertController animated:YES completion:^{}];
-    else
-        completionHandler();
-}
-```
-
-
-### 3.自定义业务插件（原生侧）
-
-1. 创建插件类，继承自`WKBasePlugin`。
-2. 插件类里面添加`@WKRegisterWebPlugin`宏，暂时用于插件是否需要提前初始化，加快第一次调用速度。也可以扩充一些其他功能。
-3. 插件里构建业务逻辑，通过`sendPluginResult:callbackId:`函数把结果回传给JS侧。
+2.1. 创建插件类，继承自`WKBasePlugin`。
+2.2. 插件类里面添加`@WKRegisterWebPlugin`宏，暂时用于插件是否需要提前初始化，加快第一次调用速度。也可以扩充一些其他功能。
+2.3. 插件里构建业务逻辑，通过`sendPluginResult:callbackId:`函数把结果回传给JS侧。
 
 ```objc
 #import "WKBasePlugin.h"
@@ -172,7 +125,7 @@ configuration.processPool = self.processPool;
 
 @end
 ```
-4.构建配置native端插件：用于给js调用，（iOS & android）两端需要相同的serviceId和actionId，才能启动相同的事件。
+2.4.构建配置native端插件：用于给js调用，（iOS & android）两端需要相同的serviceId和actionId，才能启动相同的事件。
 ```objc
 @interface WKJSBridgeConfig : WKBasePlugin
 - (void)fetchConfig:(WKMsgCommand *)command;
@@ -202,9 +155,10 @@ configuration.processPool = self.processPool;
 
 这样一个插件就定义完毕了：插件的意思就是独立的，与其他功能模块无耦合的业务模块，用来处理一类JS-Native的交互。例如JS想要获取地图信息、wifi信息、文件处理等都可以定义为一个插件。插件的好处就是无耦合！！！拖入项目可以直接使用，删除后项目也不需要做任何修改，直接build！以后再有新的交互需求你只需要按照上面的步骤创建插件完成功能并把结果返回给JS就可以了！不需要动框架！！
 
-### 4.自定义业务插件（JS侧）
 
-1.以下为demo中自定义js插件代码，详情可参照demo：
+### 3.自定义业务插件（JS侧）
+
+3.1.以下为demo中自定义js插件代码，详情可参照demo：
 ```js
 /**
  * 调用 Natvie Post 网络请求 方法
@@ -231,7 +185,7 @@ wk_bridge.prototype.nativeGet = function (actionArgs, successCallback, failCallb
 };
 ```
 
-2. JS调用Native
+3.2. JS调用Native
 index.html中引用<script type="text/javascript" src="WKJSBridge.js" ></script>
 
 ```js
@@ -268,7 +222,54 @@ function pokeGet() {
 `nativePost`为第一步自定义的js插件。
 `pokeGet`为第一步自定义的另一个插件，
 
-3. 详细使用参照Demo。
+3.3. 详细使用参照Demo。
+
+### 4.一些针对WKWebView带来的Crash问题处理
+4.1 由于WKWebView在请求过程中用户可能退出界面销毁对象，当请求回调时由于接收处理对象不存在，造成Bad Access crash，所以可将WKProcessPool设为单例
+```objc
+static WKProcessPool *_sharedWKProcessPoolInstance = nil;
+static dispatch_once_t onceToken;
+dispatch_once(&onceToken, ^{
+    _sharedWKProcessPoolInstance = [[WKProcessPool alloc] init];
+});
+self.processPool = _sharedWKProcessPoolInstance;
+
+WKWebViewConfiguration *configuration = [[WKWebViewConfiguration alloc] init];
+configuration.processPool = self.processPool;
+```
+
+4.2 解决window.alert() 时 completionHandler 没有被调用导致崩溃问题
+
+```objc
+@property (nonatomic, assign, getter=loadFinished) BOOL isLoadFinished;
+```
+```objc
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    self.isLoadFinished = NO;
+}
+```
+```objc
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    self.isLoadFinished = YES;
+}
+```
+```objc
+- (void)webView:(WKWebView *)webView runJavaScriptAlertPanelWithMessage:(NSString *)message initiatedByFrame:(WKFrameInfo *)frame completionHandler:(void (^)(void))completionHandler {
+
+    if (!self.isLoadFinished) {
+        completionHandler();
+        return;
+    }
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"" message:message preferredStyle:UIAlertControllerStyleAlert];
+    [alertController addAction:[UIAlertAction actionWithTitle:@"确认" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) { completionHandler(); }]];
+    if (self)
+        [self presentViewController:alertController animated:YES completion:^{}];
+    else
+        completionHandler();
+}
+```
 
 ## 后续功能延伸：
 
