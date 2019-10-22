@@ -1,5 +1,5 @@
 //
-//  WKJavaScriptMessageDispatcher.h
+//  WKCommandImpl.h
 //  WKJavaScriptBridge-demo
 //
 //  Created by Kevin on 2019/10/22.
@@ -7,13 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "WKCommandProtocol.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @class WKJavaScriptBridge;
 
-@interface WKJavaScriptMessageDispatcher : NSObject
-- (void)handleMsgCommand:(NSString *)arguments;
+@interface WKCommandImpl : NSObject<WKCommandProtocol>
 - (instancetype)initWithBridge:(WKJavaScriptBridge *)bridge;
 @end
 

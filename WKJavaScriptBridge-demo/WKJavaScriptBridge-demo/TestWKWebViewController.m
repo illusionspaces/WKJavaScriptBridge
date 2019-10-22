@@ -8,10 +8,10 @@
 
 #import "TestWKWebViewController.h"
 #import <WebKit/WebKit.h>
-#import "WKJavaScriptBridgeEngine.h"
+#import "WKJavaScriptBridge.h"
 
 @interface TestWKWebViewController ()<WKNavigationDelegate, WKUIDelegate>
-@property (nonatomic, strong) WKJavaScriptBridgeEngine* bridge;
+@property (nonatomic, strong) WKJavaScriptBridge *bridge;
 @property (nonatomic, strong) WKWebView *webView;
 @property (nonatomic, strong) WKProcessPool *processPool;
 @property (nonatomic, assign, getter=loadFinished) BOOL isLoadFinished;
@@ -44,7 +44,8 @@
     webView.navigationDelegate = self;
     [self addUserScript:webView];
     /***/
-    [WKJavaScriptBridgeEngine bindBridgeWithWebView:webView];
+    self.bridge = [WKJavaScriptBridge bindBridgeWithWebView:webView];
+    [self.bridge openWhiteList:YES];
     /***/
     [self.view addSubview:webView];
     

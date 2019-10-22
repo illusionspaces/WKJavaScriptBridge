@@ -8,12 +8,11 @@
                 function pokeNative() {
                     
                     //功能模块
-                    var service = 'WKFetchPlugin';
+                    var service = 'WKCommonPlugin';
                     //具体功能
-                    var action = 'nativeFentch';
+                    var action = 'asynDisplayCommon';
                     //业务参数
                     var command = {
-                        'method':'post',
                         'url':'https:www.baidu.com'
                     }
                     window.WKJSBridge.callNative(service, action, command, function success(res) {
@@ -28,7 +27,7 @@
     
     <body>
         <h1>按钮调用</h1>
-        <input type="button" value="网络请求" onclick="pokeNative()" />
+        <input type="button" value="调用客户端" onclick="pokeNative()" />
         
         
         <h1>回调结果展示区</h1>
