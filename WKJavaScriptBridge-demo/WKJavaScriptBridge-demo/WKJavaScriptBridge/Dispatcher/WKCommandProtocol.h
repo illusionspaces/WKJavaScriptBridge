@@ -15,7 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 @protocol WKCommandProtocol <NSObject>
 
 /**
- native 调用 js 接口
+ 原生模块回调js
  
  @param result simulate data
  @param callbackId callbackId
@@ -23,24 +23,16 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)sendPluginResult:(WKPluginResult *)result callbackId:(NSString*)callbackId;
 
 /**
- 封装个子线程接口 执行耗时插件
+ 原生模块件执行刷新webView
+ */
+- (void)reloadWebView;
+
+/**
+ 原生模块执行耗时操作
  
  @param block long running
  */
 - (void)runInBackground:(void (^)(void))block;
-
-/**
- 获取插件plugin的实例对象
- 
- @param pluginName 插件名称
- @return 实例对象
- */
-- (id)getCommandInstance:(NSString*)pluginName;
-
-/**
- 刷新webView
- */
-- (void)reloadWebView;
 
 @end
 

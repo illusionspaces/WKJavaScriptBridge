@@ -7,15 +7,15 @@
 //
 
 #import "WKCommandImpl.h"
-#import "WKWebViewEngine.h"
+#import "WKJavaScriptBridgeEngine.h"
 #import "WKPluginResult.h"
 
 @implementation WKCommandImpl {
-    __weak WKWebViewEngine *_webViewEngine;
+    __weak WKJavaScriptBridgeEngine *_webViewEngine;
     NSRegularExpression* _callbackIdPattern;
 }
 
-- (instancetype)initWithWebViewEngine:(WKWebViewEngine *)webViewEngine {
+- (instancetype)initWithWebViewEngine:(WKJavaScriptBridgeEngine *)webViewEngine {
     if (self = [super init]) {
         _webViewEngine = webViewEngine;
         NSError* err = nil;
@@ -65,7 +65,7 @@
 }
 
 - (void)evalJs:(NSString *)js {
-    [_webViewEngine.bridge evaluateJavaScript:js completionHandler:^(id obj, NSError * error) {
+    [_webViewEngine evaluateJavaScript:js completionHandler:^(id obj, NSError * error) {
         if (error) {
 #ifdef DEBUG
             NSLog(@"evaluateJSError:%@",error.localizedDescription);
@@ -75,7 +75,7 @@
 }
 
 - (id)getCommandInstance:(NSString*)pluginName {
-    return [_webViewEngine.bridge getCommandInstance:pluginName];
+    return [_webViewEngine getCommandInstance:pluginName];
 }
 
 - (void)runInBackground:(void (^)(void))block {

@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "WKWebPluginAnnotation.h"
+#import "WKJavaScriptPluginAnnotation.h"
 
 NS_ASSUME_NONNULL_BEGIN
 

@@ -1,5 +1,5 @@
 //
-//  WKWebViewHandleFactory.h
+//  WKJavaScriptMessageDispatcher.h
 //  Hybrid-framework
 //
 //  Created by 王凯 on 2018/12/7.
@@ -10,11 +10,11 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@class WKWebViewEngine;
+@class WKJavaScriptBridgeEngine;
 
-@interface WKWebViewHandleFactory : NSObject
+@interface WKJavaScriptMessageDispatcher : NSObject
 - (void)handleMsgCommand:(NSString *)arguments;
-- (instancetype)initWithWebViewEngine:(WKWebViewEngine *)webViewEngine;
+- (instancetype)initWithWebViewEngine:(WKJavaScriptBridgeEngine *)webViewEngine;
 @end
 
 NS_ASSUME_NONNULL_END

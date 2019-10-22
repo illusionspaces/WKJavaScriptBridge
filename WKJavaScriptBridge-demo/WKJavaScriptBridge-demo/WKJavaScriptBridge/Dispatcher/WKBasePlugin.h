@@ -12,14 +12,13 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@class WKWebViewEngine;
+@class WKJavaScriptBridgeEngine;
 
 @interface WKBasePlugin : NSObject
 
 @property (nonatomic, weak) id <WKCommandProtocol> commandDelegate;
-@property (nonatomic, readonly, weak) UIViewController* rootViewController;
 
-- (instancetype)initWithWebViewEngine:(WKWebViewEngine *)webViewEngine;
+- (instancetype)initWithWebViewEngine:(WKJavaScriptBridgeEngine *)webViewEngine;
 - (void)pluginInitialize;
 - (void)onAppTerminate;
 - (void)onMemoryWarning;

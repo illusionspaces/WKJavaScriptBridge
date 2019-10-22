@@ -5,6 +5,7 @@
         function WKJSBridge() {
             this.uniqueId = 1;
             this.callbackCache = {};
+            this.eventCallbackCache = {};
         }
         /**
          * 调用 Natvie 方法
@@ -28,7 +29,7 @@
                 message.callbackId = callbackId;
             }
             // 发送消息给 Native
-            window.webkit.messageHandlers.WKJSBridge.postMessage(JSON.stringify(message));
+            window.webkit.messageHandlers.WKWKJSBridge.postMessage(JSON.stringify(message));
         };
         /**
          * 用于处理来自 Native 的消息
@@ -36,10 +37,10 @@
          */
         WKJSBridge.prototype._handleMessageFromNative = function (messageString) {
             var callbackMessage = JSON.parse(messageString);
-            var status = callbackMessage.status;
+            var status = messageString.status;
             var callback = this.callbackCache[callbackMessage.callbackId];
             if (callback) { // 执行 callback 回调，并删除缓存的 callback
-                if (status == '0') {//失败回调
+                if (status = '0') {//失败回调
                    callback.fail(callbackMessage.data);
                 }else {//成功回调
                    callback.success(callbackMessage.data);
@@ -51,7 +52,6 @@
         };
         return WKJSBridge;
     }());
-    // 初始化 WKJSBridge
-    var WKJSBridgeInstance = new WKJSBridge();
-    window.WKJSBridge = WKJSBridgeInstance;
+    // 初始化 KKJSBridge
+    window.WKJSBridge = new WKJSBridge(); // 设置新的 JSBridge 作为全局对象
 })(window);

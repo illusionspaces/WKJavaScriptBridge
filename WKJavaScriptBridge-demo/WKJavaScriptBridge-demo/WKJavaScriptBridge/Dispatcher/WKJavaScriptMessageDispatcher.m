@@ -1,24 +1,24 @@
 //
-//  WKWebViewHandleFactory.m
+//  WKJavaScriptMessageDispatcher.m
 //  Hybrid-framework
 //
 //  Created by 王凯 on 2018/12/7.
 //  Copyright © 2018 王凯. All rights reserved.
 //
 
-#import "WKWebViewHandleFactory.h"
+#import "WKJavaScriptMessageDispatcher.h"
 #import "WKMsgCommand.h"
-#import "WKWebViewEngine.h"
+#import "WKJavaScriptBridgeEngine.h"
 #import <objc/message.h>
 
 static const NSInteger JSON_SIZE_FOR_MAIN_THREAD = 4 * 1024; // Chosen arbitrarily.
 
-@implementation WKWebViewHandleFactory {
-    __weak WKWebViewEngine *_webViewEngine;
+@implementation WKJavaScriptMessageDispatcher {
+    __weak WKJavaScriptBridgeEngine *_webViewEngine;
     NSDictionary *_commandDictionary;
 }
 
-- (instancetype)initWithWebViewEngine:(WKWebViewEngine *)webViewEngine {
+- (instancetype)initWithWebViewEngine:(WKJavaScriptBridgeEngine *)webViewEngine {
     if (self = [super init]) {
         _webViewEngine = webViewEngine;
         _commandDictionary = [NSDictionary dictionary];
@@ -82,7 +82,7 @@ static const NSInteger JSON_SIZE_FOR_MAIN_THREAD = 4 * 1024; // Chosen arbitrari
     BOOL retVal = YES;
     double started = [[NSDate date] timeIntervalSince1970] * 1000.0;
     
-    WKBasePlugin *instance = [_webViewEngine.commandDelegate getCommandInstance:command.className];
+    WKBasePlugin *instance = [_webViewEngine getCommandInstance:command.className];
     
     if (!([instance isKindOfClass:[WKBasePlugin class]])) {
 #ifdef DEBUG

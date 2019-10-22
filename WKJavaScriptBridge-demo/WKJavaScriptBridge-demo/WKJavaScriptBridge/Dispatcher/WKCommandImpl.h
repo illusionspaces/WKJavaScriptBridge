@@ -11,10 +11,10 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@class WKWebViewEngine;
+@class WKJavaScriptBridgeEngine;
 
 @interface WKCommandImpl : NSObject<WKCommandProtocol>
-- (instancetype)initWithWebViewEngine:(WKWebViewEngine *)webViewEngine;
+- (instancetype)initWithWebViewEngine:(WKJavaScriptBridgeEngine *)webViewEngine;
 @end
 
 NS_ASSUME_NONNULL_END

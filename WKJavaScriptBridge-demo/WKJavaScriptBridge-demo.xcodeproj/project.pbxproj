@@ -7,21 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0A09224822674D2E002BDEBE /* WKFetchPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A09224622674D2D002BDEBE /* WKFetchPlugin.m */; };
-		0A7648E2232F6365006C6FFA /* wk_bridge_channel.js in Resources */ = {isa = PBXBuildFile; fileRef = 0A7648E1232F6365006C6FFA /* wk_bridge_channel.js */; };
 		0A9A3965226D940600D0DF43 /* TestWKWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A9A3962226D940600D0DF43 /* TestWKWebViewController.m */; };
 		0A9E4690225B2922003F6574 /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A9E468F225B2922003F6574 /* TestViewController.m */; };
-		0AD5DDB82331EFB9007CA08B /* wk_bridge_ interface.js in Resources */ = {isa = PBXBuildFile; fileRef = 0AD5DDB72331EFB9007CA08B /* wk_bridge_ interface.js */; };
-		0AEB5CA322A529FD00B13C09 /* WKCommandImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AEB5C8A22A529FD00B13C09 /* WKCommandImpl.m */; };
-		0AEB5CA422A529FD00B13C09 /* WKWebViewHandleFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AEB5C8C22A529FD00B13C09 /* WKWebViewHandleFactory.m */; };
-		0AEB5CA522A529FD00B13C09 /* WKWebViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AEB5C8D22A529FD00B13C09 /* WKWebViewDelegate.m */; };
-		0AEB5CA622A529FD00B13C09 /* WKBasePlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AEB5C8E22A529FD00B13C09 /* WKBasePlugin.m */; };
-		0AEB5CA822A529FD00B13C09 /* WKWebPluginAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AEB5C9122A529FD00B13C09 /* WKWebPluginAnnotation.m */; };
-		0AEB5CA922A529FD00B13C09 /* WKWebViewCookieMgr.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AEB5C9222A529FD00B13C09 /* WKWebViewCookieMgr.m */; };
-		0AEB5CAA22A529FD00B13C09 /* WKWebViewEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AEB5C9322A529FD00B13C09 /* WKWebViewEngine.m */; };
-		0AEB5CAB22A529FD00B13C09 /* WKMsgCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AEB5C9622A529FD00B13C09 /* WKMsgCommand.m */; };
-		0AEB5CAD22A529FD00B13C09 /* WKPluginResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AEB5C9C22A529FD00B13C09 /* WKPluginResult.m */; };
-		0AF64B5B2331C89400BDCB0E /* WKJSBridgeConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AF64B5A2331C89400BDCB0E /* WKJSBridgeConfig.m */; };
+		0AB7D4ED235437C00054719A /* WKPluginResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AB7D4DE235437C00054719A /* WKPluginResult.m */; };
+		0AB7D4EE235437C00054719A /* WKBasePlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AB7D4E0235437C00054719A /* WKBasePlugin.m */; };
+		0AB7D4EF235437C00054719A /* WKMsgCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AB7D4E2235437C00054719A /* WKMsgCommand.m */; };
+		0AB7D4F0235437C00054719A /* WKCommandImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AB7D4E3235437C00054719A /* WKCommandImpl.m */; };
+		0AB7D4F1235437C00054719A /* WKJavaScriptMessageDispatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AB7D4E6235437C00054719A /* WKJavaScriptMessageDispatcher.m */; };
+		0AB7D4F2235437C00054719A /* WKJavaScriptPluginAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AB7D4E9235437C00054719A /* WKJavaScriptPluginAnnotation.m */; };
+		0AB7D4F3235437C00054719A /* WKWeakScriptMessageHandlerDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AB7D4EB235437C00054719A /* WKWeakScriptMessageHandlerDelegate.m */; };
+		0AB7D4F523543ABB0054719A /* WKJSBridge.js in Resources */ = {isa = PBXBuildFile; fileRef = 0AB7D4F423543ABA0054719A /* WKJSBridge.js */; };
+		0AEB5CAA22A529FD00B13C09 /* WKJavaScriptBridgeEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AEB5C9322A529FD00B13C09 /* WKJavaScriptBridgeEngine.m */; };
+		0AF7E06B233737C1003B4D41 /* Share in Resources */ = {isa = PBXBuildFile; fileRef = 0AF7E06A233737C1003B4D41 /* Share */; };
+		0AF7E06F233737E8003B4D41 /* PlusShare.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AF7E06E233737E8003B4D41 /* PlusShare.m */; };
+		0AF7E073233737FC003B4D41 /* WKJSBridgeConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AF7E072233737FC003B4D41 /* WKJSBridgeConfig.m */; };
 		832F7C8821B822510076D164 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 832F7C8721B822510076D164 /* AppDelegate.m */; };
 		832F7C8B21B822510076D164 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 832F7C8A21B822510076D164 /* ViewController.m */; };
 		832F7C8E21B822510076D164 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 832F7C8C21B822510076D164 /* Main.storyboard */; };
@@ -35,36 +34,34 @@
 
 /* Begin PBXFileReference section */
 		05DB13B25C25AB5F7DA35A90 /* Pods-WKJavaScriptBridge-demo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WKJavaScriptBridge-demo.debug.xcconfig"; path = "Target Support Files/Pods-WKJavaScriptBridge-demo/Pods-WKJavaScriptBridge-demo.debug.xcconfig"; sourceTree = "<group>"; };
-		0A09224622674D2D002BDEBE /* WKFetchPlugin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKFetchPlugin.m; sourceTree = "<group>"; };
-		0A09224722674D2E002BDEBE /* WKFetchPlugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKFetchPlugin.h; sourceTree = "<group>"; };
-		0A7648E1232F6365006C6FFA /* wk_bridge_channel.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = wk_bridge_channel.js; sourceTree = "<group>"; };
 		0A9A395F226D940500D0DF43 /* TestWKWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestWKWebViewController.h; sourceTree = "<group>"; };
 		0A9A3962226D940600D0DF43 /* TestWKWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestWKWebViewController.m; sourceTree = "<group>"; };
 		0A9E468E225B2922003F6574 /* TestViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestViewController.h; sourceTree = "<group>"; };
 		0A9E468F225B2922003F6574 /* TestViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestViewController.m; sourceTree = "<group>"; };
-		0AD5DDB72331EFB9007CA08B /* wk_bridge_ interface.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "wk_bridge_ interface.js"; sourceTree = "<group>"; };
-		0AEB5C8522A529FD00B13C09 /* WKJavaScriptBridgeProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKJavaScriptBridgeProtocol.h; sourceTree = "<group>"; };
-		0AEB5C8722A529FD00B13C09 /* WKWebViewEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKWebViewEngine.h; sourceTree = "<group>"; };
-		0AEB5C8922A529FD00B13C09 /* WKMsgCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKMsgCommand.h; sourceTree = "<group>"; };
-		0AEB5C8A22A529FD00B13C09 /* WKCommandImpl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKCommandImpl.m; sourceTree = "<group>"; };
-		0AEB5C8B22A529FD00B13C09 /* WKPluginResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKPluginResult.h; sourceTree = "<group>"; };
-		0AEB5C8C22A529FD00B13C09 /* WKWebViewHandleFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKWebViewHandleFactory.m; sourceTree = "<group>"; };
-		0AEB5C8D22A529FD00B13C09 /* WKWebViewDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKWebViewDelegate.m; sourceTree = "<group>"; };
-		0AEB5C8E22A529FD00B13C09 /* WKBasePlugin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKBasePlugin.m; sourceTree = "<group>"; };
-		0AEB5C9122A529FD00B13C09 /* WKWebPluginAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKWebPluginAnnotation.m; sourceTree = "<group>"; };
-		0AEB5C9222A529FD00B13C09 /* WKWebViewCookieMgr.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKWebViewCookieMgr.m; sourceTree = "<group>"; };
-		0AEB5C9322A529FD00B13C09 /* WKWebViewEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKWebViewEngine.m; sourceTree = "<group>"; };
-		0AEB5C9522A529FD00B13C09 /* WKCommandImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKCommandImpl.h; sourceTree = "<group>"; };
-		0AEB5C9622A529FD00B13C09 /* WKMsgCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKMsgCommand.m; sourceTree = "<group>"; };
-		0AEB5C9822A529FD00B13C09 /* WKWebViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKWebViewDelegate.h; sourceTree = "<group>"; };
-		0AEB5C9922A529FD00B13C09 /* WKWebViewHandleFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKWebViewHandleFactory.h; sourceTree = "<group>"; };
-		0AEB5C9B22A529FD00B13C09 /* WKCommandProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKCommandProtocol.h; sourceTree = "<group>"; };
-		0AEB5C9C22A529FD00B13C09 /* WKPluginResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKPluginResult.m; sourceTree = "<group>"; };
-		0AEB5C9D22A529FD00B13C09 /* WKWebViewCookieMgr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKWebViewCookieMgr.h; sourceTree = "<group>"; };
-		0AEB5C9E22A529FD00B13C09 /* WKWebPluginAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKWebPluginAnnotation.h; sourceTree = "<group>"; };
-		0AEB5CA122A529FD00B13C09 /* WKBasePlugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKBasePlugin.h; sourceTree = "<group>"; };
-		0AF64B592331C89400BDCB0E /* WKJSBridgeConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WKJSBridgeConfig.h; sourceTree = "<group>"; };
-		0AF64B5A2331C89400BDCB0E /* WKJSBridgeConfig.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WKJSBridgeConfig.m; sourceTree = "<group>"; };
+		0AB7D4DC235437C00054719A /* WKCommandImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKCommandImpl.h; sourceTree = "<group>"; };
+		0AB7D4DD235437C00054719A /* WKMsgCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKMsgCommand.h; sourceTree = "<group>"; };
+		0AB7D4DE235437C00054719A /* WKPluginResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKPluginResult.m; sourceTree = "<group>"; };
+		0AB7D4DF235437C00054719A /* WKCommandProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKCommandProtocol.h; sourceTree = "<group>"; };
+		0AB7D4E0235437C00054719A /* WKBasePlugin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKBasePlugin.m; sourceTree = "<group>"; };
+		0AB7D4E1235437C00054719A /* WKJavaScriptMessageDispatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKJavaScriptMessageDispatcher.h; sourceTree = "<group>"; };
+		0AB7D4E2235437C00054719A /* WKMsgCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKMsgCommand.m; sourceTree = "<group>"; };
+		0AB7D4E3235437C00054719A /* WKCommandImpl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKCommandImpl.m; sourceTree = "<group>"; };
+		0AB7D4E4235437C00054719A /* WKPluginResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKPluginResult.h; sourceTree = "<group>"; };
+		0AB7D4E5235437C00054719A /* WKBasePlugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKBasePlugin.h; sourceTree = "<group>"; };
+		0AB7D4E6235437C00054719A /* WKJavaScriptMessageDispatcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKJavaScriptMessageDispatcher.m; sourceTree = "<group>"; };
+		0AB7D4E8235437C00054719A /* WKJavaScriptPluginAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKJavaScriptPluginAnnotation.h; sourceTree = "<group>"; };
+		0AB7D4E9235437C00054719A /* WKJavaScriptPluginAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKJavaScriptPluginAnnotation.m; sourceTree = "<group>"; };
+		0AB7D4EB235437C00054719A /* WKWeakScriptMessageHandlerDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKWeakScriptMessageHandlerDelegate.m; sourceTree = "<group>"; };
+		0AB7D4EC235437C00054719A /* WKWeakScriptMessageHandlerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKWeakScriptMessageHandlerDelegate.h; sourceTree = "<group>"; };
+		0AB7D4F423543ABA0054719A /* WKJSBridge.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = WKJSBridge.js; sourceTree = "<group>"; };
+		0AEB5C8522A529FD00B13C09 /* WKJavaScriptBridgeEngineProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKJavaScriptBridgeEngineProtocol.h; sourceTree = "<group>"; };
+		0AEB5C8722A529FD00B13C09 /* WKJavaScriptBridgeEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKJavaScriptBridgeEngine.h; sourceTree = "<group>"; };
+		0AEB5C9322A529FD00B13C09 /* WKJavaScriptBridgeEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKJavaScriptBridgeEngine.m; sourceTree = "<group>"; };
+		0AF7E06A233737C1003B4D41 /* Share */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Share; sourceTree = "<group>"; };
+		0AF7E06D233737E8003B4D41 /* PlusShare.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlusShare.h; sourceTree = "<group>"; };
+		0AF7E06E233737E8003B4D41 /* PlusShare.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlusShare.m; sourceTree = "<group>"; };
+		0AF7E071233737FC003B4D41 /* WKJSBridgeConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKJSBridgeConfig.h; sourceTree = "<group>"; };
+		0AF7E072233737FC003B4D41 /* WKJSBridgeConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKJSBridgeConfig.m; sourceTree = "<group>"; };
 		29E50CB97F5DD0FD75EBAF15 /* Pods-WKJavaScriptBridge-demo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WKJavaScriptBridge-demo.release.xcconfig"; path = "Target Support Files/Pods-WKJavaScriptBridge-demo/Pods-WKJavaScriptBridge-demo.release.xcconfig"; sourceTree = "<group>"; };
 		832F7C8321B822510076D164 /* WKJavaScriptBridge-demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "WKJavaScriptBridge-demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		832F7C8621B822510076D164 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -94,32 +91,97 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0AB7D4DB235437C00054719A /* Dispatcher */ = {
+			isa = PBXGroup;
+			children = (
+				0AB7D4DF235437C00054719A /* WKCommandProtocol.h */,
+				0AB7D4E5235437C00054719A /* WKBasePlugin.h */,
+				0AB7D4E0235437C00054719A /* WKBasePlugin.m */,
+				0AB7D4DD235437C00054719A /* WKMsgCommand.h */,
+				0AB7D4E2235437C00054719A /* WKMsgCommand.m */,
+				0AB7D4DC235437C00054719A /* WKCommandImpl.h */,
+				0AB7D4E3235437C00054719A /* WKCommandImpl.m */,
+				0AB7D4E4235437C00054719A /* WKPluginResult.h */,
+				0AB7D4DE235437C00054719A /* WKPluginResult.m */,
+				0AB7D4E1235437C00054719A /* WKJavaScriptMessageDispatcher.h */,
+				0AB7D4E6235437C00054719A /* WKJavaScriptMessageDispatcher.m */,
+			);
+			path = Dispatcher;
+			sourceTree = "<group>";
+		};
+		0AB7D4E7235437C00054719A /* Rigister */ = {
+			isa = PBXGroup;
+			children = (
+				0AB7D4E8235437C00054719A /* WKJavaScriptPluginAnnotation.h */,
+				0AB7D4E9235437C00054719A /* WKJavaScriptPluginAnnotation.m */,
+			);
+			path = Rigister;
+			sourceTree = "<group>";
+		};
+		0AB7D4EA235437C00054719A /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				0AB7D4EC235437C00054719A /* WKWeakScriptMessageHandlerDelegate.h */,
+				0AB7D4EB235437C00054719A /* WKWeakScriptMessageHandlerDelegate.m */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
 		0AEB5C8422A529FD00B13C09 /* WKJavaScriptBridge */ = {
 			isa = PBXGroup;
 			children = (
-				0A7648E1232F6365006C6FFA /* wk_bridge_channel.js */,
-				0AEB5C8522A529FD00B13C09 /* WKJavaScriptBridgeProtocol.h */,
-				0AEB5C9E22A529FD00B13C09 /* WKWebPluginAnnotation.h */,
-				0AEB5C9122A529FD00B13C09 /* WKWebPluginAnnotation.m */,
-				0AEB5C9922A529FD00B13C09 /* WKWebViewHandleFactory.h */,
-				0AEB5C8C22A529FD00B13C09 /* WKWebViewHandleFactory.m */,
-				0AEB5C9D22A529FD00B13C09 /* WKWebViewCookieMgr.h */,
-				0AEB5C9222A529FD00B13C09 /* WKWebViewCookieMgr.m */,
-				0AEB5C8722A529FD00B13C09 /* WKWebViewEngine.h */,
-				0AEB5C9322A529FD00B13C09 /* WKWebViewEngine.m */,
-				0AEB5C9822A529FD00B13C09 /* WKWebViewDelegate.h */,
-				0AEB5C8D22A529FD00B13C09 /* WKWebViewDelegate.m */,
-				0AEB5CA122A529FD00B13C09 /* WKBasePlugin.h */,
-				0AEB5C8E22A529FD00B13C09 /* WKBasePlugin.m */,
-				0AEB5C8922A529FD00B13C09 /* WKMsgCommand.h */,
-				0AEB5C9622A529FD00B13C09 /* WKMsgCommand.m */,
-				0AEB5C9B22A529FD00B13C09 /* WKCommandProtocol.h */,
-				0AEB5C9522A529FD00B13C09 /* WKCommandImpl.h */,
-				0AEB5C8A22A529FD00B13C09 /* WKCommandImpl.m */,
-				0AEB5C8B22A529FD00B13C09 /* WKPluginResult.h */,
-				0AEB5C9C22A529FD00B13C09 /* WKPluginResult.m */,
+				0AB7D4DB235437C00054719A /* Dispatcher */,
+				0AB7D4E7235437C00054719A /* Rigister */,
+				0AB7D4EA235437C00054719A /* Util */,
+				0AEB5C8522A529FD00B13C09 /* WKJavaScriptBridgeEngineProtocol.h */,
+				0AEB5C8722A529FD00B13C09 /* WKJavaScriptBridgeEngine.h */,
+				0AEB5C9322A529FD00B13C09 /* WKJavaScriptBridgeEngine.m */,
 			);
 			path = WKJavaScriptBridge;
+			sourceTree = "<group>";
+		};
+		0AED627E2335032300B5D8AA /* Plugin */ = {
+			isa = PBXGroup;
+			children = (
+				0AF7E06623373724003B4D41 /* JSPlugin */,
+				0AED627F2335032300B5D8AA /* NativePlugin */,
+			);
+			path = Plugin;
+			sourceTree = "<group>";
+		};
+		0AED627F2335032300B5D8AA /* NativePlugin */ = {
+			isa = PBXGroup;
+			children = (
+				0AF7E070233737FC003B4D41 /* Config */,
+				0AF7E06C233737E8003B4D41 /* Share */,
+			);
+			path = NativePlugin;
+			sourceTree = "<group>";
+		};
+		0AF7E06623373724003B4D41 /* JSPlugin */ = {
+			isa = PBXGroup;
+			children = (
+				0AF7E06A233737C1003B4D41 /* Share */,
+			);
+			path = JSPlugin;
+			sourceTree = "<group>";
+		};
+		0AF7E06C233737E8003B4D41 /* Share */ = {
+			isa = PBXGroup;
+			children = (
+				0AF7E06D233737E8003B4D41 /* PlusShare.h */,
+				0AF7E06E233737E8003B4D41 /* PlusShare.m */,
+			);
+			path = Share;
+			sourceTree = "<group>";
+		};
+		0AF7E070233737FC003B4D41 /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				0AF7E071233737FC003B4D41 /* WKJSBridgeConfig.h */,
+				0AF7E072233737FC003B4D41 /* WKJSBridgeConfig.m */,
+			);
+			path = Config;
 			sourceTree = "<group>";
 		};
 		832F7C7A21B822510076D164 = {
@@ -144,9 +206,9 @@
 			isa = PBXGroup;
 			children = (
 				832F7CB621B904C50076D164 /* index.html */,
-				0AD5DDB72331EFB9007CA08B /* wk_bridge_ interface.js */,
+				0AB7D4F423543ABA0054719A /* WKJSBridge.js */,
 				0AEB5C8422A529FD00B13C09 /* WKJavaScriptBridge */,
-				832F7E6221BA54820076D164 /* NativePlugin */,
+				0AED627E2335032300B5D8AA /* Plugin */,
 				832F7C8621B822510076D164 /* AppDelegate.h */,
 				832F7C8721B822510076D164 /* AppDelegate.m */,
 				832F7C8921B822510076D164 /* ViewController.h */,
@@ -171,17 +233,6 @@
 				E5973883F04EEF4EBBB3F713 /* libPods-WKJavaScriptBridge-demo.a */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		832F7E6221BA54820076D164 /* NativePlugin */ = {
-			isa = PBXGroup;
-			children = (
-				0AF64B592331C89400BDCB0E /* WKJSBridgeConfig.h */,
-				0AF64B5A2331C89400BDCB0E /* WKJSBridgeConfig.m */,
-				0A09224722674D2E002BDEBE /* WKFetchPlugin.h */,
-				0A09224622674D2D002BDEBE /* WKFetchPlugin.m */,
-			);
-			path = NativePlugin;
 			sourceTree = "<group>";
 		};
 		EDC6E15DAEDCFEAB3060DBC2 /* Pods */ = {
@@ -251,10 +302,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0AB7D4F523543ABB0054719A /* WKJSBridge.js in Resources */,
+				0AF7E06B233737C1003B4D41 /* Share in Resources */,
 				832F7C9321B822530076D164 /* LaunchScreen.storyboard in Resources */,
-				0A7648E2232F6365006C6FFA /* wk_bridge_channel.js in Resources */,
 				832F7CB721B904C60076D164 /* index.html in Resources */,
-				0AD5DDB82331EFB9007CA08B /* wk_bridge_ interface.js in Resources */,
 				832F7C9021B822530076D164 /* Assets.xcassets in Resources */,
 				832F7C8E21B822510076D164 /* Main.storyboard in Resources */,
 			);
@@ -292,22 +343,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0AB7D4ED235437C00054719A /* WKPluginResult.m in Sources */,
+				0AB7D4F0235437C00054719A /* WKCommandImpl.m in Sources */,
 				0A9E4690225B2922003F6574 /* TestViewController.m in Sources */,
-				0AEB5CA822A529FD00B13C09 /* WKWebPluginAnnotation.m in Sources */,
+				0AF7E073233737FC003B4D41 /* WKJSBridgeConfig.m in Sources */,
 				832F7C8B21B822510076D164 /* ViewController.m in Sources */,
 				832F7C9621B822530076D164 /* main.m in Sources */,
-				0AEB5CAD22A529FD00B13C09 /* WKPluginResult.m in Sources */,
-				0AEB5CAB22A529FD00B13C09 /* WKMsgCommand.m in Sources */,
-				0AEB5CA922A529FD00B13C09 /* WKWebViewCookieMgr.m in Sources */,
-				0AEB5CA422A529FD00B13C09 /* WKWebViewHandleFactory.m in Sources */,
+				0AB7D4F3235437C00054719A /* WKWeakScriptMessageHandlerDelegate.m in Sources */,
 				0A9A3965226D940600D0DF43 /* TestWKWebViewController.m in Sources */,
-				0AEB5CA522A529FD00B13C09 /* WKWebViewDelegate.m in Sources */,
 				832F7C8821B822510076D164 /* AppDelegate.m in Sources */,
-				0AEB5CAA22A529FD00B13C09 /* WKWebViewEngine.m in Sources */,
-				0A09224822674D2E002BDEBE /* WKFetchPlugin.m in Sources */,
-				0AEB5CA322A529FD00B13C09 /* WKCommandImpl.m in Sources */,
-				0AEB5CA622A529FD00B13C09 /* WKBasePlugin.m in Sources */,
-				0AF64B5B2331C89400BDCB0E /* WKJSBridgeConfig.m in Sources */,
+				0AB7D4EE235437C00054719A /* WKBasePlugin.m in Sources */,
+				0AEB5CAA22A529FD00B13C09 /* WKJavaScriptBridgeEngine.m in Sources */,
+				0AB7D4F2235437C00054719A /* WKJavaScriptPluginAnnotation.m in Sources */,
+				0AF7E06F233737E8003B4D41 /* PlusShare.m in Sources */,
+				0AB7D4EF235437C00054719A /* WKMsgCommand.m in Sources */,
+				0AB7D4F1235437C00054719A /* WKJavaScriptMessageDispatcher.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

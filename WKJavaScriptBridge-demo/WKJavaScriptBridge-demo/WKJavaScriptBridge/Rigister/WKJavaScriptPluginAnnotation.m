@@ -6,8 +6,8 @@
 //  Copyright © 2018 王凯. All rights reserved.
 //
 
-#import "WKWebPluginAnnotation.h"
-#import "WKWebViewEngine.h"
+#import "WKJavaScriptPluginAnnotation.h"
+#import "WKJavaScriptBridgeEngine.h"
 #include <mach-o/getsect.h>
 #include <mach-o/loader.h>
 #include <mach-o/dyld.h>
@@ -16,11 +16,11 @@
 #import <objc/message.h>
 #include <mach-o/ldsyms.h>
 
-@implementation WKWebPluginAnnotation
+@implementation WKJavaScriptPluginAnnotation
 
-__weak WKWebViewEngine *_webViewEngine;
+__weak WKJavaScriptBridgeEngine *_webViewEngine;
 
-- (instancetype)initWithWebViewEngine:(WKWebViewEngine *)webViewEngine {
+- (instancetype)initWithWebViewEngine:(WKJavaScriptBridgeEngine *)webViewEngine {
     if (self = [super init]) {
         _webViewEngine = webViewEngine;
     }
@@ -32,10 +32,10 @@ __weak WKWebViewEngine *_webViewEngine;
 }
 
 - (void)registedAnnotationModules {
-    NSArray<NSString *>*services = [WKWebPluginAnnotation AnnotationModules];
+    NSArray<NSString *>*services = [WKJavaScriptPluginAnnotation AnnotationModules];
     for (NSString *pluginName in services) {
         if (pluginName) {
-            [_webViewEngine.bridge setupPluginName:pluginName];
+            [_webViewEngine setupPluginName:pluginName];
         }
     }
 }

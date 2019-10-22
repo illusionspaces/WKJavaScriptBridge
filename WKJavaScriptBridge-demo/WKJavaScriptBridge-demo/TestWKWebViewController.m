@@ -8,10 +8,10 @@
 
 #import "TestWKWebViewController.h"
 #import <WebKit/WebKit.h>
-#import "WKWebViewEngine.h"
+#import "WKJavaScriptBridgeEngine.h"
 
 @interface TestWKWebViewController ()<WKNavigationDelegate, WKUIDelegate>
-@property (nonatomic, strong) WKWebViewEngine* bridge;
+@property (nonatomic, strong) WKJavaScriptBridgeEngine* bridge;
 @property (nonatomic, strong) WKWebView *webView;
 @property (nonatomic, strong) WKProcessPool *processPool;
 @property (nonatomic, assign, getter=loadFinished) BOOL isLoadFinished;
@@ -44,7 +44,7 @@
     webView.navigationDelegate = self;
     [self addUserScript:webView];
     /***/
-    [WKWebViewEngine bindBridgeWithWebView:webView withDelegate:self];
+    [WKJavaScriptBridgeEngine bindBridgeWithWebView:webView];
     /***/
     [self.view addSubview:webView];
     
@@ -87,12 +87,12 @@
  @param webView wkwebview
  */
 - (void)addUserScript:(WKWebView *)webView {
-    NSString *js = [WKWebViewCookieMgr clientCookieScripts];
-    if (!js) return;
-    WKUserScript *jsscript = [[WKUserScript alloc]initWithSource:js
-                                                   injectionTime:WKUserScriptInjectionTimeAtDocumentStart
-                                                forMainFrameOnly:NO];
-    [webView.configuration.userContentController addUserScript:jsscript];
+//    NSString *js = [WKWebViewCookieMgr clientCookieScripts];
+//    if (!js) return;
+//    WKUserScript *jsscript = [[WKUserScript alloc]initWithSource:js
+//                                                   injectionTime:WKUserScriptInjectionTimeAtDocumentStart
+//                                                forMainFrameOnly:NO];
+//    [webView.configuration.userContentController addUserScript:jsscript];
 }
 
 #pragma mark - WKNavigationDelegate
