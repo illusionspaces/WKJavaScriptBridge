@@ -97,10 +97,10 @@ EOM
   esac
 }
 if [[ "$CONFIGURATION" == "Debug" ]]; then
-  install_resource "${PODS_ROOT}/WKJavaScriptBridge/WKJavaScriptBridge/wk_bridge_channel.js"
+  install_resource "${PODS_ROOT}/WKJavaScriptBridge/WKJavaScriptBridge/WKJSBridge.js"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
-  install_resource "${PODS_ROOT}/WKJavaScriptBridge/WKJavaScriptBridge/wk_bridge_channel.js"
+  install_resource "${PODS_ROOT}/WKJavaScriptBridge/WKJavaScriptBridge/WKJSBridge.js"
 fi
 
 mkdir -p "${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}"
