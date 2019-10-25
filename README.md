@@ -50,13 +50,13 @@
 - 1、:
 
 ```objc
-//在创建WKWebView的类扩展中加入
+//在使用Bridge的类扩展中加入
 @property (nonatomic, strong) WKJavaScriptBridge *bridge;
 ```
 - 2、:
 
 ```objc
-//在创建WKWebView的地方调用此方法
+//在创建WKWebView的地方调用此方法，绑定你的WebView
 self.bridge = [WKJavaScriptBridge bindBridgeWithWebView:yourwebView];
 ```
 - 3、:
@@ -64,6 +64,16 @@ self.bridge = [WKJavaScriptBridge bindBridgeWithWebView:yourwebView];
 ```objc
 //开启白名单，默认关闭。若开启，插件需要进行注册`@WKRegisterWhiteList(你的模块类名)`，参照Demo。
 [self.bridge openWhiteList:YES];
+```
+
+## 延伸
+- 1、:
+```objc
+构建离线包
+```
+- 2、:
+```objc
+构建小程序
 ```
 
 ## License
