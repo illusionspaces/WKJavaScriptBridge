@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <WebKit/WebKit.h>
 #import "WKPluginResult.h"
 
 NS_ASSUME_NONNULL_BEGIN
@@ -22,16 +23,18 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)sendPluginResult:(WKPluginResult *)result callbackId:(NSString*)callbackId;
 
 /**
- 原生模块件执行刷新webView
- */
-- (void)reloadWebView;
-
-/**
  原生模块执行耗时操作
  
  @param block long running
  */
 - (void)runInBackground:(void (^)(void))block;
+
+/**
+ 和Bridge绑定的webView
+
+ @return WKWebView
+ */
+- (WKWebView *)webView;
 
 @end
 

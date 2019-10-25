@@ -28,7 +28,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  是否开启插件白名单，默认关闭
  
- @param openning
+ @param openning 开关
  */
 - (void)openWhiteList:(BOOL)openning;
 

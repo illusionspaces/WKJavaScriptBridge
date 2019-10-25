@@ -32,6 +32,34 @@
     return self;
 }
 
+- (void)evalJs:(NSString *)js {
+    [_bridge evaluateJavaScript:js completionHandler:^(id obj, NSError * error) {
+        if (error) {
+#ifdef DEBUG
+            NSLog(@"WKJavaScriptBridge Error : 调用JS函数报错 ： %@",error.localizedDescription);
+#endif
+        }
+    }];
+}
+
+- (id)getCommandInstance:(NSString*)pluginName {
+    return [_bridge getCommandInstance:pluginName];
+}
+
+- (BOOL)isValidCallbackId:(NSString*)callbackId {
+    if ((callbackId == nil) || (_callbackIdPattern == nil)) {
+        return NO;
+    }
+    
+    // 如果太长或发现任何无效字符，则禁用
+    if (([callbackId length] > 100) || [_callbackIdPattern firstMatchInString:callbackId options:0 range:NSMakeRange(0, [callbackId length])]) {
+        return NO;
+    }
+    return YES;
+}
+
+#pragma mark - WKCommandProtocol
+
 - (void)sendPluginResult:(WKPluginResult *)result callbackId:(NSString*)callbackId {
 #ifdef DEBUG
     NSLog(@"WKJavaScriptBridge (%@): Sending result. Status=%@", callbackId, result.status);
@@ -64,38 +92,12 @@
     }
 }
 
-- (void)evalJs:(NSString *)js {
-    [_bridge evaluateJavaScript:js completionHandler:^(id obj, NSError * error) {
-        if (error) {
-#ifdef DEBUG
-            NSLog(@"WKJavaScriptBridge Error : 调用JS函数报错 ： %@",error.localizedDescription);
-#endif
-        }
-    }];
-}
-
-- (id)getCommandInstance:(NSString*)pluginName {
-    return [_bridge getCommandInstance:pluginName];
-}
-
 - (void)runInBackground:(void (^)(void))block {
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), block);
 }
 
-- (void)reloadWebView {
-    [_bridge.webView reload];
-}
-
-- (BOOL)isValidCallbackId:(NSString*)callbackId {
-    if ((callbackId == nil) || (_callbackIdPattern == nil)) {
-        return NO;
-    }
-    
-    // 如果太长或发现任何无效字符，则禁用
-    if (([callbackId length] > 100) || [_callbackIdPattern firstMatchInString:callbackId options:0 range:NSMakeRange(0, [callbackId length])]) {
-        return NO;
-    }
-    return YES;
+- (WKWebView *)webView {
+    return _bridge.webView;
 }
 
 @end
