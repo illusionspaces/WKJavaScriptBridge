@@ -62,8 +62,29 @@ self.bridge = [WKJavaScriptBridge bindBridgeWithWebView:yourwebView];
 - 3、:
 
 ```objc
-//开启白名单，默认关闭。若开启，插件需要进行注册`@WKRegisterWhiteList(你的模块类名)`，参照Demo。
+//开启白名单，默认关闭。若开启，插件需要进行注册`@WKRegisterWhiteList(你的模块类名)`，参照DEMO。
 [self.bridge openWhiteList:YES];
+```
+- 4、:
+
+```objc
+h5页面引入：<script type="text/javascript" src="WKJSBridge.js" ></script>
+```
+- 5、:
+
+```objc
+//H5调用Native：
+window.WKJSBridge.callNative(service, action, command, function success(res) {}, function fail(res) {});
+service：Native类名
+action：Native方法名
+command：参数
+function success(res) {}：成功回调函数
+function fail(res) {}：失败回调函数
+
+//Native回调H5：
+- (void)sendPluginResult:(WKPluginResult *)result callbackId:(NSString*)callbackId;
+result：参数
+callbackId：H5传过来的回调ID
 ```
 
 ## 延伸
