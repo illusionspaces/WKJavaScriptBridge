@@ -13,6 +13,8 @@
 
 [《写一个易于维护使用方便性能可靠的Hybrid框架》](https://juejin.im/post/5c07d95ee51d451d930b04c7)
 
+* v1.1.0 : 强化安全管理，增加安全插件，不配置不影响正常使用。配置方式参照DEMO。
+
 
 ## 特性
 
@@ -62,15 +64,9 @@ self.bridge = [WKJavaScriptBridge bindBridgeWithWebView:yourwebView];
 - 3、:
 
 ```objc
-//开启白名单，默认关闭。若开启，插件需要进行注册`@WKRegisterWhiteList(你的模块类名)`，参照DEMO。
-[self.bridge openWhiteList:YES];
-```
-- 4、:
-
-```objc
 h5页面引入：<script type="text/javascript" src="WKJSBridge.js" ></script>
 ```
-- 5、:
+- 4、:
 
 ```objc
 //H5调用Native：
