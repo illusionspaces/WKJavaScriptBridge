@@ -4,7 +4,7 @@ Pod::Spec.new do |spec|
 
 
   spec.name         = "WKJavaScriptBridge"
-  spec.version      = "1.0.0"
+  spec.version      = "1.1.0"
   spec.summary      = "基于WKWebView构建的JSBridge，支持iOS8+。"
   spec.homepage     = "https://github.com/GitWangKai/WKJavaScriptBridge"
   spec.license      = { :type => "Apache License 2.0", :file => "LICENSE" }
