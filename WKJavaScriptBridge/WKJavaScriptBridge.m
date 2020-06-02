@@ -13,6 +13,7 @@
 #import "WKJavaScriptBridgePluginAnnotation.h"
 #import "WKBasePlugin.h"
 #import "WKCommandProtocol.h"
+#import "WKPluginSecurityProtocol.h"
 
 static NSString * const WKJSBridge = @"WKJSBridgeMessageName";
 
@@ -21,11 +22,11 @@ static NSString * const WKJSBridge = @"WKJSBridgeMessageName";
 @property (nonatomic, strong) WKJavaScriptBridgePluginAnnotation *annotation;//模块注册白名单
 @property (nonatomic, strong) WKJavaScriptMessageDispatcher *dispatcher;//插件模块派发
 @property (nonatomic, strong) WKCommandImpl *commandDelegate;//插件模块可执行函数实现
-@property (nonatomic, strong) NSMutableDictionary *whiteList;//白名单列表
-@property (nonatomic, assign, getter=isOpenWhiteList) BOOL openWhiteList;//是否开启白名单
 @property (nonatomic, strong) NSMutableDictionary *pluginsByName;//插件模块实例对象
 @property (nonatomic, weak, readwrite) WKWebView *webView;
-@property (nonatomic, strong) NSRecursiveLock *lock;
+//安全相关
+@property (nonatomic, strong) id <WKPluginSecurityProtocol>securityPlugin;//白名单插件
+@property (nonatomic, strong) NSArray *secInfo;//业务注册的安全信息
 
 @end
 
@@ -52,10 +53,6 @@ static NSString * const WKJSBridge = @"WKJSBridgeMessageName";
     return nil;
 }
 
-- (void)openWhiteList:(BOOL)openning {
-    self.openWhiteList = openning;
-}
-
 #pragma mark - Init
 
 - (instancetype)initBridgeWithWebView:(WKWebView *)webView {
@@ -68,6 +65,7 @@ static NSString * const WKJSBridge = @"WKJSBridgeMessageName";
 }
 
 - (void)commonInit {
+    self.secInfo = [NSArray array];
     self.dispatcher = [[WKJavaScriptMessageDispatcher alloc] initWithBridge:self];
     self.annotation = [[WKJavaScriptBridgePluginAnnotation alloc] initWithBridge:self];
     self.commandDelegate = [[WKCommandImpl alloc] initWithBridge:self];
@@ -123,34 +121,36 @@ static NSString * const WKJSBridge = @"WKJSBridgeMessageName";
 
 #pragma mark - WKJavaScriptBridgeProtocol
 
-- (void)addWhiteList:(NSString *)pluginName {
-    [self.lock lock];
-    [self.whiteList setValue:pluginName forKey:[pluginName lowercaseString]];
-    [self.lock unlock];
+- (void)registerSecurityPlugin:(NSString *)name {
+    id<WKPluginSecurityProtocol>securityPlugin = [self getCommandInstance:name];
+    if ([securityPlugin isKindOfClass:[WKBasePlugin class]] &&
+        [securityPlugin conformsToProtocol:@protocol(WKPluginSecurityProtocol)]) {
+        self.securityPlugin = securityPlugin;
+    }
+}
+
+- (void)registerPluginSecurityInfomation:(NSArray<NSString *>*)secInfo {
+    self.secInfo = secInfo;
+}
+
+- (void)pluginSecurityVerityWithCommand:(WKMsgCommand *)command completionHandler:(void (^)(BOOL passed))completionHandler {
+    if (self.securityPlugin && [self.securityPlugin respondsToSelector:@selector(applyAuthorityWithService:action:securityInfomation:complete:)]) {
+        [self.securityPlugin applyAuthorityWithService:command.className action:command.methodName securityInfomation:self.secInfo complete:^(BOOL allowed) {
+            completionHandler(allowed);
+        }];
+    }else {
+        completionHandler(YES);
+    }
 }
 
 - (id)getCommandInstance:(NSString*)pluginName {
-    NSString* className;
-    if (self.isOpenWhiteList) {//校验白名单
-        [self.lock lock];
-        className = [self.whiteList objectForKey:[pluginName lowercaseString]];
-        [self.lock unlock];
-        if (className == nil) {
-#ifdef DEBUG
-            NSLog(@"WKJavaScriptBridge Error : 模块: (%@) 没有注册白名单。请关闭白名单或者或者使用（@WKRegisterWhiteList）注册。", pluginName);
-#endif
-            return nil;
-        }
-    }else {
-        className = pluginName;
-    }
     
     WKBasePlugin <WKPluginProtocol> *plugin = nil;
     Class implClass = [self pluginImplClass:pluginName];
     
     BOOL shouldCache = [self pluginShouldCache:implClass];
     if (shouldCache) {
-        plugin = [self.pluginsByName objectForKey:className];
+        plugin = [self.pluginsByName objectForKey:pluginName];
         if (plugin) {
             return plugin;
         }
@@ -166,11 +166,11 @@ static NSString * const WKJSBridge = @"WKJSBridgeMessageName";
             if (plugin) {
                 [self pluginInstall:plugin];
                 if (shouldCache) {
-                    [self.pluginsByName setObject:plugin forKey:className];
+                    [self.pluginsByName setObject:plugin forKey:pluginName];
                 }
             }else {
 #ifdef DEBUG
-                NSLog(@"WKJavaScriptBridge Error : 模块: (%@) 不存在。", pluginName);
+                NSLog(@"PHJavaScriptBridge Error : 模块: (%@) 不存在。", pluginName);
 #endif
             }
             return plugin;
@@ -181,11 +181,11 @@ static NSString * const WKJSBridge = @"WKJSBridgeMessageName";
     if (plugin) {
         [self pluginInstall:plugin];
         if (shouldCache) {
-            [self.pluginsByName setObject:plugin forKey:className];
+            [self.pluginsByName setObject:plugin forKey:pluginName];
         }
     }else {
 #ifdef DEBUG
-        NSLog(@"WKJavaScriptBridge Error : 模块: (%@) 不存在。", pluginName);
+        NSLog(@"PHJavaScriptBridge Error : 模块: (%@) 不存在。", pluginName);
 #endif
     }
     return plugin;
@@ -219,20 +219,6 @@ static NSString * const WKJSBridge = @"WKJSBridgeMessageName";
 }
 
 #pragma mark - Set or Get
-
-- (NSRecursiveLock *)lock {
-    if (!_lock) {
-        _lock = [[NSRecursiveLock alloc] init];
-    }
-    return _lock;
-}
-
-- (NSMutableDictionary *)whiteList {
-    if (!_whiteList) {
-        _whiteList = [[NSMutableDictionary alloc] initWithCapacity:1];
-    }
-    return _whiteList;
-}
 
 - (NSMutableDictionary *)pluginsByName {
     if (!_pluginsByName) {

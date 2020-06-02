@@ -56,20 +56,26 @@ static const NSInteger JSON_SIZE_FOR_MAIN_THREAD = 4 * 1024; // Chosen arbitrari
 - (void)executePending {
     if (_commandDictionary.allKeys.count > 0) {
         WKMsgCommand *msgCommand = [WKMsgCommand commandFromJson:_commandDictionary];
+        [_bridge pluginSecurityVerityWithCommand:msgCommand completionHandler:^(BOOL passed) {
+            if (!passed) {
+                NSLog(@"WKJavaScriptBridge Error : 模块: (%@) 方法：(%@) 权限验证未通过，如需使用请申请配置。",msgCommand.className, msgCommand.methodName);
+                return ;
+            }
 #ifdef DEBUG
-        NSLog(@"WKJavaScriptBridge(%@): Calling %@.%@", msgCommand.callbackId, msgCommand.className, msgCommand.methodName);
+            NSLog(@"PHJavaScriptBridge(%@): Calling %@.%@", msgCommand.callbackId, msgCommand.className, msgCommand.methodName);
 #endif
-        if (![self execute:msgCommand]) {
+            if (![self execute:msgCommand]) {
 #ifdef DEBUG
-            NSString *commandJson = [NSString stringWithFormat:@"%@",_commandDictionary];
-            static NSUInteger maxLogLength = 1024;
-            NSString *commandString = ([commandJson length] > maxLogLength) ?
-            [NSString stringWithFormat : @"%@[...]", [commandJson substringToIndex:maxLogLength]] :
-            commandJson;
-            
-            NSLog(@"WKJavaScriptBridge Error : FAILED pluginJSON = %@", commandString);
+                NSString *commandJson = [NSString stringWithFormat:@"%@",self->_commandDictionary];
+                static NSUInteger maxLogLength = 1024;
+                NSString *commandString = ([commandJson length] > maxLogLength) ?
+                [NSString stringWithFormat : @"%@[...]", [commandJson substringToIndex:maxLogLength]] :
+                commandJson;
+                
+                NSLog(@"PHJavaScriptBridge Error : FAILED pluginJSON = %@", commandString);
 #endif
-        }
+            }
+        }];
     }
 }
 

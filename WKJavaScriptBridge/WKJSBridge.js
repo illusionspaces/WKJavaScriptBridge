@@ -37,10 +37,10 @@
          */
         WKJSBridge.prototype._handleMessageFromNative = function (messageString) {
             var callbackMessage = JSON.parse(messageString);
-            var status = messageString.status;
+            var status = callbackMessage.status;
             var callback = this.callbackCache[callbackMessage.callbackId];
             if (callback) { // 执行 callback 回调，并删除缓存的 callback
-                if (status = '0') {//失败回调
+                if (status == 1) {//失败回调
                    callback.fail(callbackMessage.data);
                 }else {//成功回调
                    callback.success(callbackMessage.data);

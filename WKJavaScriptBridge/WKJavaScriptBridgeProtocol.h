@@ -10,14 +10,31 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+@class WKMsgCommand;
+
 @protocol WKJavaScriptBridgeProtocol <NSObject>
 
 /**
- 模块加载
- 
- @param pluginName 模块名称
+ 注册权限管理插件
+
+ @param name class name
  */
-- (void)addWhiteList:(NSString *)pluginName;
+- (void)registerSecurityPlugin:(NSString *)name;
+
+/**
+ 注册插件安全配置信息
+
+ @param secInfo 配置信息
+ */
+- (void)registerPluginSecurityInfomation:(NSArray<NSString *>*)secInfo;
+
+/**
+ 插件安全校验
+
+ @param command 插件信息
+ @param completionHandler 结果回调
+ */
+- (void)pluginSecurityVerityWithCommand:(WKMsgCommand *)command completionHandler:(void (^)(BOOL passed))completionHandler;
 
 /**
  获取模块实例

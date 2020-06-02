@@ -36,21 +36,34 @@
 }
 
 - (void)registedAnnotationModules {
-    NSArray<NSString *>*services = [WKJavaScriptBridgePluginAnnotation AnnotationModules];
-    for (NSString *pluginName in services) {
-        if (pluginName) {
-            [self.bridge addWhiteList:pluginName];
+    NSArray <NSString *>*whiteListPlugin = [WKJavaScriptBridgePluginAnnotation AnnotationWhiteListPlugin];
+    if (whiteListPlugin.count > 0) {
+        NSString *plugin = whiteListPlugin[0];
+        if (plugin.length) {
+                [self.bridge registerSecurityPlugin:plugin];
         }
     }
+    
+    NSArray <NSString *>*securityInfo = [WKJavaScriptBridgePluginAnnotation AnnotationPlugins];
+    [self.bridge registerPluginSecurityInfomation:securityInfo];
 }
 
-+ (NSArray<NSString *> *)AnnotationModules {
-    static NSArray<NSString *> *mods = nil;
++ (NSArray<NSString *> *)AnnotationPlugins {
+    static NSArray<NSString *> *securityInfo = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        mods = BHReadConfiguration(WKWebPlugins);
+        securityInfo = BHReadConfiguration(SecurityConfig);
     });
-    return mods;
+    return securityInfo;
+}
+
++ (NSArray<NSString *> *)AnnotationWhiteListPlugin {
+    static NSArray<NSString *> *plugin = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        plugin = BHReadConfiguration(SecurityPlugin);
+    });
+    return plugin;
 }
 
 static NSArray<NSString *>* BHReadConfiguration(char *section) {
