@@ -45,7 +45,6 @@
     [self addUserScript:webView];
     /***/
     self.bridge = [WKJavaScriptBridge bindBridgeWithWebView:webView];
-    [self.bridge openWhiteList:YES];
     /***/
     [self.view addSubview:webView];
     

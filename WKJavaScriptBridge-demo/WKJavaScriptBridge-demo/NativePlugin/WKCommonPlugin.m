@@ -8,16 +8,20 @@
 
 #import "WKCommonPlugin.h"
 
-@WKRegisterWhiteList(WKCommonPlugin)
-
 @implementation WKCommonPlugin
 
 - (void)asynDisplayCommon:(WKMsgCommand *)command {
     NSString *string = [command.arguments objectForKey:@"url"];
     NSLog(@"url : %@", string);
     
-    WKPluginResult *result = [WKPluginResult resultWithStatus:WKJavaScriptBridgeCommandStatus_OK messageAsDictionary:@{@"result": @"success!!"}];
+    WKPluginResult *result = [WKPluginResult resultWithStatus:WKJavaScriptBridgeCommandStatus_ERROR messageAsDictionary:@{@"result": @"success!!"}];
     [self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
+}
+
+
+- (void)asyncTestSecurity:(WKMsgCommand *)command {
+    NSString *string = [command.arguments objectForKey:@"security"];
+    NSLog(@"security : %@", string);
 }
 
 @end

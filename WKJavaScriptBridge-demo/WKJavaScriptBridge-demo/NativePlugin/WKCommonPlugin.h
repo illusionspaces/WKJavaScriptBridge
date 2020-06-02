@@ -14,6 +14,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)asynDisplayCommon:(WKMsgCommand *)command;
 
+- (void)asyncTestSecurity:(WKMsgCommand *)command;
+
 @end
 
 NS_ASSUME_NONNULL_END

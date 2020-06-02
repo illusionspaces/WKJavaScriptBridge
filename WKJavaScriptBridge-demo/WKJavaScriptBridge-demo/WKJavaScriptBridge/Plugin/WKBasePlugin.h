@@ -12,6 +12,7 @@
 #import "WKPluginProtocol.h"
 #import "WKMsgCommand.h"
 #import "WKJavaScriptBridgePluginAnnotation.h"
+#import "WKPluginSecurityProtocol.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
