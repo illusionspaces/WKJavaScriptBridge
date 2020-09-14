@@ -1,0 +1,13 @@
+use_frameworks!
+
+platform :ios, '8.0'
+
+target 'WKJavaScriptBridge_Example' do
+  pod 'WKJavaScriptBridge', :path => '../'
+
+  target 'WKJavaScriptBridge_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end

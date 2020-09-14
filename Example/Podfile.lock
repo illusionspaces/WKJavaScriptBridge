@@ -1,0 +1,16 @@
+PODS:
+  - WKJavaScriptBridge (0.1.0)
+
+DEPENDENCIES:
+  - WKJavaScriptBridge (from `../`)
+
+EXTERNAL SOURCES:
+  WKJavaScriptBridge:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  WKJavaScriptBridge: 002bd91f9541b23acba79c0c02345b0a8015e2b9
+
+PODFILE CHECKSUM: 7a8764f9ffcd97bedaf15694e9b25cdbdc128802
+
+COCOAPODS: 1.9.3

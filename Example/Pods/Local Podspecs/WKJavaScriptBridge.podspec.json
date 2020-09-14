@@ -1,0 +1,22 @@
+{
+  "name": "WKJavaScriptBridge",
+  "version": "0.1.0",
+  "summary": "A short description of WKJavaScriptBridge.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/GitWangKai/WKJavaScriptBridge",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "GitWangKai": "18500052382@163.com"
+  },
+  "source": {
+    "git": "https://github.com/GitWangKai/WKJavaScriptBridge.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "WKJavaScriptBridge/Classes/**/*"
+}

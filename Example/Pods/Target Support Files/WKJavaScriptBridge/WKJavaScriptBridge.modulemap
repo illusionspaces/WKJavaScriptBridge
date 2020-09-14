@@ -1,0 +1,6 @@
+framework module WKJavaScriptBridge {
+  umbrella header "WKJavaScriptBridge-umbrella.h"
+
+  export *
+  module * { export * }
+}
